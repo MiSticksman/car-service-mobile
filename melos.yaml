@@ -1,0 +1,10 @@
+name: mobile_app
+
+packages:
+  - car_service_app
+  - employee_app
+  - core
+
+scripts:
+  analyze:
+    exec: dart analyze .
