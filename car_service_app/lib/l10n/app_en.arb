@@ -1,0 +1,8 @@
+{
+  "@@locale": "en",
+  "profileTitle": "My account",
+  "@profileTitle": {
+    "type": "text",
+    "placeholders": {}
+  }
+}
