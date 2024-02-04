@@ -1,0 +1,8 @@
+{
+  "@@locale": "ru",
+  "profileTitle": "Личный кабинет",
+  "@profileTitle": {
+    "type": "text",
+    "placeholders": {}
+  }
+}

@@ -8,8 +8,10 @@ packages:
 scripts:
   analyze:
     exec: dart analyze .
+  add:
+    exec: flutter pub add $1
   gen:
-    exec: dart run build_runner build -d
+    exec: dart pub run build_runner build -d
 
 
 command:
