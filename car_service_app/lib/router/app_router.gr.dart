@@ -15,6 +15,17 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    CarAddRoute.name: (routeData) {
+      final args = routeData.argsAs<CarAddRouteArgs>(
+          orElse: () => const CarAddRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: CarAddScreenWidget(
+          key: args.key,
+          wmFactory: args.wmFactory,
+        ),
+      );
+    },
     CartRoute.name: (routeData) {
       final args =
           routeData.argsAs<CartRouteArgs>(orElse: () => const CartRouteArgs());
@@ -71,6 +82,39 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    OrderFinishedRoute.name: (routeData) {
+      final args = routeData.argsAs<OrderFinishedRouteArgs>(
+          orElse: () => const OrderFinishedRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: OrderFinishedScreenWidget(
+          key: args.key,
+          wmFactory: args.wmFactory,
+        ),
+      );
+    },
+    OrderRoute.name: (routeData) {
+      final args = routeData.argsAs<OrderRouteArgs>(
+          orElse: () => const OrderRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: OrderScreenWidget(
+          key: args.key,
+          wmFactory: args.wmFactory,
+        ),
+      );
+    },
+    ProductRoute.name: (routeData) {
+      final args = routeData.argsAs<ProductRouteArgs>(
+          orElse: () => const ProductRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ProductScreenWidget(
+          key: args.key,
+          wmFactory: args.wmFactory,
+        ),
+      );
+    },
     ProfileRoute.name: (routeData) {
       final args = routeData.argsAs<ProfileRouteArgs>(
           orElse: () => const ProfileRouteArgs());
@@ -89,6 +133,46 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [CarAddScreenWidget]
+class CarAddRoute extends PageRouteInfo<CarAddRouteArgs> {
+  CarAddRoute({
+    Key? key,
+    WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+            BuildContext)
+        wmFactory = defaultCarAddScreenWidgetModelFactory,
+    List<PageRouteInfo>? children,
+  }) : super(
+          CarAddRoute.name,
+          args: CarAddRouteArgs(
+            key: key,
+            wmFactory: wmFactory,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'CarAddRoute';
+
+  static const PageInfo<CarAddRouteArgs> page = PageInfo<CarAddRouteArgs>(name);
+}
+
+class CarAddRouteArgs {
+  const CarAddRouteArgs({
+    this.key,
+    this.wmFactory = defaultCarAddScreenWidgetModelFactory,
+  });
+
+  final Key? key;
+
+  final WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+      BuildContext) wmFactory;
+
+  @override
+  String toString() {
+    return 'CarAddRouteArgs{key: $key, wmFactory: $wmFactory}';
+  }
 }
 
 /// generated route for
@@ -279,6 +363,128 @@ class HomeRouteArgs {
   @override
   String toString() {
     return 'HomeRouteArgs{key: $key, wmFactory: $wmFactory}';
+  }
+}
+
+/// generated route for
+/// [OrderFinishedScreenWidget]
+class OrderFinishedRoute extends PageRouteInfo<OrderFinishedRouteArgs> {
+  OrderFinishedRoute({
+    Key? key,
+    WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+            BuildContext)
+        wmFactory = defaultOrderFinishedScreenWidgetModelFactory,
+    List<PageRouteInfo>? children,
+  }) : super(
+          OrderFinishedRoute.name,
+          args: OrderFinishedRouteArgs(
+            key: key,
+            wmFactory: wmFactory,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'OrderFinishedRoute';
+
+  static const PageInfo<OrderFinishedRouteArgs> page =
+      PageInfo<OrderFinishedRouteArgs>(name);
+}
+
+class OrderFinishedRouteArgs {
+  const OrderFinishedRouteArgs({
+    this.key,
+    this.wmFactory = defaultOrderFinishedScreenWidgetModelFactory,
+  });
+
+  final Key? key;
+
+  final WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+      BuildContext) wmFactory;
+
+  @override
+  String toString() {
+    return 'OrderFinishedRouteArgs{key: $key, wmFactory: $wmFactory}';
+  }
+}
+
+/// generated route for
+/// [OrderScreenWidget]
+class OrderRoute extends PageRouteInfo<OrderRouteArgs> {
+  OrderRoute({
+    Key? key,
+    WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+            BuildContext)
+        wmFactory = defaultOrderScreenWidgetModelFactory,
+    List<PageRouteInfo>? children,
+  }) : super(
+          OrderRoute.name,
+          args: OrderRouteArgs(
+            key: key,
+            wmFactory: wmFactory,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'OrderRoute';
+
+  static const PageInfo<OrderRouteArgs> page = PageInfo<OrderRouteArgs>(name);
+}
+
+class OrderRouteArgs {
+  const OrderRouteArgs({
+    this.key,
+    this.wmFactory = defaultOrderScreenWidgetModelFactory,
+  });
+
+  final Key? key;
+
+  final WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+      BuildContext) wmFactory;
+
+  @override
+  String toString() {
+    return 'OrderRouteArgs{key: $key, wmFactory: $wmFactory}';
+  }
+}
+
+/// generated route for
+/// [ProductScreenWidget]
+class ProductRoute extends PageRouteInfo<ProductRouteArgs> {
+  ProductRoute({
+    Key? key,
+    WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+            BuildContext)
+        wmFactory = defaultProductScreenWidgetModelFactory,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ProductRoute.name,
+          args: ProductRouteArgs(
+            key: key,
+            wmFactory: wmFactory,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ProductRoute';
+
+  static const PageInfo<ProductRouteArgs> page =
+      PageInfo<ProductRouteArgs>(name);
+}
+
+class ProductRouteArgs {
+  const ProductRouteArgs({
+    this.key,
+    this.wmFactory = defaultProductScreenWidgetModelFactory,
+  });
+
+  final Key? key;
+
+  final WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+      BuildContext) wmFactory;
+
+  @override
+  String toString() {
+    return 'ProductRouteArgs{key: $key, wmFactory: $wmFactory}';
   }
 }
 

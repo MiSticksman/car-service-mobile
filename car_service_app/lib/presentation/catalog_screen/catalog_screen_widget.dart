@@ -14,6 +14,12 @@ class CatalogScreenWidget extends ElementaryWidget<ICatalogScreenWidgetModel> {
 
   @override
   Widget build(ICatalogScreenWidgetModel wm) {
-    return Container();
+    final localizations = wm.localizations;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(localizations.catalogTitle),
+      ),
+      body: Container(),
+    );
   }
 }

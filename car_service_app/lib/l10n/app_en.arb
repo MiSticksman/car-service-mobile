@@ -1,5 +1,10 @@
 {
   "@@locale": "en",
+  "catalogTab": "Catalog",
+  "cartTab": "Cart",
+  "profileTab": "Profile",
+  "catalogTitle": "Catalog",
+  "cartTitle": "Cart",
   "profileTitle": "My account",
   "@profileTitle": {
     "type": "text",

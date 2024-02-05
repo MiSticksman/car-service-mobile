@@ -93,6 +93,36 @@ abstract class AppLocalizations {
     Locale('ru')
   ];
 
+  /// No description provided for @catalogTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Catalog'**
+  String get catalogTab;
+
+  /// No description provided for @cartTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Cart'**
+  String get cartTab;
+
+  /// No description provided for @profileTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profileTab;
+
+  /// No description provided for @catalogTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Catalog'**
+  String get catalogTitle;
+
+  /// No description provided for @cartTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cart'**
+  String get cartTitle;
+
   /// No description provided for @profileTitle.
   ///
   /// In en, this message translates to:

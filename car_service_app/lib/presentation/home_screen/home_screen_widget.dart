@@ -1,5 +1,8 @@
 
 import 'package:auto_route/auto_route.dart';
+import 'package:car_service_app/app/app_color.dart';
+import 'package:car_service_app/generated/app_localizations.dart';
+import 'package:car_service_app/router/app_router.dart';
 import 'package:elementary/elementary.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -27,14 +30,12 @@ class AppScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final localizations = AppLocalizations.of(context);
+    final localizations = AppLocalizations.of(context);
     return AutoTabsScaffold(
       routes: const [
-        // ShowCaseTab(),
-        // CatalogTab(),
-        // BasketTab(),
-        // FavoritesTab(),
-        // UserProfileTab(),
+        CatalogTab(),
+        CartTab(),
+        ProfileTab(),
       ],
       bottomNavigationBuilder: (_, tabsRouter) {
         // return StreamBuilder(
@@ -45,21 +46,22 @@ class AppScreen extends StatelessWidget {
         //     final data = snapshot.data;
         //     final count = data?.count.toDouble() ?? 0;
             return CupertinoTabBar(
+              activeColor: AppColor.black,
               currentIndex: tabsRouter.activeIndex,
               onTap: tabsRouter.setActiveIndex,
               items: [
                 CustomBottomNavigationBarItem(
                   icon: Icons.manage_search,
-                  label: 'Каталог',
+                  label: localizations.catalogTab,
                 ),
                 CustomBottomNavigationBarItem(
                   icon: Icons.shopping_bag_outlined,
-                  label: 'Корзина',
+                  label: localizations.cartTab,
                   // badgeChar: count > 0 ? count.toInt().toString() : null,
                 ),
                 CustomBottomNavigationBarItem(
                   icon: Icons.person_outline,
-                  label: 'Профиль',
+                  label: localizations.profileTab,
                 ),
               ],
             );
@@ -91,7 +93,6 @@ class CustomBottomNavigationBarItem extends BottomNavigationBarItem {
 
 class _NavigationBarIcon extends StatelessWidget {
   const _NavigationBarIcon({
-    super.key,
     required this.icon,
     this.badgeChar,
   });
@@ -125,7 +126,6 @@ class _NavigationBarIcon extends StatelessWidget {
 
 class _Badge extends StatelessWidget {
   const _Badge({
-    super.key,
     required this.char,
   });
 
