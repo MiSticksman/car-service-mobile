@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:car_service_app/generated/app_localizations.dart';
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
 import 'cart_screen_wm.dart';
@@ -14,6 +15,12 @@ class CartScreenWidget extends ElementaryWidget<ICartScreenWidgetModel> {
 
   @override
   Widget build(ICartScreenWidgetModel wm) {
-    return Container();
+    final AppLocalizations localizations = wm.localizations;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(localizations.cartTitle),
+      ),
+      body: Container(),
+    );
   }
 }

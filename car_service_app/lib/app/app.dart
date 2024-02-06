@@ -1,6 +1,8 @@
 import 'package:car_service_app/app/app_theme.dart';
+import 'package:car_service_app/data/service/cart_service.dart';
 import 'package:car_service_app/domain/use_case/cart_use_case.dart';
 import 'package:car_service_app/generated/app_localizations.dart';
+import 'package:car_service_app/internal/di/configure_dependencies.dart';
 import 'package:car_service_app/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +16,7 @@ class CarServiceApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider(create: (_) => CartUseCase())
+        Provider(create: (_) => CartUseCase(getIt.get<CartService>()))
       ],
       child: MaterialApp.router(
         routerConfig: _appRouter.config(),

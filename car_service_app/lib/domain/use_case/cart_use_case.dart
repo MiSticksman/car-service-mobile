@@ -1,11 +1,12 @@
+import 'package:car_service_app/data/service/cart_service.dart';
 import 'package:car_service_app/util/lifecycle_component.dart';
 
 class CartUseCase implements LifeCycleComponent {
-  // final CartService cartService;
+  final CartService cartService;
 
-  // CartUseCase(
-  //   this.cartService,
-  // );
+  CartUseCase(
+    this.cartService,
+  );
 
   @override
   void init() {
