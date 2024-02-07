@@ -8,6 +8,8 @@ class CartUseCase implements LifeCycleComponent {
     this.cartService,
   );
 
+  final test = 'test';
+
   @override
   void init() {
     // TODO: implement init

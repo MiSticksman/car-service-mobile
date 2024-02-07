@@ -6,4 +6,6 @@ part 'cart_service.g.dart';
 @RestApi()
 abstract class CartService {
   factory CartService(Dio dio, {String baseUrl}) = _CartService;
+
+
 }

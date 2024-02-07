@@ -20,7 +20,7 @@ class CartScreenWidget extends ElementaryWidget<ICartScreenWidgetModel> {
       appBar: AppBar(
         title: Text(localizations.cartTitle),
       ),
-      body: Container(),
+      body: Container(child: Center(child: Text(wm.cartUseCase.test),),),
     );
   }
 }

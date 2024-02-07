@@ -1,11 +1,10 @@
 import 'package:car_service_app/data/service/cart_service.dart';
 import 'package:car_service_app/data/service/catalog_service.dart';
+import 'package:car_service_app/data/service/order_service.dart';
 import 'package:car_service_app/data/service/profile_service.dart';
 import 'package:car_service_app/internal/dio_configurator.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-
-
 
 Future<void> initServices() async {
   final dio = RegisterModule.dio;
@@ -14,17 +13,23 @@ Future<void> initServices() async {
 
 @module
 abstract class RegisterModule {
-
   static final Dio dio = Dio();
 
-  @singleton
-  ProfileService profileService = ProfileService(dio);
+  final ProfileService _profileService = ProfileService(dio);
 
   @singleton
-  CartService cartService = CartService(dio);
+  ProfileService get profileService => _profileService;
 
+  final CartService _cartService = CartService(dio);
   @singleton
-  CatalogService catalogService = CatalogService(dio);
+  CartService get cartService => _cartService;
 
+  final CatalogService _catalogService = CatalogService(dio);
+  @singleton
+  CatalogService get catalogService => _catalogService;
+
+  final OrderService _orderService = OrderService(dio);
+  @singleton
+  OrderService get orderService => _orderService;
 
 }

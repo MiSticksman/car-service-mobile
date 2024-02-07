@@ -5,5 +5,5 @@ import 'configure_dependencies.config.dart';
 
 final getIt = GetIt.instance;
 
-@InjectableInit()
+@InjectableInit(generateForDir: [''])
 void configureDependencies() => getIt.init();
