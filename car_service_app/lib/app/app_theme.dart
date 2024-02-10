@@ -11,12 +11,12 @@ class AppTheme {
   factory AppTheme.light() {
     return AppTheme._(
       ThemeData(
-        useMaterial3: false,
+        useMaterial3: true,
         fontFamily: 'Montserrat',
         colorScheme: const ColorScheme(
-          primary: AppColor.white,
+          primary: AppColor.black1F,
           onPrimary: AppColor.white,
-          background: AppColor.red,
+          background: AppColor.whiteF8,
           onBackground: AppColor.red,
           secondary: AppColor.white,
           onSecondary: AppColor.white,
@@ -26,13 +26,18 @@ class AppTheme {
           onSurface: AppColor.white,
           brightness: Brightness.light,
         ),
+        disabledColor: AppColor.grey,
+        scaffoldBackgroundColor: AppColor.whiteF8,
+        cardTheme: const CardTheme(
+          clipBehavior: Clip.hardEdge,
+          color: AppColor.white,
+        ),
         appBarTheme: const AppBarTheme(
+          toolbarHeight: 50,
           elevation: 0,
-          iconTheme: IconThemeData(
-            color: AppColor.white,
-          ),
           centerTitle: true,
-          backgroundColor: Colors.transparent,
+          surfaceTintColor: Colors.transparent,
+          backgroundColor: AppColor.whiteF8,
           foregroundColor: AppColor.white,
           titleTextStyle: AppText.title,
           systemOverlayStyle: SystemUiOverlayStyle(
@@ -43,23 +48,22 @@ class AppTheme {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: AppColor.white,
+            foregroundColor: AppColor.white,
+            backgroundColor: AppColor.black1F,
             disabledBackgroundColor: AppColor.white,
             shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(0)),
+              borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
             elevation: 0,
             fixedSize: const Size.fromHeight(50),
-            textStyle: AppText.medium12.copyWith(
-              color: AppColor.white,
-            ),
+            textStyle: AppText.bold16,
             disabledForegroundColor: AppColor.white,
           ),
         ),
         outlinedButtonTheme: OutlinedButtonThemeData(
           style: OutlinedButton.styleFrom(
             shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(0)),
+              borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
             foregroundColor: AppColor.white,
             backgroundColor: Colors.transparent,

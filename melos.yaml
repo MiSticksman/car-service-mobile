@@ -12,6 +12,8 @@ scripts:
     exec: flutter pub add $1
   gen:
     exec: dart pub run build_runner build -d
+  pget:
+    exec: flutter packages pub get
 
 
 command:

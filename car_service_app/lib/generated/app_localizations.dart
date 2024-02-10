@@ -128,6 +128,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'My account'**
   String get profileTitle;
+
+  /// No description provided for @myCars.
+  ///
+  /// In en, this message translates to:
+  /// **'My cars'**
+  String get myCars;
+
+  /// No description provided for @car.
+  ///
+  /// In en, this message translates to:
+  /// **'Car'**
+  String get car;
+
+  /// No description provided for @choosingCarBrand.
+  ///
+  /// In en, this message translates to:
+  /// **'Choosing car brand'**
+  String get choosingCarBrand;
+
+  /// No description provided for @choosingCarModel.
+  ///
+  /// In en, this message translates to:
+  /// **'Choosing car model'**
+  String get choosingCarModel;
+
+  /// No description provided for @carInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Car information'**
+  String get carInfo;
+
+  /// No description provided for @carBrandHintText.
+  ///
+  /// In en, this message translates to:
+  /// **'brand name'**
+  String get carBrandHintText;
+
+  /// No description provided for @carModelHintText.
+  ///
+  /// In en, this message translates to:
+  /// **'model name'**
+  String get carModelHintText;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

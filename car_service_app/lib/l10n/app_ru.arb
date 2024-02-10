@@ -9,5 +9,12 @@
   "@profileTitle": {
     "type": "text",
     "placeholders": {}
-  }
+  },
+  "myCars": "Мои автомобили",
+  "car": "Автомобиль",
+  "choosingCarBrand": "Выбор марки",
+  "choosingCarModel": "Выбор модели",
+  "carInfo": "Информация об авто",
+  "carBrandHintText": "название марки",
+  "carModelHintText": "название модели"
 }

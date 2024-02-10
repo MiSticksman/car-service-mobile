@@ -10,3 +10,4 @@ export 'package:car_service_app/presentation/product_screen/product_screen.dart'
 export 'package:car_service_app/presentation/profile_screen/profile_screen.dart';
 export 'package:car_service_app/presentation/order_finished_screen/order_finished_screen.dart';
 export 'package:car_service_app/presentation/category_screen/category_screen.dart';
+export 'package:car_service_app/presentation/my_cars_screen/my_cars_screen.dart';

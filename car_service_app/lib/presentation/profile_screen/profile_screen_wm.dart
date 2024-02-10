@@ -1,3 +1,4 @@
+import 'package:car_service_app/router/app_router.dart';
 import 'package:car_service_app/util/wm_base.dart';
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +6,10 @@ import 'profile_screen_model.dart';
 import 'profile_screen_widget.dart';
 
 abstract interface class IProfileScreenWidgetModel
-    implements IWidgetModel, IThemeProvider {}
+    implements IWidgetModel, IThemeProvider {
+
+  void openMyCars();
+}
 
 ProfileScreenWidgetModel defaultProfileScreenWidgetModelFactory(
     BuildContext context) {
@@ -19,4 +23,9 @@ class ProfileScreenWidgetModel
     with ThemeProvider
     implements IProfileScreenWidgetModel {
   ProfileScreenWidgetModel(super.model);
+
+  @override
+  void openMyCars() {
+    router.push(MyCarsRoute());
+  }
 }

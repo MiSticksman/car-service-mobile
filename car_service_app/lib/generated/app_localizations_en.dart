@@ -21,4 +21,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get profileTitle => 'My account';
+
+  @override
+  String get myCars => 'My cars';
+
+  @override
+  String get car => 'Car';
+
+  @override
+  String get choosingCarBrand => 'Choosing car brand';
+
+  @override
+  String get choosingCarModel => 'Choosing car model';
+
+  @override
+  String get carInfo => 'Car information';
+
+  @override
+  String get carBrandHintText => 'brand name';
+
+  @override
+  String get carModelHintText => 'model name';
 }

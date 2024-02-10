@@ -82,6 +82,17 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    MyCarsRoute.name: (routeData) {
+      final args = routeData.argsAs<MyCarsRouteArgs>(
+          orElse: () => const MyCarsRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: MyCarsScreenWidget(
+          key: args.key,
+          wmFactory: args.wmFactory,
+        ),
+      );
+    },
     OrderFinishedRoute.name: (routeData) {
       final args = routeData.argsAs<OrderFinishedRouteArgs>(
           orElse: () => const OrderFinishedRouteArgs());
@@ -362,6 +373,46 @@ class HomeRouteArgs {
   @override
   String toString() {
     return 'HomeRouteArgs{key: $key, wmFactory: $wmFactory}';
+  }
+}
+
+/// generated route for
+/// [MyCarsScreenWidget]
+class MyCarsRoute extends PageRouteInfo<MyCarsRouteArgs> {
+  MyCarsRoute({
+    Key? key,
+    WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+            BuildContext)
+        wmFactory = defaultMyCarsScreenWidgetModelFactory,
+    List<PageRouteInfo>? children,
+  }) : super(
+          MyCarsRoute.name,
+          args: MyCarsRouteArgs(
+            key: key,
+            wmFactory: wmFactory,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'MyCarsRoute';
+
+  static const PageInfo<MyCarsRouteArgs> page = PageInfo<MyCarsRouteArgs>(name);
+}
+
+class MyCarsRouteArgs {
+  const MyCarsRouteArgs({
+    this.key,
+    this.wmFactory = defaultMyCarsScreenWidgetModelFactory,
+  });
+
+  final Key? key;
+
+  final WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+      BuildContext) wmFactory;
+
+  @override
+  String toString() {
+    return 'MyCarsRouteArgs{key: $key, wmFactory: $wmFactory}';
   }
 }
 

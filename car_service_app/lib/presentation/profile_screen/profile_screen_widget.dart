@@ -18,7 +18,12 @@ class ProfileScreenWidget extends ElementaryWidget<IProfileScreenWidgetModel> {
     return Scaffold(
       appBar: AppBar(
         title: Text(localizations.profileTitle),
-
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: wm.openMyCars,
+          child: Text('добавить авто'),
+        ),
       ),
     );
   }

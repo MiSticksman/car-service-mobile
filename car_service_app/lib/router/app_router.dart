@@ -40,6 +40,7 @@ class AppRouter extends _$AppRouter {
                   initial: true,
                   page: ProfileRoute.page,
                 ),
+                AutoRoute(page: MyCarsRoute.page),
                 AutoRoute(page: CarAddRoute.page),
               ],
             ),

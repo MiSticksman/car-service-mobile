@@ -21,4 +21,25 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get profileTitle => 'Личный кабинет';
+
+  @override
+  String get myCars => 'Мои автомобили';
+
+  @override
+  String get car => 'Автомобиль';
+
+  @override
+  String get choosingCarBrand => 'Выбор марки';
+
+  @override
+  String get choosingCarModel => 'Выбор модели';
+
+  @override
+  String get carInfo => 'Информация об авто';
+
+  @override
+  String get carBrandHintText => 'название марки';
+
+  @override
+  String get carModelHintText => 'название модели';
 }
