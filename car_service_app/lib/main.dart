@@ -15,4 +15,18 @@ Future<void> startApp() async {
   configureDependencies();
   await initServices();
   runApp(AppStarter(child: CarServiceApp()));
+
+  test1(1);
+  test(a: 5);
 }
+
+
+
+void test1(int a) {
+
+}
+
+void test({required int a}) {
+
+}
+

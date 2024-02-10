@@ -16,9 +16,11 @@ class AppRouter extends _$AppRouter {
               children: [
                 AutoRoute(
                   initial: true,
+                  page: CategoryRoute.page,
+                ),
+                AutoRoute(
                   page: CatalogRoute.page,
                 ),
-                AutoRoute(page: CatalogSubcategoriesRoute.page),
                 AutoRoute(page: ProductRoute.page),
               ],
             ),

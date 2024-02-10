@@ -16,8 +16,8 @@ class AppTheme {
         colorScheme: const ColorScheme(
           primary: AppColor.white,
           onPrimary: AppColor.white,
-          background: AppColor.white,
-          onBackground: AppColor.white,
+          background: AppColor.red,
+          onBackground: AppColor.red,
           secondary: AppColor.white,
           onSecondary: AppColor.white,
           error: AppColor.white,
@@ -32,7 +32,7 @@ class AppTheme {
             color: AppColor.white,
           ),
           centerTitle: true,
-          backgroundColor: AppColor.white,
+          backgroundColor: Colors.transparent,
           foregroundColor: AppColor.white,
           titleTextStyle: AppText.title,
           systemOverlayStyle: SystemUiOverlayStyle(

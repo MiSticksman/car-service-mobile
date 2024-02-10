@@ -1,4 +1,3 @@
-
 import 'package:auto_route/auto_route.dart';
 import 'package:car_service_app/app/app_color.dart';
 import 'package:car_service_app/generated/app_localizations.dart';
@@ -19,13 +18,15 @@ class HomeScreenWidget extends ElementaryWidget<IHomeScreenWidgetModel> {
 
   @override
   Widget build(IHomeScreenWidgetModel wm) {
-    return const AppScreen();
+    return AppScreen(wm: wm);
   }
 }
 
 class AppScreen extends StatelessWidget {
+  final IHomeScreenWidgetModel wm;
+
   const AppScreen({
-    super.key,
+    super.key, required this.wm,
   });
 
   @override
@@ -45,29 +46,29 @@ class AppScreen extends StatelessWidget {
         //   builder: (context, snapshot) {
         //     final data = snapshot.data;
         //     final count = data?.count.toDouble() ?? 0;
-            return CupertinoTabBar(
-              activeColor: AppColor.black,
-              currentIndex: tabsRouter.activeIndex,
-              onTap: tabsRouter.setActiveIndex,
-              items: [
-                CustomBottomNavigationBarItem(
-                  icon: Icons.manage_search,
-                  label: localizations.catalogTab,
-                ),
-                CustomBottomNavigationBarItem(
-                  icon: Icons.shopping_bag_outlined,
-                  label: localizations.cartTab,
-                  // badgeChar: count > 0 ? count.toInt().toString() : null,
-                ),
-                CustomBottomNavigationBarItem(
-                  icon: Icons.person_outline,
-                  label: localizations.profileTab,
-                ),
-              ],
-            );
-          },
+        return CupertinoTabBar(
+          activeColor: AppColor.black,
+          currentIndex: tabsRouter.activeIndex,
+          onTap: (index) => wm.updateTab(index, tabsRouter),
+          items: [
+            CustomBottomNavigationBarItem(
+              icon: Icons.manage_search,
+              label: localizations.catalogTab,
+            ),
+            CustomBottomNavigationBarItem(
+              icon: Icons.shopping_bag_outlined,
+              label: localizations.cartTab,
+              // badgeChar: count > 0 ? count.toInt().toString() : null,
+            ),
+            CustomBottomNavigationBarItem(
+              icon: Icons.person_outline,
+              label: localizations.profileTab,
+            ),
+          ],
         );
-      // },
+      },
+    );
+    // },
     // );
   }
 }
@@ -78,17 +79,17 @@ class CustomBottomNavigationBarItem extends BottomNavigationBarItem {
     required String label,
     String? badgeChar,
   }) : super(
-          icon: _NavigationBarIcon(
-            icon: icon,
-            badgeChar: badgeChar,
-          ),
-          label: label,
-          activeIcon: _NavigationBarIcon(
-            icon: icon,
-            badgeChar: badgeChar,
-          ),
-          backgroundColor: Colors.transparent,
-        );
+    icon: _NavigationBarIcon(
+      icon: icon,
+      badgeChar: badgeChar,
+    ),
+    label: label,
+    activeIcon: _NavigationBarIcon(
+      icon: icon,
+      badgeChar: badgeChar,
+    ),
+    backgroundColor: Colors.transparent,
+  );
 }
 
 class _NavigationBarIcon extends StatelessWidget {

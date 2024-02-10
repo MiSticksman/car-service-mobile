@@ -19,14 +19,14 @@ class _CatalogService implements CatalogService {
   String? baseUrl;
 
   @override
-  Future<List<CategoryResponse>> fetchCatalogCategories({int? parentId}) async {
+  Future<List<Category>> fetchCatalogCategories({int? parentId}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'parent_id': parentId};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<List<dynamic>>(_setStreamType<List<CategoryResponse>>(Options(
+    final _result =
+        await _dio.fetch<List<dynamic>>(_setStreamType<List<Category>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -43,8 +43,7 @@ class _CatalogService implements CatalogService {
               baseUrl,
             ))));
     var value = _result.data!
-        .map(
-            (dynamic i) => CategoryResponse.fromJson(i as Map<String, dynamic>))
+        .map((dynamic i) => Category.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;
   }

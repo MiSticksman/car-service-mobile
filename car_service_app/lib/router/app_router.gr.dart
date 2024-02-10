@@ -54,21 +54,21 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-    CatalogSubcategoriesRoute.name: (routeData) {
-      final args = routeData.argsAs<CatalogSubcategoriesRouteArgs>(
-          orElse: () => const CatalogSubcategoriesRouteArgs());
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: CatalogSubcategoriesScreenWidget(
-          key: args.key,
-          wmFactory: args.wmFactory,
-        ),
-      );
-    },
     CatalogTab.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const CatalogTabPage(),
+      );
+    },
+    CategoryRoute.name: (routeData) {
+      final args = routeData.argsAs<CategoryRouteArgs>(
+          orElse: () => const CategoryRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: CategoryScreenWidget(
+          key: args.key,
+          wmFactory: args.wmFactory,
+        ),
       );
     },
     HomeRoute.name: (routeData) {
@@ -271,48 +271,6 @@ class CatalogRouteArgs {
 }
 
 /// generated route for
-/// [CatalogSubcategoriesScreenWidget]
-class CatalogSubcategoriesRoute
-    extends PageRouteInfo<CatalogSubcategoriesRouteArgs> {
-  CatalogSubcategoriesRoute({
-    Key? key,
-    WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
-            BuildContext)
-        wmFactory = defaultCatalogSubcategoriesScreenWidgetModelFactory,
-    List<PageRouteInfo>? children,
-  }) : super(
-          CatalogSubcategoriesRoute.name,
-          args: CatalogSubcategoriesRouteArgs(
-            key: key,
-            wmFactory: wmFactory,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'CatalogSubcategoriesRoute';
-
-  static const PageInfo<CatalogSubcategoriesRouteArgs> page =
-      PageInfo<CatalogSubcategoriesRouteArgs>(name);
-}
-
-class CatalogSubcategoriesRouteArgs {
-  const CatalogSubcategoriesRouteArgs({
-    this.key,
-    this.wmFactory = defaultCatalogSubcategoriesScreenWidgetModelFactory,
-  });
-
-  final Key? key;
-
-  final WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
-      BuildContext) wmFactory;
-
-  @override
-  String toString() {
-    return 'CatalogSubcategoriesRouteArgs{key: $key, wmFactory: $wmFactory}';
-  }
-}
-
-/// generated route for
 /// [CatalogTabPage]
 class CatalogTab extends PageRouteInfo<void> {
   const CatalogTab({List<PageRouteInfo>? children})
@@ -324,6 +282,47 @@ class CatalogTab extends PageRouteInfo<void> {
   static const String name = 'CatalogTab';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CategoryScreenWidget]
+class CategoryRoute extends PageRouteInfo<CategoryRouteArgs> {
+  CategoryRoute({
+    Key? key,
+    WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+            BuildContext)
+        wmFactory = defaultCategoryScreenWidgetModelFactory,
+    List<PageRouteInfo>? children,
+  }) : super(
+          CategoryRoute.name,
+          args: CategoryRouteArgs(
+            key: key,
+            wmFactory: wmFactory,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'CategoryRoute';
+
+  static const PageInfo<CategoryRouteArgs> page =
+      PageInfo<CategoryRouteArgs>(name);
+}
+
+class CategoryRouteArgs {
+  const CategoryRouteArgs({
+    this.key,
+    this.wmFactory = defaultCategoryScreenWidgetModelFactory,
+  });
+
+  final Key? key;
+
+  final WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+      BuildContext) wmFactory;
+
+  @override
+  String toString() {
+    return 'CategoryRouteArgs{key: $key, wmFactory: $wmFactory}';
+  }
 }
 
 /// generated route for

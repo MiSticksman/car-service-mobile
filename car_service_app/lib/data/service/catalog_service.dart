@@ -1,4 +1,4 @@
-import 'package:car_service_app/domain/dto/catalog/category_response.dart';
+import 'package:car_service_app/domain/model/catalog/category.dart';
 import 'package:car_service_app/domain/url/catalog_url.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
@@ -11,7 +11,7 @@ abstract class CatalogService {
 
 
   @GET(CatalogUrl.categories)
-  Future<List<CategoryResponse>> fetchCatalogCategories({
+  Future<List<Category>> fetchCatalogCategories({
     @Query('parent_id') int? parentId,
 });
 }

@@ -1,10 +1,8 @@
+import 'package:car_service_app/router/app_router_export.dart';
 
-import 'package:car_service_app/presentation/home_screen/home_screen_model.dart';
-import 'package:car_service_app/presentation/home_screen/home_screen_widget.dart';
-import 'package:elementary/elementary.dart';
-import 'package:flutter/material.dart';
-
-abstract class IHomeScreenWidgetModel implements IWidgetModel {}
+abstract class IHomeScreenWidgetModel implements IWidgetModel {
+  void updateTab(int index, TabsRouter tabsRouter);
+}
 
 HomeScreenWidgetModel defaultHomePageWidgetModelFactory(BuildContext context) {
   return HomeScreenWidgetModel(HomeScreenModel());
@@ -12,7 +10,20 @@ HomeScreenWidgetModel defaultHomePageWidgetModelFactory(BuildContext context) {
 
 // TODO: cover with documentation
 /// Default widget model for HomeScreenWidget
-class HomeScreenWidgetModel extends WidgetModel<HomeScreenWidget, HomeScreenModel>
+class HomeScreenWidgetModel
+    extends WidgetModel<HomeScreenWidget, HomeScreenModel>
     implements IHomeScreenWidgetModel {
   HomeScreenWidgetModel(super.model);
+
+  @override
+  void updateTab(int index, TabsRouter tabsRouter) {
+    if (tabsRouter.activeIndex != index) {
+      tabsRouter.setActiveIndex(index);
+      return;
+    }
+    final childRouter = tabsRouter.childControllers[index];
+    if (childRouter is StackRouter) {
+      childRouter.popUntilRoot();
+    }
+  }
 }
