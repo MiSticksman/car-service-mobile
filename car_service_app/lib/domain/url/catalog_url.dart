@@ -1,6 +1,6 @@
 abstract class CatalogUrl {
-  static const categories = 'catalog/categories';
-  static const products = '/catalog/products';
+  static const String categories = 'catalog/categories';
+  static const String products = '/catalog/products';
 
 
 }

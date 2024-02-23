@@ -1,7 +1,8 @@
-import 'package:car_service_app/router/app_router.dart';
+import 'package:car_service_app/presentation/my_cars_screen/my_cars_screen.dart';
 import 'package:car_service_app/util/wm_base.dart';
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'profile_screen_model.dart';
 import 'profile_screen_widget.dart';
 
@@ -25,7 +26,14 @@ class ProfileScreenWidgetModel
   ProfileScreenWidgetModel(super.model);
 
   @override
-  void openMyCars() {
-    router.push(MyCarsRoute());
+  Future<void> openMyCars() async {
+    // router.push(MyCarsRoute());
+    await showCupertinoModalBottomSheet(
+      useRootNavigator: true,
+      isDismissible: false,
+      enableDrag: false,
+      context: router.navigatorKey.currentContext!,
+      builder: (_) => const MyCarsScreenWidget(),
+    );
   }
 }

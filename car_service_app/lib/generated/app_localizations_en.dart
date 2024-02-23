@@ -42,4 +42,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get carModelHintText => 'model name';
+
+  @override
+  String get addCar => 'Add car';
+
+  @override
+  String get selectModel => 'Select model';
+
+  @override
+  String get selectYear => 'Select year';
+
+  @override
+  String get done => 'Done';
 }

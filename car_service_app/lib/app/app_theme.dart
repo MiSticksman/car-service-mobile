@@ -26,6 +26,28 @@ class AppTheme {
           onSurface: AppColor.white,
           brightness: Brightness.light,
         ),
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(
+            color: AppColor.black,
+            fontSize: 14,
+          ),
+          bodyLarge: TextStyle(
+            color: AppColor.black,
+            fontSize: 16,
+            fontWeight: FontWeight.normal,
+          ),
+          titleLarge: TextStyle(
+            color: AppColor.black,
+            fontSize: 22,
+            fontWeight: FontWeight.w900,
+          ),
+        ),
+        radioTheme: RadioThemeData(
+          fillColor: MaterialStateProperty.all(AppColor.black),
+        ),
+        dividerTheme: const DividerThemeData(
+          color: AppColor.lightGrayEB
+        ),
         disabledColor: AppColor.grey,
         scaffoldBackgroundColor: AppColor.whiteF8,
         cardTheme: const CardTheme(
@@ -40,6 +62,7 @@ class AppTheme {
           backgroundColor: AppColor.whiteF8,
           foregroundColor: AppColor.white,
           titleTextStyle: AppText.title,
+          iconTheme: IconThemeData(color: AppColor.black),
           systemOverlayStyle: SystemUiOverlayStyle(
             statusBarColor: Colors.transparent,
             statusBarIconBrightness: Brightness.dark,
@@ -58,6 +81,7 @@ class AppTheme {
             fixedSize: const Size.fromHeight(50),
             textStyle: AppText.bold16,
             disabledForegroundColor: AppColor.white,
+            minimumSize: const Size(250, 50),
           ),
         ),
         outlinedButtonTheme: OutlinedButtonThemeData(

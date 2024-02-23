@@ -16,5 +16,9 @@
   "choosingCarModel": "Choosing car model",
   "carInfo": "Car information",
   "carBrandHintText": "brand name",
-  "carModelHintText": "model name"
+  "carModelHintText": "model name",
+  "addCar": "Add car",
+  "selectModel": "Select model",
+  "selectYear": "Select year",
+  "done": "Done"
 }

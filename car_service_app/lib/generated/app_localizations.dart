@@ -170,6 +170,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'model name'**
   String get carModelHintText;
+
+  /// No description provided for @addCar.
+  ///
+  /// In en, this message translates to:
+  /// **'Add car'**
+  String get addCar;
+
+  /// No description provided for @selectModel.
+  ///
+  /// In en, this message translates to:
+  /// **'Select model'**
+  String get selectModel;
+
+  /// No description provided for @selectYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Select year'**
+  String get selectYear;
+
+  /// No description provided for @done.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get done;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

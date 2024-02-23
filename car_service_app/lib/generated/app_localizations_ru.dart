@@ -42,4 +42,16 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get carModelHintText => 'название модели';
+
+  @override
+  String get addCar => 'Добавить авто';
+
+  @override
+  String get selectModel => 'Указать модель';
+
+  @override
+  String get selectYear => 'Указать год';
+
+  @override
+  String get done => 'Готово';
 }

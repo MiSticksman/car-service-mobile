@@ -50,7 +50,7 @@ class CategoryScreenWidget
                         const Spacer(),
                         Text(
                           'Фильтры',
-                          style: AppText.normal16,
+                          // style: AppText.normal16,
                         ),
                         const Spacer(),
                       ],

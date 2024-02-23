@@ -15,17 +15,6 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    CarAddRoute.name: (routeData) {
-      final args = routeData.argsAs<CarAddRouteArgs>(
-          orElse: () => const CarAddRouteArgs());
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: CarAddScreenWidget(
-          key: args.key,
-          wmFactory: args.wmFactory,
-        ),
-      );
-    },
     CartRoute.name: (routeData) {
       final args =
           routeData.argsAs<CartRouteArgs>(orElse: () => const CartRouteArgs());
@@ -144,46 +133,6 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
-}
-
-/// generated route for
-/// [CarAddScreenWidget]
-class CarAddRoute extends PageRouteInfo<CarAddRouteArgs> {
-  CarAddRoute({
-    Key? key,
-    WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
-            BuildContext)
-        wmFactory = defaultCarAddScreenWidgetModelFactory,
-    List<PageRouteInfo>? children,
-  }) : super(
-          CarAddRoute.name,
-          args: CarAddRouteArgs(
-            key: key,
-            wmFactory: wmFactory,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'CarAddRoute';
-
-  static const PageInfo<CarAddRouteArgs> page = PageInfo<CarAddRouteArgs>(name);
-}
-
-class CarAddRouteArgs {
-  const CarAddRouteArgs({
-    this.key,
-    this.wmFactory = defaultCarAddScreenWidgetModelFactory,
-  });
-
-  final Key? key;
-
-  final WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
-      BuildContext) wmFactory;
-
-  @override
-  String toString() {
-    return 'CarAddRouteArgs{key: $key, wmFactory: $wmFactory}';
-  }
 }
 
 /// generated route for

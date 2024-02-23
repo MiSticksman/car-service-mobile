@@ -1,7 +1,6 @@
 export 'package:elementary/elementary.dart';
 export 'package:flutter/material.dart';
 export 'package:auto_route/auto_route.dart';
-export 'package:car_service_app/presentation/car_add_screen/car_add_screen.dart';
 export 'package:car_service_app/presentation/cart_screen/cart_screen.dart';
 export 'package:car_service_app/presentation/catalog_screen/catalog_screen.dart';
 export 'package:car_service_app/presentation/home_screen/home_screen.dart';

@@ -16,5 +16,9 @@
   "choosingCarModel": "Выбор модели",
   "carInfo": "Информация об авто",
   "carBrandHintText": "название марки",
-  "carModelHintText": "название модели"
+  "carModelHintText": "название модели",
+  "addCar": "Добавить авто",
+  "selectModel": "Указать модель",
+  "selectYear": "Указать год",
+  "done": "Готово"
 }
