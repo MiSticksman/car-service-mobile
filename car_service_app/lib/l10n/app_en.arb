@@ -20,5 +20,6 @@
   "addCar": "Add car",
   "selectModel": "Select model",
   "selectYear": "Select year",
-  "done": "Done"
+  "done": "Done",
+  "emptyCarList": "The list of your cars is empty"
 }

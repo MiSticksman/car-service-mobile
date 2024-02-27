@@ -27,18 +27,25 @@ class BrandSelectionScreenWidget
       ),
       body: Column(
         children: [
-          SearchWidget(
-            controller: wm.searchController,
-            hintText: localizations.carBrandHintText,
-          ),
-          GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 4,
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: SearchWidget(
+              controller: wm.searchController,
+              hintText: localizations.carBrandHintText,
             ),
-            itemBuilder: (_, index) {
-              return BrandElement(url: 'url', brand: 'brand', onTap: () {});
-            },
-            itemCount: 30,
+          ),
+          Expanded(
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4,
+                mainAxisSpacing: 30,
+                crossAxisSpacing: 10,
+              ),
+              itemBuilder: (_, index) {
+                return BrandElement(url: 'url', brand: 'brand', onTap: () {});
+              },
+              itemCount: 30,
+            ),
           ),
         ],
       ),

@@ -18,9 +18,10 @@ abstract interface class IMyCarsScreenWidgetModel
 
   void selectCar(Car car);
 
-  void routeToBrandSelection();
+  void toBrandSelection();
 
-  void openCarInfo(Car car);
+  void toCarInfo(Car car);
+
 }
 
 MyCarsScreenWidgetModel defaultMyCarsScreenWidgetModelFactory(
@@ -56,6 +57,13 @@ class MyCarsScreenWidgetModel
         Car(id: '2', brand: ''),
         Car(id: '3', brand: ''),
         Car(id: '4', brand: ''),
+        Car(id: '5', brand: ''),
+        // Car(id: '6', brand: ''),
+        // Car(id: '7', brand: ''),
+        // Car(id: '8', brand: ''),
+        // Car(id: '9', brand: ''),
+        // Car(id: '10', brand: ''),
+        // Car(id: '11', brand: ''),
       ];
       carsState.content((cars, cars.firstOrNull));
     } catch (e, s) {
@@ -86,20 +94,23 @@ class MyCarsScreenWidgetModel
   }
 
   @override
-  Future<void> routeToBrandSelection() async {
+  Future<void> toBrandSelection() async {
     await showCupertinoModalBottomSheet(
       useRootNavigator: true,
+      enableDrag: false,
       context: router.navigatorKey.currentContext!,
       builder: (_) => const BrandSelectionScreenWidget(),
     );
   }
 
   @override
-  Future<void> openCarInfo(Car car) async {
+  Future<void> toCarInfo(Car car) async {
     await showCupertinoModalBottomSheet(
-      // useRootNavigator: true,
+      useRootNavigator: true,
+      enableDrag: false,
       context: router.navigatorKey.currentContext!,
       builder: (_) => const CarInfoScreenWidget(),
     );
   }
+
 }

@@ -54,4 +54,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get done => 'Done';
+
+  @override
+  String get emptyCarList => 'The list of your cars is empty';
 }

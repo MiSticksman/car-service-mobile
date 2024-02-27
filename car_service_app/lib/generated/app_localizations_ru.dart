@@ -54,4 +54,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get done => 'Готово';
+
+  @override
+  String get emptyCarList => 'Список Ваших автомобилей пуст';
 }

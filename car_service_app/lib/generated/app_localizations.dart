@@ -194,6 +194,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Done'**
   String get done;
+
+  /// No description provided for @emptyCarList.
+  ///
+  /// In en, this message translates to:
+  /// **'The list of your cars is empty'**
+  String get emptyCarList;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

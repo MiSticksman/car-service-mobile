@@ -82,6 +82,7 @@ class AppTheme {
             textStyle: AppText.bold16,
             disabledForegroundColor: AppColor.white,
             minimumSize: const Size(250, 50),
+            maximumSize: const Size(320, 50),
           ),
         ),
         outlinedButtonTheme: OutlinedButtonThemeData(
