@@ -15,6 +15,29 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    BrandSelectionRoute.name: (routeData) {
+      final args = routeData.argsAs<BrandSelectionRouteArgs>(
+          orElse: () => const BrandSelectionRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: BrandSelectionScreenWidget(
+          key: args.key,
+          wmFactory: args.wmFactory,
+        ),
+      );
+    },
+    CarInfoRoute.name: (routeData) {
+      final args = routeData.argsAs<CarInfoRouteArgs>(
+          orElse: () => const CarInfoRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: CarInfoScreenWidget(
+          key: args.key,
+          wmFactory: args.wmFactory,
+          car: args.car,
+        ),
+      );
+    },
     CartRoute.name: (routeData) {
       final args =
           routeData.argsAs<CartRouteArgs>(orElse: () => const CartRouteArgs());
@@ -66,6 +89,17 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: HomeScreenWidget(
+          key: args.key,
+          wmFactory: args.wmFactory,
+        ),
+      );
+    },
+    ModelSelectionRoute.name: (routeData) {
+      final args = routeData.argsAs<ModelSelectionRouteArgs>(
+          orElse: () => const ModelSelectionRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ModelSelectionScreenWidget(
           key: args.key,
           wmFactory: args.wmFactory,
         ),
@@ -133,6 +167,93 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [BrandSelectionScreenWidget]
+class BrandSelectionRoute extends PageRouteInfo<BrandSelectionRouteArgs> {
+  BrandSelectionRoute({
+    Key? key,
+    WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+            BuildContext)
+        wmFactory = defaultBrandSelectionScreenWidgetModelFactory,
+    List<PageRouteInfo>? children,
+  }) : super(
+          BrandSelectionRoute.name,
+          args: BrandSelectionRouteArgs(
+            key: key,
+            wmFactory: wmFactory,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'BrandSelectionRoute';
+
+  static const PageInfo<BrandSelectionRouteArgs> page =
+      PageInfo<BrandSelectionRouteArgs>(name);
+}
+
+class BrandSelectionRouteArgs {
+  const BrandSelectionRouteArgs({
+    this.key,
+    this.wmFactory = defaultBrandSelectionScreenWidgetModelFactory,
+  });
+
+  final Key? key;
+
+  final WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+      BuildContext) wmFactory;
+
+  @override
+  String toString() {
+    return 'BrandSelectionRouteArgs{key: $key, wmFactory: $wmFactory}';
+  }
+}
+
+/// generated route for
+/// [CarInfoScreenWidget]
+class CarInfoRoute extends PageRouteInfo<CarInfoRouteArgs> {
+  CarInfoRoute({
+    Key? key,
+    WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+            BuildContext)
+        wmFactory = defaultCarInfoScreenWidgetModelFactory,
+    Car? car,
+    List<PageRouteInfo>? children,
+  }) : super(
+          CarInfoRoute.name,
+          args: CarInfoRouteArgs(
+            key: key,
+            wmFactory: wmFactory,
+            car: car,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'CarInfoRoute';
+
+  static const PageInfo<CarInfoRouteArgs> page =
+      PageInfo<CarInfoRouteArgs>(name);
+}
+
+class CarInfoRouteArgs {
+  const CarInfoRouteArgs({
+    this.key,
+    this.wmFactory = defaultCarInfoScreenWidgetModelFactory,
+    this.car,
+  });
+
+  final Key? key;
+
+  final WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+      BuildContext) wmFactory;
+
+  final Car? car;
+
+  @override
+  String toString() {
+    return 'CarInfoRouteArgs{key: $key, wmFactory: $wmFactory, car: $car}';
+  }
 }
 
 /// generated route for
@@ -322,6 +443,47 @@ class HomeRouteArgs {
   @override
   String toString() {
     return 'HomeRouteArgs{key: $key, wmFactory: $wmFactory}';
+  }
+}
+
+/// generated route for
+/// [ModelSelectionScreenWidget]
+class ModelSelectionRoute extends PageRouteInfo<ModelSelectionRouteArgs> {
+  ModelSelectionRoute({
+    Key? key,
+    WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+            BuildContext)
+        wmFactory = defaultModelSelectionScreenWidgetModelFactory,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ModelSelectionRoute.name,
+          args: ModelSelectionRouteArgs(
+            key: key,
+            wmFactory: wmFactory,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ModelSelectionRoute';
+
+  static const PageInfo<ModelSelectionRouteArgs> page =
+      PageInfo<ModelSelectionRouteArgs>(name);
+}
+
+class ModelSelectionRouteArgs {
+  const ModelSelectionRouteArgs({
+    this.key,
+    this.wmFactory = defaultModelSelectionScreenWidgetModelFactory,
+  });
+
+  final Key? key;
+
+  final WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+      BuildContext) wmFactory;
+
+  @override
+  String toString() {
+    return 'ModelSelectionRouteArgs{key: $key, wmFactory: $wmFactory}';
   }
 }
 

@@ -1,7 +1,7 @@
 import 'package:car_service_app/domain/model/car/car.dart';
 import 'package:car_service_app/internal/logger.dart';
 import 'package:car_service_app/presentation/car_add/brand_selection_screen/brand_selection_screen.dart';
-import 'package:car_service_app/presentation/car_add/car_info_screen/car_info_screen.dart';
+import 'package:car_service_app/presentation/car_info_screen/car_info_screen.dart';
 import 'package:car_service_app/util/wm_base.dart';
 import 'package:elementary/elementary.dart';
 import 'package:elementary_helper/elementary_helper.dart';
@@ -53,11 +53,11 @@ class MyCarsScreenWidgetModel
     try {
       // TODO запрос на бек
       final cars = <Car>[
-        Car(id: '1', brand: ''),
-        Car(id: '2', brand: ''),
-        Car(id: '3', brand: ''),
-        Car(id: '4', brand: ''),
-        Car(id: '5', brand: ''),
+        Car(id: 1, brand: 'Toyota'),
+        Car(id: 2, brand: ''),
+        Car(id: 3, brand: ''),
+        Car(id: 4, brand: ''),
+        Car(id: 5, brand: ''),
         // Car(id: '6', brand: ''),
         // Car(id: '7', brand: ''),
         // Car(id: '8', brand: ''),
@@ -109,7 +109,9 @@ class MyCarsScreenWidgetModel
       useRootNavigator: true,
       enableDrag: false,
       context: router.navigatorKey.currentContext!,
-      builder: (_) => const CarInfoScreenWidget(),
+      builder: (_) => CarInfoScreenWidget(
+        car: car,
+      ),
     );
   }
 

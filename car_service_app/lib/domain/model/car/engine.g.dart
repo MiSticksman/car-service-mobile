@@ -1,17 +1,17 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'car.dart';
+part of 'engine.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CarImpl _$$CarImplFromJson(Map<String, dynamic> json) => _$CarImpl(
+_$EngineImpl _$$EngineImplFromJson(Map<String, dynamic> json) => _$EngineImpl(
       id: json['id'] as int?,
-      brand: json['brand'] as String?,
+      name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$$CarImplToJson(_$CarImpl instance) {
+Map<String, dynamic> _$$EngineImplToJson(_$EngineImpl instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -21,6 +21,6 @@ Map<String, dynamic> _$$CarImplToJson(_$CarImpl instance) {
   }
 
   writeNotNull('id', instance.id);
-  writeNotNull('brand', instance.brand);
+  writeNotNull('name', instance.name);
   return val;
 }

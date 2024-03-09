@@ -200,6 +200,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The list of your cars is empty'**
   String get emptyCarList;
+
+  /// No description provided for @year.
+  ///
+  /// In en, this message translates to:
+  /// **'year'**
+  String get year;
+
+  /// No description provided for @engine.
+  ///
+  /// In en, this message translates to:
+  /// **'engine'**
+  String get engine;
+
+  /// No description provided for @transmission.
+  ///
+  /// In en, this message translates to:
+  /// **'transmission'**
+  String get transmission;
+
+  /// No description provided for @equipment.
+  ///
+  /// In en, this message translates to:
+  /// **'equipment'**
+  String get equipment;
+
+  /// No description provided for @carDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'add a description for the car'**
+  String get carDescription;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

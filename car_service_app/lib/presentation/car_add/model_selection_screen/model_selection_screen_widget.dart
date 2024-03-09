@@ -7,10 +7,12 @@ import 'model_selection_screen_wm.dart';
 // TODO: cover with documentation
 /// Main widget for ModelSelectionScreen module
 @RoutePage()
-class ModelSelectionScreenWidget extends ElementaryWidget<IModelSelectionScreenWidgetModel> {
+class ModelSelectionScreenWidget
+    extends ElementaryWidget<IModelSelectionScreenWidgetModel> {
   const ModelSelectionScreenWidget({
     Key? key,
-    WidgetModelFactory wmFactory = defaultModelSelectionScreenWidgetModelFactory,
+    WidgetModelFactory wmFactory =
+        defaultModelSelectionScreenWidgetModelFactory,
   }) : super(wmFactory, key: key);
 
   @override
@@ -22,26 +24,78 @@ class ModelSelectionScreenWidget extends ElementaryWidget<IModelSelectionScreenW
         title: Text(localizations.choosingCarModel),
         actions: const [CloseButton()],
       ),
-      body: Column(
-        children: [
-          SearchWidget(
-            controller: wm.searchController,
-            hintText: localizations.carModelHintText,
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: SearchWidget(
+              controller: wm.searchController,
+              hintText: localizations.carModelHintText,
+            ),
           ),
-          GridView.builder(
+          SliverGrid(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 4,
+              mainAxisSpacing: 0,
+              crossAxisSpacing: 0,
             ),
-            itemBuilder: (_, index) {
-              return GestureDetector(
-                onTap: () {},
-                child: Text('x5m'),
-              );
-            },
-            itemCount: 30,
+            delegate: SliverChildBuilderDelegate(
+              (_, index) {
+                return GestureDetector(
+                  onTap: (){},
+                  child: Card(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text('x5m'),
+                    ),
+                  ),
+                );
+              },
+              childCount: 30,
+            ),
           ),
+          // SliverPersistentHeader(
+          //   pinned: true,
+          //   delegate: SliverButton(wm: wm),
+          // ),
         ],
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 30.0,
+          vertical: 16,
+        ),
+        child: ElevatedButton(
+          onPressed: wm.toCarAdd,
+          child: Text(localizations.selectYear),
+        ),
       ),
     );
   }
+}
+
+class SliverButton extends SliverPersistentHeaderDelegate {
+  final IModelSelectionScreenWidgetModel wm;
+
+  SliverButton({required this.wm});
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return ElevatedButton(
+      onPressed: wm.toCarAdd,
+      child: Text(''),
+    );
+  }
+
+  @override
+  // TODO: implement maxExtent
+  double get maxExtent => 60;
+
+  @override
+  // TODO: implement minExtent
+  double get minExtent => 60;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) =>
+      true;
 }

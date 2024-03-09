@@ -25,29 +25,48 @@ class BrandSelectionScreenWidget
         title: Text(localizations.choosingCarBrand),
         actions: const [CloseButton()],
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: SearchWidget(
-              controller: wm.searchController,
-              hintText: localizations.carBrandHintText,
-            ),
-          ),
-          Expanded(
-            child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4,
-                mainAxisSpacing: 30,
-                crossAxisSpacing: 10,
+      body: SafeArea(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: SearchWidget(
+                controller: wm.searchController,
+                hintText: localizations.carBrandHintText,
               ),
-              itemBuilder: (_, index) {
-                return BrandElement(url: 'url', brand: 'brand', onTap: () {});
-              },
-              itemCount: 30,
             ),
-          ),
-        ],
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 4,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 10,
+                  ),
+                  itemBuilder: (_, index) {
+                    return BrandElement(
+                      url: 'url',
+                      brand: 'brand',
+                      onTap: () {},
+                    );
+                  },
+                  itemCount: 30,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 30.0,
+          vertical: 16,
+        ),
+        child: ElevatedButton(
+          onPressed: wm.onBrandTap,
+          child: Text(localizations.selectModel),
+        ),
       ),
     );
   }

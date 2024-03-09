@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'car.dart';
+part of 'engine.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,34 +14,35 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-Car _$CarFromJson(Map<String, dynamic> json) {
-  return _Car.fromJson(json);
+Engine _$EngineFromJson(Map<String, dynamic> json) {
+  return _Engine.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Car {
+mixin _$Engine {
   @JsonKey(name: 'id')
   int? get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'brand')
-  String? get brand => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name')
+  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CarCopyWith<Car> get copyWith => throw _privateConstructorUsedError;
+  $EngineCopyWith<Engine> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CarCopyWith<$Res> {
-  factory $CarCopyWith(Car value, $Res Function(Car) then) =
-      _$CarCopyWithImpl<$Res, Car>;
+abstract class $EngineCopyWith<$Res> {
+  factory $EngineCopyWith(Engine value, $Res Function(Engine) then) =
+      _$EngineCopyWithImpl<$Res, Engine>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') int? id, @JsonKey(name: 'brand') String? brand});
+      {@JsonKey(name: 'id') int? id, @JsonKey(name: 'name') String? name});
 }
 
 /// @nodoc
-class _$CarCopyWithImpl<$Res, $Val extends Car> implements $CarCopyWith<$Res> {
-  _$CarCopyWithImpl(this._value, this._then);
+class _$EngineCopyWithImpl<$Res, $Val extends Engine>
+    implements $EngineCopyWith<$Res> {
+  _$EngineCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -52,51 +53,54 @@ class _$CarCopyWithImpl<$Res, $Val extends Car> implements $CarCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
-    Object? brand = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      brand: freezed == brand
-          ? _value.brand
-          : brand // ignore: cast_nullable_to_non_nullable
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$CarImplCopyWith<$Res> implements $CarCopyWith<$Res> {
-  factory _$$CarImplCopyWith(_$CarImpl value, $Res Function(_$CarImpl) then) =
-      __$$CarImplCopyWithImpl<$Res>;
+abstract class _$$EngineImplCopyWith<$Res> implements $EngineCopyWith<$Res> {
+  factory _$$EngineImplCopyWith(
+          _$EngineImpl value, $Res Function(_$EngineImpl) then) =
+      __$$EngineImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') int? id, @JsonKey(name: 'brand') String? brand});
+      {@JsonKey(name: 'id') int? id, @JsonKey(name: 'name') String? name});
 }
 
 /// @nodoc
-class __$$CarImplCopyWithImpl<$Res> extends _$CarCopyWithImpl<$Res, _$CarImpl>
-    implements _$$CarImplCopyWith<$Res> {
-  __$$CarImplCopyWithImpl(_$CarImpl _value, $Res Function(_$CarImpl) _then)
+class __$$EngineImplCopyWithImpl<$Res>
+    extends _$EngineCopyWithImpl<$Res, _$EngineImpl>
+    implements _$$EngineImplCopyWith<$Res> {
+  __$$EngineImplCopyWithImpl(
+      _$EngineImpl _value, $Res Function(_$EngineImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = freezed,
-    Object? brand = freezed,
+    Object? name = freezed,
   }) {
-    return _then(_$CarImpl(
+    return _then(_$EngineImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      brand: freezed == brand
-          ? _value.brand
-          : brand // ignore: cast_nullable_to_non_nullable
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -105,67 +109,67 @@ class __$$CarImplCopyWithImpl<$Res> extends _$CarCopyWithImpl<$Res, _$CarImpl>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
-class _$CarImpl implements _Car {
-  const _$CarImpl(
-      {@JsonKey(name: 'id') this.id, @JsonKey(name: 'brand') this.brand});
+class _$EngineImpl implements _Engine {
+  const _$EngineImpl(
+      {@JsonKey(name: 'id') this.id, @JsonKey(name: 'name') this.name});
 
-  factory _$CarImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CarImplFromJson(json);
+  factory _$EngineImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EngineImplFromJson(json);
 
   @override
   @JsonKey(name: 'id')
   final int? id;
   @override
-  @JsonKey(name: 'brand')
-  final String? brand;
+  @JsonKey(name: 'name')
+  final String? name;
 
   @override
   String toString() {
-    return 'Car(id: $id, brand: $brand)';
+    return 'Engine(id: $id, name: $name)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CarImpl &&
+            other is _$EngineImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.brand, brand) || other.brand == brand));
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, brand);
+  int get hashCode => Object.hash(runtimeType, id, name);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CarImplCopyWith<_$CarImpl> get copyWith =>
-      __$$CarImplCopyWithImpl<_$CarImpl>(this, _$identity);
+  _$$EngineImplCopyWith<_$EngineImpl> get copyWith =>
+      __$$EngineImplCopyWithImpl<_$EngineImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CarImplToJson(
+    return _$$EngineImplToJson(
       this,
     );
   }
 }
 
-abstract class _Car implements Car {
-  const factory _Car(
+abstract class _Engine implements Engine {
+  const factory _Engine(
       {@JsonKey(name: 'id') final int? id,
-      @JsonKey(name: 'brand') final String? brand}) = _$CarImpl;
+      @JsonKey(name: 'name') final String? name}) = _$EngineImpl;
 
-  factory _Car.fromJson(Map<String, dynamic> json) = _$CarImpl.fromJson;
+  factory _Engine.fromJson(Map<String, dynamic> json) = _$EngineImpl.fromJson;
 
   @override
   @JsonKey(name: 'id')
   int? get id;
   @override
-  @JsonKey(name: 'brand')
-  String? get brand;
+  @JsonKey(name: 'name')
+  String? get name;
   @override
   @JsonKey(ignore: true)
-  _$$CarImplCopyWith<_$CarImpl> get copyWith =>
+  _$$EngineImplCopyWith<_$EngineImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

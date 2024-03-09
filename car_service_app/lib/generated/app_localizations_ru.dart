@@ -57,4 +57,19 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get emptyCarList => 'Список Ваших автомобилей пуст';
+
+  @override
+  String get year => 'год';
+
+  @override
+  String get engine => 'двигатель';
+
+  @override
+  String get transmission => 'трансмиссия';
+
+  @override
+  String get equipment => 'комплектация';
+
+  @override
+  String get carDescription => 'добавьте описание для автомобиля';
 }

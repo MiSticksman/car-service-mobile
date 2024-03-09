@@ -13,7 +13,7 @@ class Car with _$Car {
     includeIfNull: false,
   )
   const factory Car({
-    @JsonKey(name: 'id') String? id,
+    @JsonKey(name: 'id') int? id,
     @JsonKey(name: 'brand') String? brand,
   }) = _Car;
 

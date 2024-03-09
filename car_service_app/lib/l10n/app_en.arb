@@ -21,5 +21,10 @@
   "selectModel": "Select model",
   "selectYear": "Select year",
   "done": "Done",
-  "emptyCarList": "The list of your cars is empty"
+  "emptyCarList": "The list of your cars is empty",
+  "year": "year",
+  "engine": "engine",
+  "transmission": "transmission",
+  "equipment": "equipment",
+  "carDescription": "add a description for the car"
 }

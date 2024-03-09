@@ -95,6 +95,7 @@ final class AppText {
     fontSize: 16,
     fontWeight: FontWeight.w400,
     fontFamily: 'Montserrat',
+    color: AppColor.black,
   );
 
   static const TextStyle normal18 = TextStyle(

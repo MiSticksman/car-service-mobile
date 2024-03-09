@@ -57,4 +57,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get emptyCarList => 'The list of your cars is empty';
+
+  @override
+  String get year => 'year';
+
+  @override
+  String get engine => 'engine';
+
+  @override
+  String get transmission => 'transmission';
+
+  @override
+  String get equipment => 'equipment';
+
+  @override
+  String get carDescription => 'add a description for the car';
 }
