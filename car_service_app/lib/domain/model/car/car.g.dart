@@ -7,7 +7,7 @@ part of 'car.dart';
 // **************************************************************************
 
 _$CarImpl _$$CarImplFromJson(Map<String, dynamic> json) => _$CarImpl(
-      id: json['id'] as String?,
+      id: json['id'] as int?,
       brand: json['brand'] as String?,
     );
 

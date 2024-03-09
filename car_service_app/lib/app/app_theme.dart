@@ -17,13 +17,13 @@ class AppTheme {
           primary: AppColor.black1F,
           onPrimary: AppColor.white,
           background: AppColor.whiteF8,
-          onBackground: AppColor.red,
+          onBackground: AppColor.black21,
           secondary: AppColor.white,
           onSecondary: AppColor.white,
           error: AppColor.white,
           onError: AppColor.white,
-          surface: AppColor.white,
-          onSurface: AppColor.white,
+          surface: AppColor.whiteF8,
+          onSurface: AppColor.black,
           brightness: Brightness.light,
         ),
         textTheme: const TextTheme(
@@ -35,6 +35,11 @@ class AppTheme {
             color: AppColor.black,
             fontSize: 16,
             fontWeight: FontWeight.normal,
+          ),
+          displayLarge: TextStyle(
+            color: AppColor.black,
+            fontSize: 22,
+            fontWeight: FontWeight.w500,
           ),
           titleLarge: TextStyle(
             color: AppColor.black,
@@ -101,6 +106,9 @@ class AppTheme {
               color: AppColor.white,
             ),
           ),
+        ),
+        dropdownMenuTheme: const DropdownMenuThemeData(
+          textStyle: AppText.normal16,
         ),
       ),
     );

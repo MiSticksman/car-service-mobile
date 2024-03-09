@@ -21,7 +21,7 @@ Car _$CarFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Car {
   @JsonKey(name: 'id')
-  String? get id => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'brand')
   String? get brand => throw _privateConstructorUsedError;
 
@@ -36,7 +36,7 @@ abstract class $CarCopyWith<$Res> {
       _$CarCopyWithImpl<$Res, Car>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') String? id, @JsonKey(name: 'brand') String? brand});
+      {@JsonKey(name: 'id') int? id, @JsonKey(name: 'brand') String? brand});
 }
 
 /// @nodoc
@@ -58,7 +58,7 @@ class _$CarCopyWithImpl<$Res, $Val extends Car> implements $CarCopyWith<$Res> {
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       brand: freezed == brand
           ? _value.brand
           : brand // ignore: cast_nullable_to_non_nullable
@@ -74,7 +74,7 @@ abstract class _$$CarImplCopyWith<$Res> implements $CarCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') String? id, @JsonKey(name: 'brand') String? brand});
+      {@JsonKey(name: 'id') int? id, @JsonKey(name: 'brand') String? brand});
 }
 
 /// @nodoc
@@ -93,7 +93,7 @@ class __$$CarImplCopyWithImpl<$Res> extends _$CarCopyWithImpl<$Res, _$CarImpl>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       brand: freezed == brand
           ? _value.brand
           : brand // ignore: cast_nullable_to_non_nullable
@@ -114,7 +114,7 @@ class _$CarImpl implements _Car {
 
   @override
   @JsonKey(name: 'id')
-  final String? id;
+  final int? id;
   @override
   @JsonKey(name: 'brand')
   final String? brand;
@@ -153,14 +153,14 @@ class _$CarImpl implements _Car {
 
 abstract class _Car implements Car {
   const factory _Car(
-      {@JsonKey(name: 'id') final String? id,
+      {@JsonKey(name: 'id') final int? id,
       @JsonKey(name: 'brand') final String? brand}) = _$CarImpl;
 
   factory _Car.fromJson(Map<String, dynamic> json) = _$CarImpl.fromJson;
 
   @override
   @JsonKey(name: 'id')
-  String? get id;
+  int? get id;
   @override
   @JsonKey(name: 'brand')
   String? get brand;
