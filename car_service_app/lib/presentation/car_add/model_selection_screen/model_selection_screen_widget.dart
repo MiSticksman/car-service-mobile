@@ -1,6 +1,8 @@
 import 'package:auto_route/annotations.dart';
+import 'package:car_service_app/app/app_color.dart';
 import 'package:core/core.dart';
 import 'package:elementary/elementary.dart';
+import 'package:elementary_helper/elementary_helper.dart';
 import 'package:flutter/material.dart';
 import 'model_selection_screen_wm.dart';
 
@@ -18,57 +20,69 @@ class ModelSelectionScreenWidget
   @override
   Widget build(IModelSelectionScreenWidgetModel wm) {
     final localizations = wm.localizations;
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text(localizations.choosingCarModel),
-        actions: const [CloseButton()],
-      ),
-      body: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: SearchWidget(
-              controller: wm.searchController,
-              hintText: localizations.carModelHintText,
+    return EntityStateNotifierBuilder(
+      listenableEntityState: wm.modelsState,
+      builder: (BuildContext context, data) {
+        final models = data?.$1 ?? [];
+        final selectedModel = data?.$2;
+        return Scaffold(
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            title: Text(localizations.choosingCarModel),
+            actions: const [CloseButton()],
+          ),
+          body: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: SearchWidget(
+                  controller: wm.searchController,
+                  hintText: localizations.carModelHintText,
+                ),
+              ),
+              SliverGrid(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 4,
+                  mainAxisSpacing: 0,
+                  crossAxisSpacing: 0,
+                ),
+                delegate: SliverChildBuilderDelegate(
+                  (_, index) {
+                    final model = models[index];
+                    return GestureDetector(
+                      onTap: () => wm.onModelTap(model),
+                      child: Stack(
+                        children: [
+                          Card(
+                            color: selectedModel == model ? wm.theme.colorScheme.onSecondary : null,
+                            child: const Center(
+                              child: Text('x5m'),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                  childCount: models.length,
+                ),
+              ),
+              // SliverPersistentHeader(
+              //   pinned: true,
+              //   delegate: SliverButton(wm: wm),
+              // ),
+            ],
+          ),
+          bottomNavigationBar: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 30.0,
+              vertical: 16,
+            ),
+            child: ElevatedButton(
+              onPressed: selectedModel == null ? null : wm.toCarAdd,
+              child: Text(localizations.further),
             ),
           ),
-          SliverGrid(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 4,
-              mainAxisSpacing: 0,
-              crossAxisSpacing: 0,
-            ),
-            delegate: SliverChildBuilderDelegate(
-              (_, index) {
-                return GestureDetector(
-                  onTap: (){},
-                  child: Card(
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text('x5m'),
-                    ),
-                  ),
-                );
-              },
-              childCount: 30,
-            ),
-          ),
-          // SliverPersistentHeader(
-          //   pinned: true,
-          //   delegate: SliverButton(wm: wm),
-          // ),
-        ],
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 30.0,
-          vertical: 16,
-        ),
-        child: ElevatedButton(
-          onPressed: wm.toCarAdd,
-          child: Text(localizations.further),
-        ),
-      ),
+        );
+      },
     );
   }
 }

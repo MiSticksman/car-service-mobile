@@ -10,11 +10,13 @@ import 'brand_selection_screen_widget.dart';
 
 abstract interface class IBrandSelectionScreenWidgetModel
     implements IWidgetModel, IThemeProvider {
-
   EntityStateNotifier<(List<CarBrand>, CarBrand?)> get brandsState;
+
   TextEditingController get searchController;
 
-  void onBrandTap();
+  void onBrandTap(CarBrand? brand);
+
+  void toSpecifyCarModel();
 }
 
 BrandSelectionScreenWidgetModel defaultBrandSelectionScreenWidgetModelFactory(
@@ -33,17 +35,22 @@ class BrandSelectionScreenWidgetModel
   @override
   final searchController = TextEditingController();
 
+
+  @override
+  final EntityStateNotifier<(List<CarBrand>, CarBrand?)> brandsState =
+  EntityStateNotifier();
+
   @override
   void initWidgetModel() {
     super.initWidgetModel();
     final brands = <CarBrand>[
-      CarBrand(id: 1, name: ''),
-      CarBrand(id: 2, name: ''),
-      CarBrand(id: 3, name: ''),
-      CarBrand(id: 4, name: ''),
-      CarBrand(id: 5, name: ''),
+      CarBrand(id: 1, name: 'aa'),
+      CarBrand(id: 2, name: 'bb'),
+      CarBrand(id: 3, name: 'cc'),
+      CarBrand(id: 4, name: 'dd'),
+      CarBrand(id: 5, name: 'ee'),
     ];
-    brandsState.content((brands, brands.firstOrNull));
+    brandsState.content((brands, null));
   }
 
   @override
@@ -53,20 +60,20 @@ class BrandSelectionScreenWidgetModel
     super.dispose();
   }
 
-  @override
-  final EntityStateNotifier<(List<CarBrand>, CarBrand?)> brandsState =
-  EntityStateNotifier();
 
   @override
-  Future<void> onBrandTap() async {
+  Future<void> onBrandTap(CarBrand? brand) async {
+    final brands = brandsState.value.data?.$1 ?? [];
+    brandsState.content((brands, brand));
+  }
+
+  @override
+  Future<void> toSpecifyCarModel() async {
     await showCupertinoModalBottomSheet(
       useRootNavigator: true,
       enableDrag: false,
       context: router.navigatorKey.currentContext!,
       builder: (_) => const ModelSelectionScreenWidget(),
     );
-
   }
-
-
 }

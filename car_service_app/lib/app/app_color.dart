@@ -18,7 +18,7 @@ final class AppColor {
   static const Color lightGrayEB = Color(0xFFEBEEF1);
   static const Color red = Color(0xFFEB1E10);
   static const Color orange = Color(0xFFED760E);
-  static const Color green = Colors.green;
+  static const Color green = Color(0xFF1FAD4B);
   static const Color grayTextField = Color(0xFFF0F0F0);
   static const Color transparent = Colors.transparent;
 }

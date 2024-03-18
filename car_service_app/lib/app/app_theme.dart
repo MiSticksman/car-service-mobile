@@ -19,7 +19,7 @@ class AppTheme {
           background: AppColor.whiteF8,
           onBackground: AppColor.black21,
           secondary: AppColor.white,
-          onSecondary: AppColor.white,
+          onSecondary: AppColor.orange,
           error: AppColor.white,
           onError: AppColor.white,
           surface: AppColor.whiteF8,
@@ -83,7 +83,6 @@ class AppTheme {
           style: ElevatedButton.styleFrom(
             foregroundColor: AppColor.white,
             backgroundColor: AppColor.black1F,
-            disabledBackgroundColor: AppColor.white,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
