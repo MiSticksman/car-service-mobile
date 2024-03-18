@@ -21,7 +21,7 @@ CarModel _$CarModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CarModel {
   @JsonKey(name: 'id')
-  int? get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'name')
   String? get name => throw _privateConstructorUsedError;
 
@@ -36,8 +36,7 @@ abstract class $CarModelCopyWith<$Res> {
   factory $CarModelCopyWith(CarModel value, $Res Function(CarModel) then) =
       _$CarModelCopyWithImpl<$Res, CarModel>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'id') int? id, @JsonKey(name: 'name') String? name});
+  $Res call({@JsonKey(name: 'id') int id, @JsonKey(name: 'name') String? name});
 }
 
 /// @nodoc
@@ -53,14 +52,14 @@ class _$CarModelCopyWithImpl<$Res, $Val extends CarModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -77,8 +76,7 @@ abstract class _$$CarModelImplCopyWith<$Res>
       __$$CarModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'id') int? id, @JsonKey(name: 'name') String? name});
+  $Res call({@JsonKey(name: 'id') int id, @JsonKey(name: 'name') String? name});
 }
 
 /// @nodoc
@@ -92,14 +90,14 @@ class __$$CarModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? name = freezed,
   }) {
     return _then(_$CarModelImpl(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -113,14 +111,15 @@ class __$$CarModelImplCopyWithImpl<$Res>
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 class _$CarModelImpl implements _CarModel {
   const _$CarModelImpl(
-      {@JsonKey(name: 'id') this.id, @JsonKey(name: 'name') this.name});
+      {@JsonKey(name: 'id') required this.id,
+      @JsonKey(name: 'name') this.name});
 
   factory _$CarModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$CarModelImplFromJson(json);
 
   @override
   @JsonKey(name: 'id')
-  final int? id;
+  final int id;
   @override
   @JsonKey(name: 'name')
   final String? name;
@@ -159,7 +158,7 @@ class _$CarModelImpl implements _CarModel {
 
 abstract class _CarModel implements CarModel {
   const factory _CarModel(
-      {@JsonKey(name: 'id') final int? id,
+      {@JsonKey(name: 'id') required final int id,
       @JsonKey(name: 'name') final String? name}) = _$CarModelImpl;
 
   factory _CarModel.fromJson(Map<String, dynamic> json) =
@@ -167,7 +166,7 @@ abstract class _CarModel implements CarModel {
 
   @override
   @JsonKey(name: 'id')
-  int? get id;
+  int get id;
   @override
   @JsonKey(name: 'name')
   String? get name;

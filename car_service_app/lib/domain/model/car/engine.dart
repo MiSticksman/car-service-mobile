@@ -13,7 +13,7 @@ class Engine with _$Engine {
     includeIfNull: false,
   )
   const factory Engine({
-    @JsonKey(name: 'id') int? id,
+    @JsonKey(name: 'id') required int id,
     @JsonKey(name: 'name') String? name,
   }) = _Engine;
 

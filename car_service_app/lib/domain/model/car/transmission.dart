@@ -13,7 +13,7 @@ class Transmission with _$Transmission {
     includeIfNull: false,
   )
   const factory Transmission({
-    @JsonKey(name: 'id') int? id,
+    @JsonKey(name: 'id') required int id,
     @JsonKey(name: 'name') String? name,
   }) = _Transmission;
 

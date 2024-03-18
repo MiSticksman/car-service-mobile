@@ -99,6 +99,12 @@ abstract class AppLocalizations {
   /// **'Catalog'**
   String get catalogTab;
 
+  /// No description provided for @worksTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Works'**
+  String get worksTab;
+
   /// No description provided for @cartTab.
   ///
   /// In en, this message translates to:
@@ -189,6 +195,12 @@ abstract class AppLocalizations {
   /// **'Select year'**
   String get selectYear;
 
+  /// No description provided for @further.
+  ///
+  /// In en, this message translates to:
+  /// **'Further'**
+  String get further;
+
   /// No description provided for @done.
   ///
   /// In en, this message translates to:
@@ -230,6 +242,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'add a description for the car'**
   String get carDescription;
+
+  /// No description provided for @mileage.
+  ///
+  /// In en, this message translates to:
+  /// **'mileage'**
+  String get mileage;
+
+  /// No description provided for @kilometers.
+  ///
+  /// In en, this message translates to:
+  /// **'km'**
+  String get kilometers;
+
+  /// No description provided for @deleteCar.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete car'**
+  String get deleteCar;
+
+  /// No description provided for @removal.
+  ///
+  /// In en, this message translates to:
+  /// **'Removal'**
+  String get removal;
+
+  /// No description provided for @removeQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you really want to remove the car?'**
+  String get removeQuestion;
+
+  /// No description provided for @yes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get yes;
+
+  /// No description provided for @no.
+  ///
+  /// In en, this message translates to:
+  /// **'No'**
+  String get no;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -1,6 +1,7 @@
 {
   "@@locale": "ru",
   "catalogTab": "Каталог",
+  "worksTab": "Работы",
   "cartTab": "Корзина",
   "profileTab": "Профиль",
   "catalogTitle": "Каталог",
@@ -20,11 +21,19 @@
   "addCar": "Добавить авто",
   "selectModel": "Указать модель",
   "selectYear": "Указать год",
+  "further": "Далее",
   "done": "Готово",
   "emptyCarList": "Список Ваших автомобилей пуст",
   "year": "год",
   "engine": "двигатель",
   "transmission": "трансмиссия",
   "equipment": "комплектация",
-  "carDescription": "добавьте описание для автомобиля"
+  "carDescription": "добавьте описание для автомобиля",
+  "mileage": "пробег",
+  "kilometers": "(км)",
+  "deleteCar": "Удалить авто",
+  "removal": "Удаление",
+  "removeQuestion": "Вы действительно хотите удалить автомобиль?",
+  "yes": "Да",
+  "no": "Нет"
 }

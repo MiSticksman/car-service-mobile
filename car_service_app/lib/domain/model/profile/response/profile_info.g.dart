@@ -8,7 +8,7 @@ part of 'profile_info.dart';
 
 _$ProfileInfoImpl _$$ProfileInfoImplFromJson(Map<String, dynamic> json) =>
     _$ProfileInfoImpl(
-      id: json['id'] as String?,
+      id: json['id'] as String,
       phone: json['phone'] as String?,
       phoneVerified: json['phone_verified'] as bool?,
       email: json['email'] as String?,
@@ -29,7 +29,9 @@ _$ProfileInfoImpl _$$ProfileInfoImplFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$$ProfileInfoImplToJson(_$ProfileInfoImpl instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'id': instance.id,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -37,7 +39,6 @@ Map<String, dynamic> _$$ProfileInfoImplToJson(_$ProfileInfoImpl instance) {
     }
   }
 
-  writeNotNull('id', instance.id);
   writeNotNull('phone', instance.phone);
   writeNotNull('phone_verified', instance.phoneVerified);
   writeNotNull('email', instance.email);

@@ -14,7 +14,7 @@ class ProfileInfo with _$ProfileInfo {
     includeIfNull: false,
   )
   const factory ProfileInfo({
-    @JsonKey(name: 'id') String? id,
+    @JsonKey(name: 'id') required String id,
     @JsonKey(name: 'phone') String? phone,
     @JsonKey(name: 'phone_verified') bool? phoneVerified,
     @JsonKey(name: 'email') String? email,

@@ -7,12 +7,14 @@ part of 'engine.dart';
 // **************************************************************************
 
 _$EngineImpl _$$EngineImplFromJson(Map<String, dynamic> json) => _$EngineImpl(
-      id: json['id'] as int?,
+      id: json['id'] as int,
       name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$EngineImplToJson(_$EngineImpl instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'id': instance.id,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -20,7 +22,6 @@ Map<String, dynamic> _$$EngineImplToJson(_$EngineImpl instance) {
     }
   }
 
-  writeNotNull('id', instance.id);
   writeNotNull('name', instance.name);
   return val;
 }

@@ -8,6 +8,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get catalogTab => 'Catalog';
 
   @override
+  String get worksTab => 'Works';
+
+  @override
   String get cartTab => 'Cart';
 
   @override
@@ -53,6 +56,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get selectYear => 'Select year';
 
   @override
+  String get further => 'Further';
+
+  @override
   String get done => 'Done';
 
   @override
@@ -72,4 +78,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get carDescription => 'add a description for the car';
+
+  @override
+  String get mileage => 'mileage';
+
+  @override
+  String get kilometers => 'km';
+
+  @override
+  String get deleteCar => 'Delete car';
+
+  @override
+  String get removal => 'Removal';
+
+  @override
+  String get removeQuestion => 'Do you really want to remove the car?';
+
+  @override
+  String get yes => 'Yes';
+
+  @override
+  String get no => 'No';
 }

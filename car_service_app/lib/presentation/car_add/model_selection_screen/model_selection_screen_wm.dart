@@ -1,4 +1,4 @@
-import 'package:car_service_app/presentation/car_info_screen/car_info_screen.dart';
+import 'package:car_service_app/presentation/car_add/car_add_screen/car_add_screen.dart';
 import 'package:car_service_app/util/wm_base.dart';
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +40,7 @@ class ModelSelectionScreenWidgetModel extends WidgetModel<ModelSelectionScreenWi
     useRootNavigator: true,
     enableDrag: false,
     context: router.navigatorKey.currentContext!,
-    builder: (_) => const CarInfoScreenWidget(),
+    builder: (_) => const CarAddScreenWidget(),
     );
   }
 }

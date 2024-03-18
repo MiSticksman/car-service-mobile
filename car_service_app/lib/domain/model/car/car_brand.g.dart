@@ -8,12 +8,14 @@ part of 'car_brand.dart';
 
 _$CarBrandImpl _$$CarBrandImplFromJson(Map<String, dynamic> json) =>
     _$CarBrandImpl(
-      id: json['id'] as int?,
+      id: json['id'] as int,
       name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$CarBrandImplToJson(_$CarBrandImpl instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'id': instance.id,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -21,7 +23,6 @@ Map<String, dynamic> _$$CarBrandImplToJson(_$CarBrandImpl instance) {
     }
   }
 
-  writeNotNull('id', instance.id);
   writeNotNull('name', instance.name);
   return val;
 }

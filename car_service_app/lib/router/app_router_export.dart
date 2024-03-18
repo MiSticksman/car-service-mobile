@@ -11,5 +11,7 @@ export 'package:car_service_app/presentation/order_finished_screen/order_finishe
 export 'package:car_service_app/presentation/category_screen/category_screen.dart';
 export 'package:car_service_app/presentation/my_cars_screen/my_cars_screen.dart';
 export 'package:car_service_app/presentation/car_add/brand_selection_screen/brand_selection_screen.dart';
-export 'package:car_service_app/presentation/car_info_screen/car_info_screen.dart';
+export 'package:car_service_app/presentation/car_add/car_add_screen/car_add_screen.dart';
 export 'package:car_service_app/presentation/car_add/model_selection_screen/model_selection_screen.dart';
+export 'package:car_service_app/presentation/works_screen/works_screen.dart';
+export 'package:car_service_app/presentation/car_info_screen/car_info_screen.dart';

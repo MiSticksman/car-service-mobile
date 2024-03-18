@@ -13,7 +13,7 @@ class CarBrand with _$CarBrand {
     includeIfNull: false,
   )
   const factory CarBrand({
-    @JsonKey(name: 'id') int? id,
+    @JsonKey(name: 'id') required int id,
     @JsonKey(name: 'name') String? name,
   }) = _CarBrand;
 

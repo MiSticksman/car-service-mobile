@@ -8,6 +8,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get catalogTab => 'Каталог';
 
   @override
+  String get worksTab => 'Работы';
+
+  @override
   String get cartTab => 'Корзина';
 
   @override
@@ -53,6 +56,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get selectYear => 'Указать год';
 
   @override
+  String get further => 'Далее';
+
+  @override
   String get done => 'Готово';
 
   @override
@@ -72,4 +78,25 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get carDescription => 'добавьте описание для автомобиля';
+
+  @override
+  String get mileage => 'пробег';
+
+  @override
+  String get kilometers => '(км)';
+
+  @override
+  String get deleteCar => 'Удалить авто';
+
+  @override
+  String get removal => 'Удаление';
+
+  @override
+  String get removeQuestion => 'Вы действительно хотите удалить автомобиль?';
+
+  @override
+  String get yes => 'Да';
+
+  @override
+  String get no => 'Нет';
 }

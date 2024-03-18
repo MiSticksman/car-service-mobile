@@ -1,6 +1,7 @@
 {
   "@@locale": "en",
   "catalogTab": "Catalog",
+  "worksTab": "Works",
   "cartTab": "Cart",
   "profileTab": "Profile",
   "catalogTitle": "Catalog",
@@ -20,11 +21,19 @@
   "addCar": "Add car",
   "selectModel": "Select model",
   "selectYear": "Select year",
+  "further": "Further",
   "done": "Done",
   "emptyCarList": "The list of your cars is empty",
   "year": "year",
   "engine": "engine",
   "transmission": "transmission",
   "equipment": "equipment",
-  "carDescription": "add a description for the car"
+  "carDescription": "add a description for the car",
+  "mileage": "mileage",
+  "kilometers": "km",
+  "deleteCar": "Delete car",
+  "removal": "Removal",
+  "removeQuestion": "Do you really want to remove the car?",
+  "yes": "Yes",
+  "no": "No"
 }

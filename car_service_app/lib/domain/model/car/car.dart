@@ -13,8 +13,10 @@ class Car with _$Car {
     includeIfNull: false,
   )
   const factory Car({
-    @JsonKey(name: 'id') int? id,
+     @JsonKey(name: 'id') required int id,
     @JsonKey(name: 'brand') String? brand,
+    @JsonKey(name: 'model') String? model,
+    @JsonKey(name: 'year') int? year,
   }) = _Car;
 
   factory Car.fromJson(Map<String, dynamic> json) => _$CarFromJson(json);

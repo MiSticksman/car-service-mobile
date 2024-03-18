@@ -21,7 +21,6 @@ abstract interface class IMyCarsScreenWidgetModel
   void toBrandSelection();
 
   void toCarInfo(Car car);
-
 }
 
 MyCarsScreenWidgetModel defaultMyCarsScreenWidgetModelFactory(
@@ -49,11 +48,10 @@ class MyCarsScreenWidgetModel
 
   Future<void> init() async {
     carsState.loading();
-    await Future.delayed(const Duration(seconds: 1));
     try {
       // TODO запрос на бек
       final cars = <Car>[
-        Car(id: 1, brand: 'Toyota'),
+        Car(id: 1, brand: 'Toyota', model: 'Mark II', year: 2014),
         Car(id: 2, brand: ''),
         Car(id: 3, brand: ''),
         Car(id: 4, brand: ''),
@@ -99,7 +97,7 @@ class MyCarsScreenWidgetModel
       useRootNavigator: true,
       enableDrag: false,
       context: router.navigatorKey.currentContext!,
-      builder: (_) => const BrandSelectionScreenWidget(),
+      builder: (context) => const BrandSelectionScreenWidget(),
     );
   }
 
@@ -107,12 +105,11 @@ class MyCarsScreenWidgetModel
   Future<void> toCarInfo(Car car) async {
     await showCupertinoModalBottomSheet(
       useRootNavigator: true,
-      enableDrag: false,
+      enableDrag: true,
       context: router.navigatorKey.currentContext!,
-      builder: (_) => CarInfoScreenWidget(
+      builder: (context) => CarInfoScreenWidget(
         car: car,
       ),
     );
   }
-
 }

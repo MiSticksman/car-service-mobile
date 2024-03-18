@@ -35,6 +35,11 @@ class ProfileScreenWidget extends ElementaryWidget<IProfileScreenWidgetModel> {
                 paramName: localizations.myCars,
                 onTap: wm.openMyCars,
               ),
+              // SettingElement(
+              //   picture: "",
+              //   paramName: localizations.,
+              //   onTap: onTap,
+              // )
             ],
           ),
         ),

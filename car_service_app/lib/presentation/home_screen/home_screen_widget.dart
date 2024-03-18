@@ -34,7 +34,8 @@ class AppScreen extends StatelessWidget {
     final localizations = AppLocalizations.of(context);
     return AutoTabsScaffold(
       routes: const [
-        CatalogTab(),
+        // CatalogTab(),
+        WorksTab(),
         CartTab(),
         ProfileTab(),
       ],
@@ -51,9 +52,13 @@ class AppScreen extends StatelessWidget {
           currentIndex: tabsRouter.activeIndex,
           onTap: (index) => wm.updateTab(index, tabsRouter),
           items: [
+            // CustomBottomNavigationBarItem(
+            //   icon: Icons.manage_search,
+            //   label: localizations.catalogTab,
+            // ),
             CustomBottomNavigationBarItem(
-              icon: Icons.manage_search,
-              label: localizations.catalogTab,
+              icon: Icons.build,
+              label: localizations.worksTab,
             ),
             CustomBottomNavigationBarItem(
               icon: Icons.shopping_bag_outlined,

@@ -26,12 +26,12 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-    CarInfoRoute.name: (routeData) {
-      final args = routeData.argsAs<CarInfoRouteArgs>(
-          orElse: () => const CarInfoRouteArgs());
+    CarAddRoute.name: (routeData) {
+      final args = routeData.argsAs<CarAddRouteArgs>(
+          orElse: () => const CarAddRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: CarInfoScreenWidget(
+        child: CarAddScreenWidget(
           key: args.key,
           wmFactory: args.wmFactory,
           car: args.car,
@@ -166,6 +166,23 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ProfileTabPage(),
       );
     },
+    WorksRoute.name: (routeData) {
+      final args = routeData.argsAs<WorksRouteArgs>(
+          orElse: () => const WorksRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WorksScreenWidget(
+          key: args.key,
+          wmFactory: args.wmFactory,
+        ),
+      );
+    },
+    WorksTab.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const WorksTabPage(),
+      );
+    },
   };
 }
 
@@ -211,18 +228,18 @@ class BrandSelectionRouteArgs {
 }
 
 /// generated route for
-/// [CarInfoScreenWidget]
-class CarInfoRoute extends PageRouteInfo<CarInfoRouteArgs> {
-  CarInfoRoute({
+/// [CarAddScreenWidget]
+class CarAddRoute extends PageRouteInfo<CarAddRouteArgs> {
+  CarAddRoute({
     Key? key,
     WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
             BuildContext)
-        wmFactory = defaultCarInfoScreenWidgetModelFactory,
+        wmFactory = defaultCarAddScreenWidgetModelFactory,
     Car? car,
     List<PageRouteInfo>? children,
   }) : super(
-          CarInfoRoute.name,
-          args: CarInfoRouteArgs(
+          CarAddRoute.name,
+          args: CarAddRouteArgs(
             key: key,
             wmFactory: wmFactory,
             car: car,
@@ -230,16 +247,15 @@ class CarInfoRoute extends PageRouteInfo<CarInfoRouteArgs> {
           initialChildren: children,
         );
 
-  static const String name = 'CarInfoRoute';
+  static const String name = 'CarAddRoute';
 
-  static const PageInfo<CarInfoRouteArgs> page =
-      PageInfo<CarInfoRouteArgs>(name);
+  static const PageInfo<CarAddRouteArgs> page = PageInfo<CarAddRouteArgs>(name);
 }
 
-class CarInfoRouteArgs {
-  const CarInfoRouteArgs({
+class CarAddRouteArgs {
+  const CarAddRouteArgs({
     this.key,
-    this.wmFactory = defaultCarInfoScreenWidgetModelFactory,
+    this.wmFactory = defaultCarAddScreenWidgetModelFactory,
     this.car,
   });
 
@@ -252,7 +268,7 @@ class CarInfoRouteArgs {
 
   @override
   String toString() {
-    return 'CarInfoRouteArgs{key: $key, wmFactory: $wmFactory, car: $car}';
+    return 'CarAddRouteArgs{key: $key, wmFactory: $wmFactory, car: $car}';
   }
 }
 
@@ -700,6 +716,60 @@ class ProfileTab extends PageRouteInfo<void> {
         );
 
   static const String name = 'ProfileTab';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [WorksScreenWidget]
+class WorksRoute extends PageRouteInfo<WorksRouteArgs> {
+  WorksRoute({
+    Key? key,
+    WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+            BuildContext)
+        wmFactory = defaultWorksScreenWidgetModelFactory,
+    List<PageRouteInfo>? children,
+  }) : super(
+          WorksRoute.name,
+          args: WorksRouteArgs(
+            key: key,
+            wmFactory: wmFactory,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'WorksRoute';
+
+  static const PageInfo<WorksRouteArgs> page = PageInfo<WorksRouteArgs>(name);
+}
+
+class WorksRouteArgs {
+  const WorksRouteArgs({
+    this.key,
+    this.wmFactory = defaultWorksScreenWidgetModelFactory,
+  });
+
+  final Key? key;
+
+  final WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+      BuildContext) wmFactory;
+
+  @override
+  String toString() {
+    return 'WorksRouteArgs{key: $key, wmFactory: $wmFactory}';
+  }
+}
+
+/// generated route for
+/// [WorksTabPage]
+class WorksTab extends PageRouteInfo<void> {
+  const WorksTab({List<PageRouteInfo>? children})
+      : super(
+          WorksTab.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'WorksTab';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

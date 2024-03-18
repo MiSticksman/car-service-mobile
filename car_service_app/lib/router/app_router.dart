@@ -26,17 +26,12 @@ class AppRouter extends _$AppRouter {
           },
           children: [
             AutoRoute(
-              initial: true,
-              page: CatalogTab.page,
+              page: WorksTab.page,
               children: [
                 AutoRoute(
                   initial: true,
-                  page: CategoryRoute.page,
+                  page: WorksRoute.page,
                 ),
-                AutoRoute(
-                  page: CatalogRoute.page,
-                ),
-                AutoRoute(page: ProductRoute.page),
               ],
             ),
             AutoRoute(
@@ -83,6 +78,11 @@ class AppRouter extends _$AppRouter {
 @RoutePage(name: 'CatalogTab')
 class CatalogTabPage extends AutoRouter {
   const CatalogTabPage({super.key});
+}
+
+@RoutePage(name: 'WorksTab')
+class WorksTabPage extends AutoRouter {
+  const WorksTabPage({super.key});
 }
 
 @RoutePage(name: 'CartTab')

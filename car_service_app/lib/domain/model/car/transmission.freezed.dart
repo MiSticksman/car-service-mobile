@@ -21,7 +21,7 @@ Transmission _$TransmissionFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Transmission {
   @JsonKey(name: 'id')
-  int? get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'name')
   String? get name => throw _privateConstructorUsedError;
 
@@ -37,8 +37,7 @@ abstract class $TransmissionCopyWith<$Res> {
           Transmission value, $Res Function(Transmission) then) =
       _$TransmissionCopyWithImpl<$Res, Transmission>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'id') int? id, @JsonKey(name: 'name') String? name});
+  $Res call({@JsonKey(name: 'id') int id, @JsonKey(name: 'name') String? name});
 }
 
 /// @nodoc
@@ -54,14 +53,14 @@ class _$TransmissionCopyWithImpl<$Res, $Val extends Transmission>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -78,8 +77,7 @@ abstract class _$$TransmissionImplCopyWith<$Res>
       __$$TransmissionImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'id') int? id, @JsonKey(name: 'name') String? name});
+  $Res call({@JsonKey(name: 'id') int id, @JsonKey(name: 'name') String? name});
 }
 
 /// @nodoc
@@ -93,14 +91,14 @@ class __$$TransmissionImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? name = freezed,
   }) {
     return _then(_$TransmissionImpl(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -114,14 +112,15 @@ class __$$TransmissionImplCopyWithImpl<$Res>
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 class _$TransmissionImpl implements _Transmission {
   const _$TransmissionImpl(
-      {@JsonKey(name: 'id') this.id, @JsonKey(name: 'name') this.name});
+      {@JsonKey(name: 'id') required this.id,
+      @JsonKey(name: 'name') this.name});
 
   factory _$TransmissionImpl.fromJson(Map<String, dynamic> json) =>
       _$$TransmissionImplFromJson(json);
 
   @override
   @JsonKey(name: 'id')
-  final int? id;
+  final int id;
   @override
   @JsonKey(name: 'name')
   final String? name;
@@ -160,7 +159,7 @@ class _$TransmissionImpl implements _Transmission {
 
 abstract class _Transmission implements Transmission {
   const factory _Transmission(
-      {@JsonKey(name: 'id') final int? id,
+      {@JsonKey(name: 'id') required final int id,
       @JsonKey(name: 'name') final String? name}) = _$TransmissionImpl;
 
   factory _Transmission.fromJson(Map<String, dynamic> json) =
@@ -168,7 +167,7 @@ abstract class _Transmission implements Transmission {
 
   @override
   @JsonKey(name: 'id')
-  int? get id;
+  int get id;
   @override
   @JsonKey(name: 'name')
   String? get name;

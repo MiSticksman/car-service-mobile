@@ -21,7 +21,7 @@ ProfileInfo _$ProfileInfoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ProfileInfo {
   @JsonKey(name: 'id')
-  String? get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'phone')
   String? get phone => throw _privateConstructorUsedError;
   @JsonKey(name: 'phone_verified')
@@ -66,7 +66,7 @@ abstract class $ProfileInfoCopyWith<$Res> {
       _$ProfileInfoCopyWithImpl<$Res, ProfileInfo>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') String? id,
+      {@JsonKey(name: 'id') String id,
       @JsonKey(name: 'phone') String? phone,
       @JsonKey(name: 'phone_verified') bool? phoneVerified,
       @JsonKey(name: 'email') String? email,
@@ -97,7 +97,7 @@ class _$ProfileInfoCopyWithImpl<$Res, $Val extends ProfileInfo>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? phone = freezed,
     Object? phoneVerified = freezed,
     Object? email = freezed,
@@ -115,10 +115,10 @@ class _$ProfileInfoCopyWithImpl<$Res, $Val extends ProfileInfo>
     Object? isEmailSend = freezed,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
@@ -192,7 +192,7 @@ abstract class _$$ProfileInfoImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') String? id,
+      {@JsonKey(name: 'id') String id,
       @JsonKey(name: 'phone') String? phone,
       @JsonKey(name: 'phone_verified') bool? phoneVerified,
       @JsonKey(name: 'email') String? email,
@@ -221,7 +221,7 @@ class __$$ProfileInfoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? phone = freezed,
     Object? phoneVerified = freezed,
     Object? email = freezed,
@@ -239,10 +239,10 @@ class __$$ProfileInfoImplCopyWithImpl<$Res>
     Object? isEmailSend = freezed,
   }) {
     return _then(_$ProfileInfoImpl(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
@@ -312,7 +312,7 @@ class __$$ProfileInfoImplCopyWithImpl<$Res>
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 class _$ProfileInfoImpl implements _ProfileInfo {
   const _$ProfileInfoImpl(
-      {@JsonKey(name: 'id') this.id,
+      {@JsonKey(name: 'id') required this.id,
       @JsonKey(name: 'phone') this.phone,
       @JsonKey(name: 'phone_verified') this.phoneVerified,
       @JsonKey(name: 'email') this.email,
@@ -335,7 +335,7 @@ class _$ProfileInfoImpl implements _ProfileInfo {
 
   @override
   @JsonKey(name: 'id')
-  final String? id;
+  final String id;
   @override
   @JsonKey(name: 'phone')
   final String? phone;
@@ -462,7 +462,7 @@ class _$ProfileInfoImpl implements _ProfileInfo {
 
 abstract class _ProfileInfo implements ProfileInfo {
   const factory _ProfileInfo(
-          {@JsonKey(name: 'id') final String? id,
+          {@JsonKey(name: 'id') required final String id,
           @JsonKey(name: 'phone') final String? phone,
           @JsonKey(name: 'phone_verified') final bool? phoneVerified,
           @JsonKey(name: 'email') final String? email,
@@ -485,7 +485,7 @@ abstract class _ProfileInfo implements ProfileInfo {
 
   @override
   @JsonKey(name: 'id')
-  String? get id;
+  String get id;
   @override
   @JsonKey(name: 'phone')
   String? get phone;

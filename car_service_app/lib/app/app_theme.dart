@@ -39,6 +39,11 @@ class AppTheme {
           displayLarge: TextStyle(
             color: AppColor.black,
             fontSize: 22,
+            fontWeight: FontWeight.w600,
+          ),
+          displayMedium: TextStyle(
+            color: AppColor.black,
+            fontSize: 18,
             fontWeight: FontWeight.w500,
           ),
           titleLarge: TextStyle(

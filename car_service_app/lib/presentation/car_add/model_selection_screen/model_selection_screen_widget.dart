@@ -66,7 +66,7 @@ class ModelSelectionScreenWidget
         ),
         child: ElevatedButton(
           onPressed: wm.toCarAdd,
-          child: Text(localizations.selectYear),
+          child: Text(localizations.further),
         ),
       ),
     );
