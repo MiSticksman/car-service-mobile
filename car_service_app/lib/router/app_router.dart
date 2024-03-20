@@ -63,13 +63,11 @@ class AppRouter extends _$AppRouter {
                 ),
                 AutoRoute(page: MyCarsRoute.page),
                 AutoRoute(page: OrderFinishedRoute.page),
+                AutoRoute(page: EditingProfileRoute.page)
               ],
             ),
           ],
         ),
-
-        // AutoRoute(page: MyCarsRoute.page),
-        // AutoRoute(page: CarAddRoute.page),
         AutoRoute(page: OrderRoute.page),
         AutoRoute(page: OrderFinishedRoute.page),
       ];

@@ -99,4 +99,22 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get no => 'Нет';
+
+  @override
+  String get myData => 'Мои данные';
+
+  @override
+  String get name => 'Имя';
+
+  @override
+  String get surname => 'Фамилия';
+
+  @override
+  String get phone => 'Телефон';
+
+  @override
+  String get email => 'E-mail';
+
+  @override
+  String get save => 'Сохранить';
 }

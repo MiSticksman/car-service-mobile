@@ -35,5 +35,11 @@
   "removal": "Removal",
   "removeQuestion": "Do you really want to remove the car?",
   "yes": "Yes",
-  "no": "No"
+  "no": "No",
+  "myData": "My data",
+  "name": "Name",
+  "surname": "Surname",
+  "phone": "Phone",
+  "email": "E-mail",
+  "save": "Save"
 }

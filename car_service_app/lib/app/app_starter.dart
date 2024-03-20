@@ -4,6 +4,8 @@ import 'package:car_service_app/internal/di/configure_dependencies.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+
+final scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
 class AppStarter extends StatelessWidget {
   const AppStarter({
     super.key,

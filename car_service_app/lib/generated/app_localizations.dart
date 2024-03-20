@@ -284,6 +284,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No'**
   String get no;
+
+  /// No description provided for @myData.
+  ///
+  /// In en, this message translates to:
+  /// **'My data'**
+  String get myData;
+
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
+  /// No description provided for @surname.
+  ///
+  /// In en, this message translates to:
+  /// **'Surname'**
+  String get surname;
+
+  /// No description provided for @phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get phone;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'E-mail'**
+  String get email;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

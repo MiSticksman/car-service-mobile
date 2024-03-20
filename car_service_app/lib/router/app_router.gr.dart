@@ -83,6 +83,17 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    EditingProfileRoute.name: (routeData) {
+      final args = routeData.argsAs<EditingProfileRouteArgs>(
+          orElse: () => const EditingProfileRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: EditingProfileScreenWidget(
+          key: args.key,
+          wmFactory: args.wmFactory,
+        ),
+      );
+    },
     HomeRoute.name: (routeData) {
       final args =
           routeData.argsAs<HomeRouteArgs>(orElse: () => const HomeRouteArgs());
@@ -419,6 +430,47 @@ class CategoryRouteArgs {
   @override
   String toString() {
     return 'CategoryRouteArgs{key: $key, wmFactory: $wmFactory}';
+  }
+}
+
+/// generated route for
+/// [EditingProfileScreenWidget]
+class EditingProfileRoute extends PageRouteInfo<EditingProfileRouteArgs> {
+  EditingProfileRoute({
+    Key? key,
+    WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+            BuildContext)
+        wmFactory = defaultEditingProfileScreenWidgetModelFactory,
+    List<PageRouteInfo>? children,
+  }) : super(
+          EditingProfileRoute.name,
+          args: EditingProfileRouteArgs(
+            key: key,
+            wmFactory: wmFactory,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'EditingProfileRoute';
+
+  static const PageInfo<EditingProfileRouteArgs> page =
+      PageInfo<EditingProfileRouteArgs>(name);
+}
+
+class EditingProfileRouteArgs {
+  const EditingProfileRouteArgs({
+    this.key,
+    this.wmFactory = defaultEditingProfileScreenWidgetModelFactory,
+  });
+
+  final Key? key;
+
+  final WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+      BuildContext) wmFactory;
+
+  @override
+  String toString() {
+    return 'EditingProfileRouteArgs{key: $key, wmFactory: $wmFactory}';
   }
 }
 

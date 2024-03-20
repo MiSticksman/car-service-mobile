@@ -99,4 +99,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get no => 'No';
+
+  @override
+  String get myData => 'My data';
+
+  @override
+  String get name => 'Name';
+
+  @override
+  String get surname => 'Surname';
+
+  @override
+  String get phone => 'Phone';
+
+  @override
+  String get email => 'E-mail';
+
+  @override
+  String get save => 'Save';
 }

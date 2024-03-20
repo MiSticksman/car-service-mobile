@@ -28,7 +28,10 @@ class ProfileScreenWidget extends ElementaryWidget<IProfileScreenWidgetModel> {
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
             children: [
-              UserDataElement(userName: 'Вадим Шафоростов', onTap: () {}),
+              UserDataElement(
+                userName: 'Вадим Шафоростов',
+                onTap: wm.toEditingProfile,
+              ),
               const SizedBox(height: 30),
               SettingElement(
                 picture: 'assets/car.png',
