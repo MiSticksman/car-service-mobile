@@ -49,12 +49,6 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-    CartTab.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const CartTabPage(),
-      );
-    },
     CatalogRoute.name: (routeData) {
       final args = routeData.argsAs<CatalogRouteArgs>(
           orElse: () => const CatalogRouteArgs());
@@ -64,12 +58,6 @@ abstract class _$AppRouter extends RootStackRouter {
           key: args.key,
           wmFactory: args.wmFactory,
         ),
-      );
-    },
-    CatalogTab.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const CatalogTabPage(),
       );
     },
     CategoryRoute.name: (routeData) {
@@ -89,17 +77,6 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: EditingProfileScreenWidget(
-          key: args.key,
-          wmFactory: args.wmFactory,
-        ),
-      );
-    },
-    HomeRoute.name: (routeData) {
-      final args =
-          routeData.argsAs<HomeRouteArgs>(orElse: () => const HomeRouteArgs());
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: HomeScreenWidget(
           key: args.key,
           wmFactory: args.wmFactory,
         ),
@@ -171,12 +148,6 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-    ProfileTab.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const ProfileTabPage(),
-      );
-    },
     WorksRoute.name: (routeData) {
       final args = routeData.argsAs<WorksRouteArgs>(
           orElse: () => const WorksRouteArgs());
@@ -186,12 +157,6 @@ abstract class _$AppRouter extends RootStackRouter {
           key: args.key,
           wmFactory: args.wmFactory,
         ),
-      );
-    },
-    WorksTab.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const WorksTabPage(),
       );
     },
   };
@@ -324,20 +289,6 @@ class CartRouteArgs {
 }
 
 /// generated route for
-/// [CartTabPage]
-class CartTab extends PageRouteInfo<void> {
-  const CartTab({List<PageRouteInfo>? children})
-      : super(
-          CartTab.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'CartTab';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
 /// [CatalogScreenWidget]
 class CatalogRoute extends PageRouteInfo<CatalogRouteArgs> {
   CatalogRoute({
@@ -376,20 +327,6 @@ class CatalogRouteArgs {
   String toString() {
     return 'CatalogRouteArgs{key: $key, wmFactory: $wmFactory}';
   }
-}
-
-/// generated route for
-/// [CatalogTabPage]
-class CatalogTab extends PageRouteInfo<void> {
-  const CatalogTab({List<PageRouteInfo>? children})
-      : super(
-          CatalogTab.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'CatalogTab';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -471,46 +408,6 @@ class EditingProfileRouteArgs {
   @override
   String toString() {
     return 'EditingProfileRouteArgs{key: $key, wmFactory: $wmFactory}';
-  }
-}
-
-/// generated route for
-/// [HomeScreenWidget]
-class HomeRoute extends PageRouteInfo<HomeRouteArgs> {
-  HomeRoute({
-    Key? key,
-    WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
-            BuildContext)
-        wmFactory = defaultHomePageWidgetModelFactory,
-    List<PageRouteInfo>? children,
-  }) : super(
-          HomeRoute.name,
-          args: HomeRouteArgs(
-            key: key,
-            wmFactory: wmFactory,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'HomeRoute';
-
-  static const PageInfo<HomeRouteArgs> page = PageInfo<HomeRouteArgs>(name);
-}
-
-class HomeRouteArgs {
-  const HomeRouteArgs({
-    this.key,
-    this.wmFactory = defaultHomePageWidgetModelFactory,
-  });
-
-  final Key? key;
-
-  final WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
-      BuildContext) wmFactory;
-
-  @override
-  String toString() {
-    return 'HomeRouteArgs{key: $key, wmFactory: $wmFactory}';
   }
 }
 
@@ -759,20 +656,6 @@ class ProfileRouteArgs {
 }
 
 /// generated route for
-/// [ProfileTabPage]
-class ProfileTab extends PageRouteInfo<void> {
-  const ProfileTab({List<PageRouteInfo>? children})
-      : super(
-          ProfileTab.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'ProfileTab';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
 /// [WorksScreenWidget]
 class WorksRoute extends PageRouteInfo<WorksRouteArgs> {
   WorksRoute({
@@ -810,18 +693,4 @@ class WorksRouteArgs {
   String toString() {
     return 'WorksRouteArgs{key: $key, wmFactory: $wmFactory}';
   }
-}
-
-/// generated route for
-/// [WorksTabPage]
-class WorksTab extends PageRouteInfo<void> {
-  const WorksTab({List<PageRouteInfo>? children})
-      : super(
-          WorksTab.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'WorksTab';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
 }

@@ -81,7 +81,7 @@ class _ValidatedTextFieldState extends State<ValidatedTextField> {
                       ),
                       hintStyle: const TextStyle(
                         fontSize: 16,
-                        color: Colors.red,
+                        color: Color(0xFF748595),
                         fontWeight: FontWeight.w400,
                       ),
                       hintText: widget.hintText,

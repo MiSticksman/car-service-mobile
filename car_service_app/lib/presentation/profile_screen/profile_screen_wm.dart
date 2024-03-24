@@ -1,3 +1,4 @@
+import 'package:car_service_app/presentation/editing_profile_screen/editing_profile_screen.dart';
 import 'package:car_service_app/presentation/my_cars_screen/my_cars_screen.dart';
 import 'package:car_service_app/router/app_router.dart';
 import 'package:car_service_app/util/wm_base.dart';
@@ -9,8 +10,8 @@ import 'profile_screen_widget.dart';
 
 abstract interface class IProfileScreenWidgetModel
     implements IWidgetModel, IThemeProvider {
-
   void toEditingProfile();
+
   void openMyCars();
 }
 
@@ -28,9 +29,16 @@ class ProfileScreenWidgetModel
   ProfileScreenWidgetModel(super.model);
 
   @override
-  void toEditingProfile() {
-    router.navigate(EditingProfileRoute());
+  Future<void> toEditingProfile() async {
+    await showCupertinoModalBottomSheet(
+      useRootNavigator: true,
+      isDismissible: false,
+      enableDrag: false,
+      context: router.navigatorKey.currentContext!,
+      builder: (_) => const EditingProfileScreenWidget(),
+    );
   }
+
   @override
   Future<void> openMyCars() async {
     // router.push(MyCarsRoute());

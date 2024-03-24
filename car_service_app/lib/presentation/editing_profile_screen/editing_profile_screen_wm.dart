@@ -2,6 +2,7 @@ import 'package:car_service_app/app/app_starter.dart';
 import 'package:car_service_app/util/wm_base.dart';
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'editing_profile_screen_model.dart';
 import 'editing_profile_screen_widget.dart';
 
@@ -10,6 +11,8 @@ abstract interface class IEditingProfileScreenWidgetModel
   TextEditingController get nameController;
 
   TextEditingController get surnameController;
+
+  MaskTextInputFormatter get phoneMaskedController;
 
   TextEditingController get phoneController;
 
@@ -39,6 +42,13 @@ class EditingProfileScreenWidgetModel
 
   @override
   final TextEditingController phoneController = TextEditingController();
+  @override
+  final MaskTextInputFormatter phoneMaskedController = MaskTextInputFormatter(
+    mask: '+# (###) ###-##-##',
+    filter: {
+      "#": RegExp(r'[0-9]'),
+    },
+  );
 
   @override
   final TextEditingController emailController = TextEditingController();
@@ -54,6 +64,7 @@ class EditingProfileScreenWidgetModel
     if (!_validate()) {
       return;
     }
+    router.pop();
   }
 
   bool _validate() {
@@ -85,11 +96,11 @@ class EditingProfileScreenWidgetModel
           behavior: SnackBarBehavior.floating,
           duration: const Duration(seconds: 2),
           margin: EdgeInsets.only(
-            bottom: MediaQuery.of(context).size.height - 200,
             left: 10,
             right: 10,
           ),
-          content: const Text('Заполните все обязательные поля в верном формате'),
+          content:
+              const Text('Заполните все обязательные поля в верном формате'),
         ),
       );
     }

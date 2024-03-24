@@ -24,6 +24,8 @@ class EditingProfileScreenWidget
       child: Scaffold(
         appBar: AppBar(
           title: Text(localizations.myData),
+          actions: const [CloseButton()],
+          automaticallyImplyLeading: false,
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -45,7 +47,9 @@ class EditingProfileScreenWidget
               ValidatedTextField(
                 controller: wm.phoneController,
                 label: localizations.phone,
+                hintText: '+7 (900) 000-00-00',
                 keyboardType: TextInputType.number,
+                inputFormatters: [wm.phoneMaskedController],
               ),
               const SizedBox(height: 16),
               ValidatedTextField(
@@ -57,10 +61,7 @@ class EditingProfileScreenWidget
           ),
         ),
         bottomNavigationBar: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 30.0,
-            vertical: 16,
-          ),
+          padding: const EdgeInsets.all(30),
           child: ElevatedButton(
             onPressed: wm.saveData,
             child: Text(localizations.save),
