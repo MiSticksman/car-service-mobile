@@ -320,6 +320,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Save'**
   String get save;
+
+  /// No description provided for @selectWork.
+  ///
+  /// In en, this message translates to:
+  /// **'Select work'**
+  String get selectWork;
+
+  /// No description provided for @workSelection.
+  ///
+  /// In en, this message translates to:
+  /// **'Work selection'**
+  String get workSelection;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

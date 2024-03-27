@@ -22,6 +22,8 @@ Car _$CarFromJson(Map<String, dynamic> json) {
 mixin _$Car {
   @JsonKey(name: 'id')
   int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'carConfig')
+  CarConfig? get carConfig => throw _privateConstructorUsedError;
   @JsonKey(name: 'brand')
   String? get brand => throw _privateConstructorUsedError;
   @JsonKey(name: 'model')
@@ -41,9 +43,12 @@ abstract class $CarCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'id') int id,
+      @JsonKey(name: 'carConfig') CarConfig? carConfig,
       @JsonKey(name: 'brand') String? brand,
       @JsonKey(name: 'model') String? model,
       @JsonKey(name: 'year') int? year});
+
+  $CarConfigCopyWith<$Res>? get carConfig;
 }
 
 /// @nodoc
@@ -59,6 +64,7 @@ class _$CarCopyWithImpl<$Res, $Val extends Car> implements $CarCopyWith<$Res> {
   @override
   $Res call({
     Object? id = null,
+    Object? carConfig = freezed,
     Object? brand = freezed,
     Object? model = freezed,
     Object? year = freezed,
@@ -68,6 +74,10 @@ class _$CarCopyWithImpl<$Res, $Val extends Car> implements $CarCopyWith<$Res> {
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      carConfig: freezed == carConfig
+          ? _value.carConfig
+          : carConfig // ignore: cast_nullable_to_non_nullable
+              as CarConfig?,
       brand: freezed == brand
           ? _value.brand
           : brand // ignore: cast_nullable_to_non_nullable
@@ -82,6 +92,18 @@ class _$CarCopyWithImpl<$Res, $Val extends Car> implements $CarCopyWith<$Res> {
               as int?,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CarConfigCopyWith<$Res>? get carConfig {
+    if (_value.carConfig == null) {
+      return null;
+    }
+
+    return $CarConfigCopyWith<$Res>(_value.carConfig!, (value) {
+      return _then(_value.copyWith(carConfig: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -92,9 +114,13 @@ abstract class _$$CarImplCopyWith<$Res> implements $CarCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'id') int id,
+      @JsonKey(name: 'carConfig') CarConfig? carConfig,
       @JsonKey(name: 'brand') String? brand,
       @JsonKey(name: 'model') String? model,
       @JsonKey(name: 'year') int? year});
+
+  @override
+  $CarConfigCopyWith<$Res>? get carConfig;
 }
 
 /// @nodoc
@@ -107,6 +133,7 @@ class __$$CarImplCopyWithImpl<$Res> extends _$CarCopyWithImpl<$Res, _$CarImpl>
   @override
   $Res call({
     Object? id = null,
+    Object? carConfig = freezed,
     Object? brand = freezed,
     Object? model = freezed,
     Object? year = freezed,
@@ -116,6 +143,10 @@ class __$$CarImplCopyWithImpl<$Res> extends _$CarCopyWithImpl<$Res, _$CarImpl>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      carConfig: freezed == carConfig
+          ? _value.carConfig
+          : carConfig // ignore: cast_nullable_to_non_nullable
+              as CarConfig?,
       brand: freezed == brand
           ? _value.brand
           : brand // ignore: cast_nullable_to_non_nullable
@@ -138,6 +169,7 @@ class __$$CarImplCopyWithImpl<$Res> extends _$CarCopyWithImpl<$Res, _$CarImpl>
 class _$CarImpl implements _Car {
   const _$CarImpl(
       {@JsonKey(name: 'id') required this.id,
+      @JsonKey(name: 'carConfig') this.carConfig,
       @JsonKey(name: 'brand') this.brand,
       @JsonKey(name: 'model') this.model,
       @JsonKey(name: 'year') this.year});
@@ -148,6 +180,9 @@ class _$CarImpl implements _Car {
   @override
   @JsonKey(name: 'id')
   final int id;
+  @override
+  @JsonKey(name: 'carConfig')
+  final CarConfig? carConfig;
   @override
   @JsonKey(name: 'brand')
   final String? brand;
@@ -160,7 +195,7 @@ class _$CarImpl implements _Car {
 
   @override
   String toString() {
-    return 'Car(id: $id, brand: $brand, model: $model, year: $year)';
+    return 'Car(id: $id, carConfig: $carConfig, brand: $brand, model: $model, year: $year)';
   }
 
   @override
@@ -169,6 +204,8 @@ class _$CarImpl implements _Car {
         (other.runtimeType == runtimeType &&
             other is _$CarImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.carConfig, carConfig) ||
+                other.carConfig == carConfig) &&
             (identical(other.brand, brand) || other.brand == brand) &&
             (identical(other.model, model) || other.model == model) &&
             (identical(other.year, year) || other.year == year));
@@ -176,7 +213,8 @@ class _$CarImpl implements _Car {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, brand, model, year);
+  int get hashCode =>
+      Object.hash(runtimeType, id, carConfig, brand, model, year);
 
   @JsonKey(ignore: true)
   @override
@@ -195,6 +233,7 @@ class _$CarImpl implements _Car {
 abstract class _Car implements Car {
   const factory _Car(
       {@JsonKey(name: 'id') required final int id,
+      @JsonKey(name: 'carConfig') final CarConfig? carConfig,
       @JsonKey(name: 'brand') final String? brand,
       @JsonKey(name: 'model') final String? model,
       @JsonKey(name: 'year') final int? year}) = _$CarImpl;
@@ -204,6 +243,9 @@ abstract class _Car implements Car {
   @override
   @JsonKey(name: 'id')
   int get id;
+  @override
+  @JsonKey(name: 'carConfig')
+  CarConfig? get carConfig;
   @override
   @JsonKey(name: 'brand')
   String? get brand;

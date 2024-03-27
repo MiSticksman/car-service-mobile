@@ -46,6 +46,11 @@ class AppTheme {
             fontSize: 18,
             fontWeight: FontWeight.w500,
           ),
+          displaySmall: TextStyle(
+            color: AppColor.black,
+            fontSize: 16,
+            fontWeight: FontWeight.w400,
+          ),
           titleLarge: TextStyle(
             color: AppColor.black,
             fontSize: 22,

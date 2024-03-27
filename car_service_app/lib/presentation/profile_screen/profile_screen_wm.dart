@@ -1,5 +1,6 @@
 import 'package:car_service_app/presentation/editing_profile_screen/editing_profile_screen.dart';
 import 'package:car_service_app/presentation/my_cars_screen/my_cars_screen.dart';
+import 'package:car_service_app/presentation/works_screen/works_screen.dart';
 import 'package:car_service_app/router/app_router.dart';
 import 'package:car_service_app/util/wm_base.dart';
 import 'package:elementary/elementary.dart';
@@ -13,6 +14,8 @@ abstract interface class IProfileScreenWidgetModel
   void toEditingProfile();
 
   void openMyCars();
+
+  void toWorksScreen();
 }
 
 ProfileScreenWidgetModel defaultProfileScreenWidgetModelFactory(
@@ -41,13 +44,23 @@ class ProfileScreenWidgetModel
 
   @override
   Future<void> openMyCars() async {
-    // router.push(MyCarsRoute());
     await showCupertinoModalBottomSheet(
       useRootNavigator: true,
       isDismissible: false,
       enableDrag: false,
       context: router.navigatorKey.currentContext!,
       builder: (_) => const MyCarsScreenWidget(),
+    );
+  }
+
+  @override
+  Future<void> toWorksScreen() async {
+    await showCupertinoModalBottomSheet(
+      useRootNavigator: true,
+      isDismissible: false,
+      enableDrag: false,
+      context: router.navigatorKey.currentContext!,
+      builder: (_) => const WorksScreenWidget(),
     );
   }
 }

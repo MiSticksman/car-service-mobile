@@ -41,5 +41,7 @@
   "surname": "Фамилия",
   "phone": "Телефон",
   "email": "E-mail",
-  "save": "Сохранить"
+  "save": "Сохранить",
+  "selectWork": "Выбрать работу",
+  "workSelection": "Выбор работы"
 }

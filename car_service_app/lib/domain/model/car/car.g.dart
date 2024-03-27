@@ -8,6 +8,9 @@ part of 'car.dart';
 
 _$CarImpl _$$CarImplFromJson(Map<String, dynamic> json) => _$CarImpl(
       id: json['id'] as int,
+      carConfig: json['carConfig'] == null
+          ? null
+          : CarConfig.fromJson(json['carConfig'] as Map<String, dynamic>),
       brand: json['brand'] as String?,
       model: json['model'] as String?,
       year: json['year'] as int?,
@@ -24,6 +27,7 @@ Map<String, dynamic> _$$CarImplToJson(_$CarImpl instance) {
     }
   }
 
+  writeNotNull('carConfig', instance.carConfig?.toJson());
   writeNotNull('brand', instance.brand);
   writeNotNull('model', instance.model);
   writeNotNull('year', instance.year);

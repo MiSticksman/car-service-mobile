@@ -41,5 +41,7 @@
   "surname": "Surname",
   "phone": "Phone",
   "email": "E-mail",
-  "save": "Save"
+  "save": "Save",
+  "selectWork": "Select work",
+  "workSelection": "Work selection"
 }

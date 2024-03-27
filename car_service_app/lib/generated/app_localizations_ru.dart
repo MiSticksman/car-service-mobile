@@ -117,4 +117,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get save => 'Сохранить';
+
+  @override
+  String get selectWork => 'Выбрать работу';
+
+  @override
+  String get workSelection => 'Выбор работы';
 }

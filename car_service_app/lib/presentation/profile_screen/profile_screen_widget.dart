@@ -1,5 +1,4 @@
 import 'package:auto_route/annotations.dart';
-import 'package:car_service_app/app/app_color.dart';
 import 'package:car_service_app/presentation/profile_screen/components/setting_element.dart';
 import 'package:car_service_app/presentation/profile_screen/components/user_data_element.dart';
 import 'package:elementary/elementary.dart';
@@ -38,11 +37,11 @@ class ProfileScreenWidget extends ElementaryWidget<IProfileScreenWidgetModel> {
                 paramName: localizations.myCars,
                 onTap: wm.openMyCars,
               ),
-              // SettingElement(
-              //   picture: "",
-              //   paramName: localizations.,
-              //   onTap: onTap,
-              // )
+              SettingElement(
+                picture: "assets/svg/tool.svg",
+                paramName: localizations.selectWork,
+                onTap: wm.toWorksScreen,
+              )
             ],
           ),
         ),

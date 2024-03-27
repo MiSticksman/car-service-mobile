@@ -49,7 +49,7 @@ class SettingElement extends StatelessWidget {
           indent: 40.0,
           endIndent: 16,
           thickness: 1,
-          height: 20,
+          height: 30,
         ),
       ],
     );

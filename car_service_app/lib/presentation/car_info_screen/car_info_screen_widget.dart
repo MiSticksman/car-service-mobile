@@ -133,7 +133,7 @@ class CarInfoScreenWidget extends ElementaryWidget<ICarInfoScreenWidgetModel> {
           vertical: 16,
         ),
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: wm.complete,
           child: Text(localizations.done),
         ),
       ),

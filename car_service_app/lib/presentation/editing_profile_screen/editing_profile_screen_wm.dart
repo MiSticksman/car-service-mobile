@@ -95,7 +95,7 @@ class EditingProfileScreenWidgetModel
           backgroundColor: theme.colorScheme.onSecondary,
           behavior: SnackBarBehavior.floating,
           duration: const Duration(seconds: 2),
-          margin: EdgeInsets.only(
+          margin: const EdgeInsets.only(
             left: 10,
             right: 10,
           ),

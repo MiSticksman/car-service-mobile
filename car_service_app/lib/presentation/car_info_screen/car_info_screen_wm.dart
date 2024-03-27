@@ -11,6 +11,8 @@ abstract interface class ICarInfoScreenWidgetModel
   TextEditingController get mileageController;
 
   void deleteCar(int id);
+
+  void complete();
 }
 
 CarInfoScreenWidgetModel defaultCarInfoScreenWidgetModelFactory(
@@ -46,5 +48,11 @@ class CarInfoScreenWidgetModel
         ],
       ),
     );
+  }
+
+  @override
+  Future<void> complete() async {
+
+    router.pop();
   }
 }

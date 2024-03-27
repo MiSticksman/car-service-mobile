@@ -49,7 +49,6 @@ class MyCarsScreenWidgetModel
   Future<void> init() async {
     carsState.loading();
     try {
-      // TODO запрос на бек
       final cars = <Car>[
         Car(id: 1, brand: 'Toyota', model: 'Mark II', year: 2014),
         Car(id: 2, brand: ''),
