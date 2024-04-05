@@ -5,31 +5,29 @@ import 'package:car_service_app/data/service/profile_service.dart';
 import 'package:car_service_app/internal/dio_configurator.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-
-Future<void> initServices() async {
-  final dio = RegisterModule.dio;
-  initDio(dio: dio);
-}
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 @module
 abstract class RegisterModule {
-  static final Dio dio = Dio();
-
-  final ProfileService _profileService = ProfileService(dio);
-
   @singleton
-  ProfileService get profileService => _profileService;
+  Dio buildDio() {
+    final dio = Dio();
+    const timeout = Duration(seconds: 30);
 
-  final CartService _cartService = CartService(dio);
-  @singleton
-  CartService get cartService => _cartService;
+    dio.options
+      ..baseUrl = ''
+      ..connectTimeout = timeout
+      ..receiveTimeout = timeout
+      ..sendTimeout = timeout;
 
-  final CatalogService _catalogService = CatalogService(dio);
-  @singleton
-  CatalogService get catalogService => _catalogService;
+    dio.interceptors.add(
+      PrettyDioLogger(
+        requestHeader: true,
+        requestBody: true,
+      ),
+    );
 
-  final OrderService _orderService = OrderService(dio);
-  @singleton
-  OrderService get orderService => _orderService;
+    return dio;
+  }
 
 }

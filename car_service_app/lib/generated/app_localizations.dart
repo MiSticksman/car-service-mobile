@@ -291,6 +291,12 @@ abstract class AppLocalizations {
   /// **'My data'**
   String get myData;
 
+  /// No description provided for @edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get edit;
+
   /// No description provided for @name.
   ///
   /// In en, this message translates to:
@@ -327,11 +333,53 @@ abstract class AppLocalizations {
   /// **'Select work'**
   String get selectWork;
 
+  /// No description provided for @emptyWorksText.
+  ///
+  /// In en, this message translates to:
+  /// **'You haven\'t added any cars yet. To see the list of jobs, add your car'**
+  String get emptyWorksText;
+
+  /// No description provided for @completeRegistration.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete registration of an entry in the service'**
+  String get completeRegistration;
+
+  /// No description provided for @worksHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Works done'**
+  String get worksHistory;
+
   /// No description provided for @workSelection.
   ///
   /// In en, this message translates to:
-  /// **'Work selection'**
+  /// **'Workы'**
   String get workSelection;
+
+  /// No description provided for @presentedWorks.
+  ///
+  /// In en, this message translates to:
+  /// **'The works are presented for the car'**
+  String get presentedWorks;
+
+  /// No description provided for @selectAnotherCar.
+  ///
+  /// In en, this message translates to:
+  /// **'Select another car'**
+  String get selectAnotherCar;
+
+  /// No description provided for @selectDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Select details'**
+  String get selectDetails;
+
+  /// No description provided for @detailsSelection.
+  ///
+  /// In en, this message translates to:
+  /// **'Details and consumables'**
+  String get detailsSelection;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -15,11 +15,11 @@ class SettingElement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        GestureDetector(
-          onTap: onTap,
-          child: Row(
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Row(
             children: [
               picture.contains('svg')
                   ? SvgPicture.asset(
@@ -33,9 +33,12 @@ class SettingElement extends StatelessWidget {
                       height: 24,
                     ),
               const SizedBox(width: 16),
-              Text(
-                paramName,
-                style: Theme.of(context).textTheme.bodyLarge,
+              SizedBox(
+                width: MediaQuery.of(context).size.width / 1.5,
+                child: Text(
+                  paramName,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
               ),
               const Spacer(),
               const Icon(
@@ -44,14 +47,14 @@ class SettingElement extends StatelessWidget {
               ),
             ],
           ),
-        ),
-        const Divider(
-          indent: 40.0,
-          endIndent: 16,
-          thickness: 1,
-          height: 30,
-        ),
-      ],
+          const Divider(
+            indent: 40.0,
+            endIndent: 16,
+            thickness: 1,
+            height: 30,
+          ),
+        ],
+      ),
     );
   }
 }

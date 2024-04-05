@@ -104,6 +104,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get myData => 'My data';
 
   @override
+  String get edit => 'Edit';
+
+  @override
   String get name => 'Name';
 
   @override
@@ -122,5 +125,26 @@ class AppLocalizationsEn extends AppLocalizations {
   String get selectWork => 'Select work';
 
   @override
-  String get workSelection => 'Work selection';
+  String get emptyWorksText => 'You haven\'t added any cars yet. To see the list of jobs, add your car';
+
+  @override
+  String get completeRegistration => 'Complete registration of an entry in the service';
+
+  @override
+  String get worksHistory => 'Works done';
+
+  @override
+  String get workSelection => 'Workы';
+
+  @override
+  String get presentedWorks => 'The works are presented for the car';
+
+  @override
+  String get selectAnotherCar => 'Select another car';
+
+  @override
+  String get selectDetails => 'Select details';
+
+  @override
+  String get detailsSelection => 'Details and consumables';
 }

@@ -104,16 +104,16 @@ class AppTheme {
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
-            foregroundColor: AppColor.white,
-            backgroundColor: Colors.transparent,
+            foregroundColor: AppColor.black1F,
+            backgroundColor: AppColor.white,
             side: const BorderSide(
-              width: 1,
-              color: AppColor.white,
+              width: 2,
+              color: AppColor.orange,
             ),
             fixedSize: const Size.fromHeight(50),
-            textStyle: AppText.medium14.copyWith(
-              color: AppColor.white,
-            ),
+            textStyle: AppText.medium16,
+            minimumSize: const Size(250, 50),
+            maximumSize: const Size(320, 50),
           ),
         ),
         dropdownMenuTheme: const DropdownMenuThemeData(

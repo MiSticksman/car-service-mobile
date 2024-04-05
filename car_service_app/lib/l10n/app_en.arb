@@ -37,11 +37,19 @@
   "yes": "Yes",
   "no": "No",
   "myData": "My data",
+  "edit": "Edit",
   "name": "Name",
   "surname": "Surname",
   "phone": "Phone",
   "email": "E-mail",
   "save": "Save",
   "selectWork": "Select work",
-  "workSelection": "Work selection"
+  "emptyWorksText": "You haven't added any cars yet. To see the list of jobs, add your car",
+  "completeRegistration": "Complete registration of an entry in the service",
+  "worksHistory": "Works done",
+  "workSelection": "Workы",
+  "presentedWorks": "The works are presented for the car",
+  "selectAnotherCar": "Select another car",
+  "selectDetails": "Select details",
+  "detailsSelection": "Details and consumables"
 }

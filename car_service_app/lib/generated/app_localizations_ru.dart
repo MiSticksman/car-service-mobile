@@ -104,6 +104,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get myData => 'Мои данные';
 
   @override
+  String get edit => 'Редактировать';
+
+  @override
   String get name => 'Имя';
 
   @override
@@ -119,8 +122,29 @@ class AppLocalizationsRu extends AppLocalizations {
   String get save => 'Сохранить';
 
   @override
-  String get selectWork => 'Выбрать работу';
+  String get selectWork => 'Выбор работы';
 
   @override
-  String get workSelection => 'Выбор работы';
+  String get emptyWorksText => 'Вы пока не добавили ни одной машины. Чтобы увидеть список работ, добавьте свой автомобиль';
+
+  @override
+  String get completeRegistration => 'Завершить оформление записи в сервис';
+
+  @override
+  String get worksHistory => 'Проделанные работы';
+
+  @override
+  String get workSelection => 'Работы';
+
+  @override
+  String get presentedWorks => 'Работы представлены для автомобиля';
+
+  @override
+  String get selectAnotherCar => 'Выбрать другой автомобиль';
+
+  @override
+  String get selectDetails => 'Выбрать детали';
+
+  @override
+  String get detailsSelection => 'Детали и расходники';
 }

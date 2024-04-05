@@ -13,7 +13,6 @@ Future<void> startApp() async {
     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown],
   );
   configureDependencies();
-  await initServices();
   runApp(AppStarter(child: CarServiceApp()));
 
 }

@@ -20,11 +20,16 @@ class ProfileScreenWidget extends ElementaryWidget<IProfileScreenWidgetModel> {
     final textTheme = wm.theme.textTheme;
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(localizations.profileTitle),
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          padding: const EdgeInsets.only(
+            top: 10.0,
+            left: 24.0,
+            right: 24.0,
+          ),
           child: Column(
             children: [
               UserDataElement(
@@ -32,6 +37,13 @@ class ProfileScreenWidget extends ElementaryWidget<IProfileScreenWidgetModel> {
                 onTap: wm.toEditingProfile,
               ),
               const SizedBox(height: 30),
+              // todo condition on preorder
+              if (true)
+                SettingElement(
+                  picture: "assets/svg/preorder_work_detail.svg",
+                  paramName: localizations.completeRegistration,
+                  onTap: wm.toOrderScreen,
+                ),
               SettingElement(
                 picture: 'assets/car.png',
                 paramName: localizations.myCars,
@@ -41,7 +53,12 @@ class ProfileScreenWidget extends ElementaryWidget<IProfileScreenWidgetModel> {
                 picture: "assets/svg/tool.svg",
                 paramName: localizations.selectWork,
                 onTap: wm.toWorksScreen,
-              )
+              ),
+              SettingElement(
+                picture: "assets/svg/works_history.svg",
+                paramName: localizations.worksHistory,
+                onTap: wm.toCompleteWorksScreen,
+              ),
             ],
           ),
         ),

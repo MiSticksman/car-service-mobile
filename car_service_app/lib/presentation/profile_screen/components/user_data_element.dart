@@ -1,4 +1,5 @@
 import 'package:car_service_app/app/app_color.dart';
+import 'package:car_service_app/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class UserDataElement extends StatelessWidget {
@@ -26,7 +27,7 @@ class UserDataElement extends StatelessWidget {
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               Text(
-                'Редактировать',
+                AppLocalizations.of(context).edit,
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: AppColor.black21,
                     ),

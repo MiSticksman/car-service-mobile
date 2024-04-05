@@ -37,11 +37,19 @@
   "yes": "Да",
   "no": "Нет",
   "myData": "Мои данные",
+  "edit": "Редактировать",
   "name": "Имя",
   "surname": "Фамилия",
   "phone": "Телефон",
   "email": "E-mail",
   "save": "Сохранить",
-  "selectWork": "Выбрать работу",
-  "workSelection": "Выбор работы"
+  "selectWork": "Выбор работы",
+  "emptyWorksText": "Вы пока не добавили ни одной машины. Чтобы увидеть список работ, добавьте свой автомобиль",
+  "completeRegistration": "Завершить оформление записи в сервис",
+  "worksHistory": "Проделанные работы",
+  "workSelection": "Работы",
+  "presentedWorks": "Работы представлены для автомобиля",
+  "selectAnotherCar": "Выбрать другой автомобиль",
+  "selectDetails": "Выбрать детали",
+  "detailsSelection": "Детали и расходники"
 }

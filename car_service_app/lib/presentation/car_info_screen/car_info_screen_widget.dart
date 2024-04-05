@@ -1,3 +1,4 @@
+import 'package:auto_route/annotations.dart';
 import 'package:car_service_app/app/app_color.dart';
 import 'package:car_service_app/domain/model/car/car.dart';
 import 'package:car_service_app/presentation/ui_util/unfocus.dart';
@@ -7,6 +8,7 @@ import 'car_info_screen_wm.dart';
 
 // TODO: cover with documentation
 /// Main widget for CarInfoScreen module
+@RoutePage()
 class CarInfoScreenWidget extends ElementaryWidget<ICarInfoScreenWidgetModel> {
   final Car car;
   const CarInfoScreenWidget({

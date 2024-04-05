@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:car_service_app/presentation/editing_profile_screen/editing_profile_screen.dart';
 import 'package:car_service_app/presentation/my_cars_screen/my_cars_screen.dart';
 import 'package:car_service_app/presentation/works_screen/works_screen.dart';
@@ -16,6 +17,10 @@ abstract interface class IProfileScreenWidgetModel
   void openMyCars();
 
   void toWorksScreen();
+
+  void toOrderScreen();
+
+  void toCompleteWorksScreen();
 }
 
 ProfileScreenWidgetModel defaultProfileScreenWidgetModelFactory(
@@ -44,6 +49,7 @@ class ProfileScreenWidgetModel
 
   @override
   Future<void> openMyCars() async {
+    // context.router.navigate(MyCarsRoute());
     await showCupertinoModalBottomSheet(
       useRootNavigator: true,
       isDismissible: false,
@@ -55,7 +61,8 @@ class ProfileScreenWidgetModel
 
   @override
   Future<void> toWorksScreen() async {
-    await showCupertinoModalBottomSheet(
+    // context.router.navigate(WorksRoute());
+    showCupertinoModalBottomSheet(
       useRootNavigator: true,
       isDismissible: false,
       enableDrag: false,
@@ -63,4 +70,10 @@ class ProfileScreenWidgetModel
       builder: (_) => const WorksScreenWidget(),
     );
   }
+
+  @override
+  void toOrderScreen() {}
+
+  @override
+  void toCompleteWorksScreen() {}
 }
