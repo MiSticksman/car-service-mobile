@@ -11,21 +11,33 @@ part 'app_router.gr.dart';
 class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
-        CustomRoute(
+        AutoRoute(
           initial: true,
-          page: ProfileRoute.page,
-          customRouteBuilder: <T>(
-            BuildContext context,
-            Widget child,
-            AutoRoutePage<T> page,
-          ) {
-            return MaterialWithModalsPageRoute<T>(
-              settings: page,
-              fullscreenDialog: true,
-              builder: (_) => child,
-            );
-          },
+          page: ProfileTab.page,
           children: [
+            CustomRoute(
+              initial: true,
+              page: ProfileRoute.page,
+              customRouteBuilder: <T>(
+                BuildContext context,
+                Widget child,
+                AutoRoutePage<T> page,
+              ) {
+                return MaterialWithModalsPageRoute<T>(
+                  settings: page,
+                  fullscreenDialog: true,
+                  builder: (_) => child,
+                );
+              },
+            ),
+            CustomRoute(
+              page: EditingProfileRoute.page,
+              customRouteBuilder: modalBottomSheetBuilder,
+            ),
+            CustomRoute(
+              page: AuthRoute.page,
+              customRouteBuilder: modalBottomSheetBuilder,
+            ),
             CustomRoute(
               page: MyCarsRoute.page,
               customRouteBuilder: modalBottomSheetBuilder,
@@ -34,7 +46,28 @@ class AppRouter extends _$AppRouter {
               page: WorksRoute.page,
               customRouteBuilder: modalBottomSheetBuilder,
             ),
+            CustomRoute(
+              page: BrandSelectionRoute.page,
+              customRouteBuilder: modalBottomSheetBuilder,
+            ),
+            CustomRoute(
+              page: ModelSelectionRoute.page,
+              customRouteBuilder: modalBottomSheetBuilder,
+            ),
+            CustomRoute(
+              page: CarAddRoute.page,
+              customRouteBuilder: modalBottomSheetBuilder,
+            ),
+            CustomRoute(
+              page: CarInfoRoute.page,
+              customRouteBuilder: modalBottomSheetBuilder,
+            ),
           ],
         ),
       ];
+}
+
+@RoutePage(name: 'ProfileTab')
+class ProfileTabPage extends AutoRouter {
+  const ProfileTabPage({super.key});
 }

@@ -20,51 +20,53 @@ class EditingProfileScreenWidget
   Widget build(IEditingProfileScreenWidgetModel wm) {
     final localizations = wm.localizations;
     final textTheme = wm.theme.textTheme;
-    return UnfocusWidget(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(localizations.myData),
-          actions: const [CloseButton()],
-          automaticallyImplyLeading: false,
-        ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ValidatedTextField(
-                controller: wm.nameController,
-                label: localizations.name,
-                keyboardType: TextInputType.text,
-              ),
-              const SizedBox(height: 16),
-              ValidatedTextField(
-                controller: wm.surnameController,
-                label: localizations.surname,
-                keyboardType: TextInputType.text,
-              ),
-              const SizedBox(height: 16),
-              ValidatedTextField(
-                controller: wm.phoneController,
-                label: localizations.phone,
-                hintText: '+7 (900) 000-00-00',
-                keyboardType: TextInputType.number,
-                inputFormatters: [wm.phoneMaskedController],
-              ),
-              const SizedBox(height: 16),
-              ValidatedTextField(
-                controller: wm.emailController,
-                label: localizations.email,
-                keyboardType: TextInputType.emailAddress,
-              ),
-            ],
+    return SafeArea(
+      child: UnfocusWidget(
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text(localizations.myData),
+            actions: const [CloseButton()],
+            automaticallyImplyLeading: false,
           ),
-        ),
-        bottomNavigationBar: Padding(
-          padding: const EdgeInsets.all(30),
-          child: ElevatedButton(
-            onPressed: wm.saveData,
-            child: Text(localizations.save),
+          body: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ValidatedTextField(
+                  controller: wm.nameController,
+                  label: localizations.name,
+                  keyboardType: TextInputType.text,
+                ),
+                const SizedBox(height: 16),
+                ValidatedTextField(
+                  controller: wm.surnameController,
+                  label: localizations.surname,
+                  keyboardType: TextInputType.text,
+                ),
+                const SizedBox(height: 16),
+                ValidatedTextField(
+                  controller: wm.phoneController,
+                  label: localizations.phone,
+                  hintText: '+7 (900) 000-00-00',
+                  keyboardType: TextInputType.number,
+                  inputFormatters: [wm.phoneMaskedController],
+                ),
+                const SizedBox(height: 16),
+                ValidatedTextField(
+                  controller: wm.emailController,
+                  label: localizations.email,
+                  keyboardType: TextInputType.emailAddress,
+                ),
+              ],
+            ),
+          ),
+          bottomNavigationBar: Padding(
+            padding: const EdgeInsets.all(30),
+            child: ElevatedButton(
+              onPressed: wm.saveData,
+              child: Text(localizations.save),
+            ),
           ),
         ),
       ),

@@ -28,14 +28,14 @@ class BrandSelectionScreenWidget
         if (brands.isEmpty) {
           return const Center(child: Text(''),);
         }
-        return Scaffold(
-          appBar: AppBar(
-            automaticallyImplyLeading: false,
-            title: Text(localizations.choosingCarBrand),
-            actions: const [CloseButton()],
-          ),
-          body: SafeArea(
-            child: Column(
+        return SafeArea(
+          child: Scaffold(
+            appBar: AppBar(
+              automaticallyImplyLeading: false,
+              title: Text(localizations.choosingCarBrand),
+              actions: const [CloseButton()],
+            ),
+            body: Column(
               children: [
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -68,16 +68,16 @@ class BrandSelectionScreenWidget
                 ),
               ],
             ),
-          ),
-          bottomNavigationBar: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 30.0,
-
-              vertical: 16,
-            ),
-            child: ElevatedButton(
-              onPressed: selectedBrand == null ? null : wm.toSpecifyCarModel,
-              child: Text(localizations.selectModel),
+            bottomNavigationBar: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 30.0,
+          
+                vertical: 16,
+              ),
+              child: ElevatedButton(
+                onPressed: selectedBrand == null ? null : wm.toSpecifyCarModel,
+                child: Text(localizations.selectModel),
+              ),
             ),
           ),
         );

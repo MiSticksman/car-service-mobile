@@ -2,6 +2,7 @@ import 'package:car_service_app/domain/model/car/car.dart';
 import 'package:car_service_app/internal/logger.dart';
 import 'package:car_service_app/presentation/car_add/brand_selection_screen/brand_selection_screen.dart';
 import 'package:car_service_app/presentation/car_info_screen/car_info_screen.dart';
+import 'package:car_service_app/router/app_router.dart';
 import 'package:car_service_app/util/wm_base.dart';
 import 'package:elementary/elementary.dart';
 import 'package:elementary_helper/elementary_helper.dart';
@@ -80,7 +81,7 @@ class MyCarsScreenWidgetModel
 
   @override
   void close() {
-    router.pop();
+    router.maybePop();
   }
 
   @override
@@ -92,23 +93,25 @@ class MyCarsScreenWidgetModel
 
   @override
   Future<void> toBrandSelection() async {
-    await showCupertinoModalBottomSheet(
-      useRootNavigator: true,
-      enableDrag: false,
-      context: router.navigatorKey.currentContext!,
-      builder: (context) => const BrandSelectionScreenWidget(),
-    );
+    router.navigate(BrandSelectionRoute());
+    // await showCupertinoModalBottomSheet(
+    //   useRootNavigator: true,
+    //   enableDrag: false,
+    //   context: router.navigatorKey.currentContext!,
+    //   builder: (context) => const BrandSelectionScreenWidget(),
+    // );
   }
 
   @override
   Future<void> toCarInfo(Car car) async {
-    await showCupertinoModalBottomSheet(
-      useRootNavigator: true,
-      enableDrag: true,
-      context: router.navigatorKey.currentContext!,
-      builder: (context) => CarInfoScreenWidget(
-        car: car,
-      ),
-    );
+    router.navigate(CarInfoRoute(car: car));
+    // await showCupertinoModalBottomSheet(
+    //   useRootNavigator: true,
+    //   enableDrag: true,
+    //   context: router.navigatorKey.currentContext!,
+    //   builder: (context) => CarInfoScreenWidget(
+    //     car: car,
+    //   ),
+    // );
   }
 }

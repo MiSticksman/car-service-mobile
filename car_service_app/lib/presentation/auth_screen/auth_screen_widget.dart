@@ -14,6 +14,6 @@ class AuthScreenWidget extends ElementaryWidget<IAuthScreenWidgetModel> {
 
   @override
   Widget build(IAuthScreenWidgetModel wm) {
-    return Container();
+    return SafeArea(child: Container());
   }
 }

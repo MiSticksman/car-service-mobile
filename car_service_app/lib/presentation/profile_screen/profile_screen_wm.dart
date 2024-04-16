@@ -38,37 +38,38 @@ class ProfileScreenWidgetModel
 
   @override
   Future<void> toEditingProfile() async {
-    await showCupertinoModalBottomSheet(
-      useRootNavigator: true,
-      isDismissible: false,
-      enableDrag: false,
-      context: router.navigatorKey.currentContext!,
-      builder: (_) => const EditingProfileScreenWidget(),
-    );
+    router.navigate(EditingProfileRoute());
+    // await showCupertinoModalBottomSheet(
+    //   useRootNavigator: true,
+    //   isDismissible: false,
+    //   enableDrag: false,
+    //   context: router.navigatorKey.currentContext!,
+    //   builder: (_) => const EditingProfileScreenWidget(),
+    // );
   }
 
   @override
   Future<void> openMyCars() async {
-    // context.router.navigate(MyCarsRoute());
-    await showCupertinoModalBottomSheet(
-      useRootNavigator: true,
-      isDismissible: false,
-      enableDrag: false,
-      context: router.navigatorKey.currentContext!,
-      builder: (_) => const MyCarsScreenWidget(),
-    );
+    router.navigate(MyCarsRoute());
+    // await showCupertinoModalBottomSheet(
+    //   useRootNavigator: true,
+    //   isDismissible: false,
+    //   enableDrag: false,
+    //   context: router.navigatorKey.currentContext!,
+    //   builder: (_) => const MyCarsScreenWidget(),
+    // );
   }
 
   @override
   Future<void> toWorksScreen() async {
-    // context.router.navigate(WorksRoute());
-    showCupertinoModalBottomSheet(
-      useRootNavigator: true,
-      isDismissible: false,
-      enableDrag: false,
-      context: router.navigatorKey.currentContext!,
-      builder: (_) => const WorksScreenWidget(),
-    );
+    context.router.navigate(WorksRoute());
+    // showCupertinoModalBottomSheet(
+    //   useRootNavigator: true,
+    //   isDismissible: false,
+    //   enableDrag: false,
+    //   context: router.navigatorKey.currentContext!,
+    //   builder: (_) => const WorksScreenWidget(),
+    // );
   }
 
   @override

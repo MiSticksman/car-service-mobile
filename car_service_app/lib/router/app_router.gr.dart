@@ -137,6 +137,12 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    ProfileTab.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ProfileTabPage(),
+      );
+    },
     WorksRoute.name: (routeData) {
       final args = routeData.argsAs<WorksRouteArgs>(
           orElse: () => const WorksRouteArgs());
@@ -606,6 +612,20 @@ class ProfileRouteArgs {
   String toString() {
     return 'ProfileRouteArgs{key: $key, wmFactory: $wmFactory}';
   }
+}
+
+/// generated route for
+/// [ProfileTabPage]
+class ProfileTab extends PageRouteInfo<void> {
+  const ProfileTab({List<PageRouteInfo>? children})
+      : super(
+          ProfileTab.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileTab';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
