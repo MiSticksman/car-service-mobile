@@ -1,5 +1,6 @@
 import 'package:car_service_app/domain/model/car/car_brand.dart';
 import 'package:car_service_app/presentation/car_add/model_selection_screen/model_selection_screen.dart';
+import 'package:car_service_app/router/app_router.dart';
 import 'package:car_service_app/util/wm_base.dart';
 import 'package:elementary/elementary.dart';
 import 'package:elementary_helper/elementary_helper.dart';
@@ -68,12 +69,7 @@ class BrandSelectionScreenWidgetModel
   }
 
   @override
-  Future<void> toSpecifyCarModel() async {
-    await showCupertinoModalBottomSheet(
-      useRootNavigator: true,
-      enableDrag: false,
-      context: router.navigatorKey.currentContext!,
-      builder: (_) => const ModelSelectionScreenWidget(),
-    );
+  void toSpecifyCarModel() {
+    router.navigate(ModelSelectionRoute());
   }
 }

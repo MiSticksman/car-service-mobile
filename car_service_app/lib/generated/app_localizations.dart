@@ -132,7 +132,7 @@ abstract class AppLocalizations {
   /// No description provided for @profileTitle.
   ///
   /// In en, this message translates to:
-  /// **'My account'**
+  /// **'Profile'**
   String get profileTitle;
 
   /// No description provided for @myCars.
@@ -285,6 +285,12 @@ abstract class AppLocalizations {
   /// **'No'**
   String get no;
 
+  /// No description provided for @getCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Get the code'**
+  String get getCode;
+
   /// No description provided for @myData.
   ///
   /// In en, this message translates to:
@@ -309,11 +315,11 @@ abstract class AppLocalizations {
   /// **'Surname'**
   String get surname;
 
-  /// No description provided for @phone.
+  /// No description provided for @phoneNumber.
   ///
   /// In en, this message translates to:
-  /// **'Phone'**
-  String get phone;
+  /// **'Phone number'**
+  String get phoneNumber;
 
   /// No description provided for @email.
   ///
@@ -366,7 +372,7 @@ abstract class AppLocalizations {
   /// No description provided for @selectAnotherCar.
   ///
   /// In en, this message translates to:
-  /// **'Select another car'**
+  /// **'Change car'**
   String get selectAnotherCar;
 
   /// No description provided for @selectDetails.
@@ -380,6 +386,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Details and consumables'**
   String get detailsSelection;
+
+  /// No description provided for @carDetailsDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'A list of the parts that we found for the selected works. To proceed to the service entry, specify which details you will use.'**
+  String get carDetailsDescription;
+
+  /// No description provided for @originalDetail.
+  ///
+  /// In en, this message translates to:
+  /// **'Original part'**
+  String get originalDetail;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

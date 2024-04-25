@@ -1,5 +1,6 @@
 import 'package:car_service_app/domain/model/car/engine.dart';
 import 'package:car_service_app/domain/model/car/transmission.dart';
+import 'package:car_service_app/router/app_router.dart';
 import 'package:car_service_app/util/wm_base.dart';
 import 'package:elementary/elementary.dart';
 import 'package:elementary_helper/elementary_helper.dart';
@@ -33,7 +34,10 @@ abstract interface class ICarAddScreenWidgetModel
   void selectEngine();
 
   void selectTransmission();
+
 // void selectEquipment();
+
+  void addCar();
 }
 
 CarAddScreenWidgetModel defaultCarAddScreenWidgetModelFactory(
@@ -111,7 +115,6 @@ class CarAddScreenWidgetModel
   @override
   final TextEditingController mileageController = TextEditingController();
 
-
   @override
   final EntityStateNotifier<(List<int>, int?)> yearsState =
       EntityStateNotifier();
@@ -142,5 +145,13 @@ class CarAddScreenWidgetModel
   void selectTransmission() {
     transmissionController.clear();
     equipmentController.clear();
+  }
+
+  @override
+  Future<void> addCar() async {
+    // добавить запрос на бек с добавлением авто
+    // сделать добавленую машину выбранной если до этого машин не было
+    router.popUntilRoot();
+    router.navigate(MyCarsRoute());
   }
 }

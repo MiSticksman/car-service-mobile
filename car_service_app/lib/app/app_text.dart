@@ -5,11 +5,10 @@ final class AppText {
   
   static const TextStyle title = TextStyle(
     fontFamily: 'Montserrat',
-    fontSize: 20,
+    fontSize: 24,
     height: 1.32,
-    fontWeight: FontWeight.w800,
+    fontWeight: FontWeight.w900,
     fontStyle: FontStyle.normal,
-    color: AppColor.black,
   );
 
   static const TextStyle bold28 = TextStyle(

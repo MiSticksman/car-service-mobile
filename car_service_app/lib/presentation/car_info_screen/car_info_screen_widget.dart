@@ -1,6 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:car_service_app/app/app_color.dart';
 import 'package:car_service_app/domain/model/car/car.dart';
+import 'package:car_service_app/presentation/ui_util/close_widget.dart';
 import 'package:car_service_app/presentation/ui_util/unfocus.dart';
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ import 'car_info_screen_wm.dart';
 @RoutePage()
 class CarInfoScreenWidget extends ElementaryWidget<ICarInfoScreenWidgetModel> {
   final Car car;
+
   const CarInfoScreenWidget({
     Key? key,
     WidgetModelFactory wmFactory = defaultCarInfoScreenWidgetModelFactory,
@@ -28,7 +30,7 @@ class CarInfoScreenWidget extends ElementaryWidget<ICarInfoScreenWidgetModel> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: Text(localizations.carInfo),
-          actions: const [CloseButton()],
+          actions: const [CloseWidget()],
         ),
         body: UnfocusWidget(
           child: ListView(
@@ -45,17 +47,17 @@ class CarInfoScreenWidget extends ElementaryWidget<ICarInfoScreenWidgetModel> {
                           '${car.brand}',
                           style: wm.textTheme.displayLarge,
                         ),
-                          SizedBox(
-                            width: 130,
-                            height: 40,
-                            child: ElevatedButton(
-                              onPressed: () => wm.deleteCar(car.id),
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: AppColor.orange,
-                                  padding: EdgeInsets.zero),
-                              child: Text(localizations.deleteCar),
-                            ),
+                        SizedBox(
+                          width: 130,
+                          height: 40,
+                          child: ElevatedButton(
+                            onPressed: () => wm.deleteCar(car.id),
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: AppColor.orange,
+                                padding: EdgeInsets.zero),
+                            child: Text(localizations.deleteCar),
                           ),
+                        ),
                       ],
                     ),
                     Padding(
@@ -65,6 +67,17 @@ class CarInfoScreenWidget extends ElementaryWidget<ICarInfoScreenWidgetModel> {
                         style: wm.textTheme.displayMedium,
                       ),
                     ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 27.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Двигатель: название двигателя', style: wm.textTheme.displaySmall),
+                    const SizedBox(height: 14),
+                    Text('Трансмиссия: название трансмиссии', style: wm.textTheme.displaySmall,),
                   ],
                 ),
               ),
@@ -120,7 +133,8 @@ class CarInfoScreenWidget extends ElementaryWidget<ICarInfoScreenWidgetModel> {
                         border: border,
                         filled: true,
                         fillColor: AppColor.lightGrayEB,
-                        contentPadding: const EdgeInsets.fromLTRB(12, 0, 12, 30),
+                        contentPadding:
+                            const EdgeInsets.fromLTRB(12, 0, 12, 30),
                         hintText: localizations.carDescription,
                       ),
                     ),

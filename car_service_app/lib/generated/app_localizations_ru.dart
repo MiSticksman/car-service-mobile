@@ -23,7 +23,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get cartTitle => 'Корзина';
 
   @override
-  String get profileTitle => 'Личный кабинет';
+  String get profileTitle => 'Профиль';
 
   @override
   String get myCars => 'Мои автомобили';
@@ -101,6 +101,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get no => 'Нет';
 
   @override
+  String get getCode => 'Получить код';
+
+  @override
   String get myData => 'Мои данные';
 
   @override
@@ -113,7 +116,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get surname => 'Фамилия';
 
   @override
-  String get phone => 'Телефон';
+  String get phoneNumber => 'Номер телефона';
 
   @override
   String get email => 'E-mail';
@@ -140,11 +143,17 @@ class AppLocalizationsRu extends AppLocalizations {
   String get presentedWorks => 'Работы представлены для автомобиля';
 
   @override
-  String get selectAnotherCar => 'Выбрать другой автомобиль';
+  String get selectAnotherCar => 'Изменить авто';
 
   @override
   String get selectDetails => 'Выбрать детали';
 
   @override
   String get detailsSelection => 'Детали и расходники';
+
+  @override
+  String get carDetailsDescription => 'Список деталей, которые мы нашли для выбранных работ. Чтобы перейти к записи в сервис, укажите, какие детали Вы будете использовать.';
+
+  @override
+  String get originalDetail => 'Оригинальная деталь';
 }

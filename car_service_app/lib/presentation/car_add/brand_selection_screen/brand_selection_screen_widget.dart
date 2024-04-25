@@ -1,5 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:car_service_app/presentation/car_add/brand_selection_screen/components/brand_element.dart';
+import 'package:car_service_app/presentation/ui_util/close_widget.dart';
 import 'package:core/core.dart';
 import 'package:elementary/elementary.dart';
 import 'package:elementary_helper/elementary_helper.dart';
@@ -33,7 +34,7 @@ class BrandSelectionScreenWidget
             appBar: AppBar(
               automaticallyImplyLeading: false,
               title: Text(localizations.choosingCarBrand),
-              actions: const [CloseButton()],
+              actions: const [CloseWidget()],
             ),
             body: Column(
               children: [

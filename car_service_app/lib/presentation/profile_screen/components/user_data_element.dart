@@ -1,45 +1,42 @@
 import 'package:car_service_app/app/app_color.dart';
 import 'package:car_service_app/generated/app_localizations.dart';
+import 'package:car_service_app/router/app_router_export.dart';
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class UserDataElement extends StatelessWidget {
   final String userName;
-  final VoidCallback onTap;
+  final VoidCallback logoutTap;
 
   const UserDataElement({
     super.key,
     required this.userName,
-    required this.onTap,
+    required this.logoutTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                userName,
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-              Text(
-                AppLocalizations.of(context).edit,
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: AppColor.black21,
-                    ),
-              ),
-            ],
-          ),
-          const Icon(
-            Icons.keyboard_arrow_right_outlined,
-            size: 24,
-          ),
-        ],
-      ),
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              userName,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            const SizedBox(height: 4),
+            Text('+79290091219'.formatPhone()),
+          ],
+        ),
+        const Spacer(),
+        GestureDetector(
+          onTap: logoutTap,
+          child: SvgPicture.asset('assets/svg/log_out.svg'),
+        ),
+      ],
     );
   }
 }

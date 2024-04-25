@@ -2,6 +2,7 @@ import 'package:car_service_app/domain/model/car/car.dart';
 import 'package:car_service_app/internal/logger.dart';
 import 'package:car_service_app/presentation/car_add/brand_selection_screen/brand_selection_screen.dart';
 import 'package:car_service_app/presentation/car_info_screen/car_info_screen.dart';
+import 'package:car_service_app/presentation/ui_util/snack_bar.dart';
 import 'package:car_service_app/router/app_router.dart';
 import 'package:car_service_app/util/wm_base.dart';
 import 'package:elementary/elementary.dart';
@@ -44,10 +45,10 @@ class MyCarsScreenWidgetModel
   @override
   void initWidgetModel() {
     super.initWidgetModel();
-    init();
+    loadCars();
   }
 
-  Future<void> init() async {
+  Future<void> loadCars() async {
     carsState.loading();
     try {
       final cars = <Car>[
@@ -56,20 +57,16 @@ class MyCarsScreenWidgetModel
         Car(id: 3, brand: ''),
         Car(id: 4, brand: ''),
         Car(id: 5, brand: ''),
-        // Car(id: '6', brand: ''),
-        // Car(id: '7', brand: ''),
-        // Car(id: '8', brand: ''),
-        // Car(id: '9', brand: ''),
-        // Car(id: '10', brand: ''),
-        // Car(id: '11', brand: ''),
       ];
       carsState.content((cars, cars.firstOrNull));
     } catch (e, s) {
+      carsState.error();
       logger.e(
         'Cars loading error',
         error: e,
         stackTrace: s,
       );
+      context.showSnackBar('Cars loading error');
     }
   }
 
@@ -92,26 +89,12 @@ class MyCarsScreenWidgetModel
   }
 
   @override
-  Future<void> toBrandSelection() async {
+  void toBrandSelection() {
     router.navigate(BrandSelectionRoute());
-    // await showCupertinoModalBottomSheet(
-    //   useRootNavigator: true,
-    //   enableDrag: false,
-    //   context: router.navigatorKey.currentContext!,
-    //   builder: (context) => const BrandSelectionScreenWidget(),
-    // );
   }
 
   @override
-  Future<void> toCarInfo(Car car) async {
+  void toCarInfo(Car car) {
     router.navigate(CarInfoRoute(car: car));
-    // await showCupertinoModalBottomSheet(
-    //   useRootNavigator: true,
-    //   enableDrag: true,
-    //   context: router.navigatorKey.currentContext!,
-    //   builder: (context) => CarInfoScreenWidget(
-    //     car: car,
-    //   ),
-    // );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:car_service_app/app/app_color.dart';
 import 'package:car_service_app/domain/model/car/car.dart';
-import 'package:car_service_app/presentation/car_add/car_add_screen/car_add_screen_wm.dart';
+import 'package:car_service_app/presentation/ui_util/close_widget.dart';
 import 'package:car_service_app/presentation/ui_util/unfocus.dart';
 import 'package:car_service_app/router/app_router_export.dart';
 import 'package:elementary_helper/elementary_helper.dart';
@@ -28,7 +28,7 @@ class CarAddScreenWidget extends ElementaryWidget<ICarAddScreenWidgetModel> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: Text(localizations.carInfo),
-          actions: const [CloseButton()],
+          actions: const [CloseWidget()],
         ),
         body: UnfocusWidget(
           child: ListView(
@@ -181,7 +181,7 @@ class CarAddScreenWidget extends ElementaryWidget<ICarAddScreenWidgetModel> {
             vertical: 16,
           ),
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: wm.addCar,
             child: Text(localizations.done),
           ),
         ),

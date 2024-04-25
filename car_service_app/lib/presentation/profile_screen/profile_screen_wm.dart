@@ -14,6 +14,8 @@ abstract interface class IProfileScreenWidgetModel
     implements IWidgetModel, IThemeProvider {
   void toEditingProfile();
 
+  void logout();
+
   void openMyCars();
 
   void toWorksScreen();
@@ -37,39 +39,34 @@ class ProfileScreenWidgetModel
   ProfileScreenWidgetModel(super.model);
 
   @override
-  Future<void> toEditingProfile() async {
+  void toEditingProfile() {
     router.navigate(EditingProfileRoute());
-    // await showCupertinoModalBottomSheet(
-    //   useRootNavigator: true,
-    //   isDismissible: false,
-    //   enableDrag: false,
-    //   context: router.navigatorKey.currentContext!,
-    //   builder: (_) => const EditingProfileScreenWidget(),
-    // );
   }
 
   @override
-  Future<void> openMyCars() async {
+  Future<void> logout() async {
+    showDialog(
+      context: context,
+      builder: (_) => AlertDialog(
+        title: Text(localizations.removal),
+        content: Text(localizations.removeQuestion),
+        actions: [
+          TextButton(
+              onPressed: () => router.pop(), child: Text(localizations.no)),
+          TextButton(onPressed: () {}, child: Text(localizations.yes)),
+        ],
+      ),
+    );
+  }
+
+  @override
+  void openMyCars() {
     router.navigate(MyCarsRoute());
-    // await showCupertinoModalBottomSheet(
-    //   useRootNavigator: true,
-    //   isDismissible: false,
-    //   enableDrag: false,
-    //   context: router.navigatorKey.currentContext!,
-    //   builder: (_) => const MyCarsScreenWidget(),
-    // );
   }
 
   @override
-  Future<void> toWorksScreen() async {
+  void toWorksScreen() {
     context.router.navigate(WorksRoute());
-    // showCupertinoModalBottomSheet(
-    //   useRootNavigator: true,
-    //   isDismissible: false,
-    //   enableDrag: false,
-    //   context: router.navigatorKey.currentContext!,
-    //   builder: (_) => const WorksScreenWidget(),
-    // );
   }
 
   @override

@@ -143,6 +143,17 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ProfileTabPage(),
       );
     },
+    WorkDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<WorkDetailsRouteArgs>(
+          orElse: () => const WorkDetailsRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WorkDetailsScreenWidget(
+          key: args.key,
+          wmFactory: args.wmFactory,
+        ),
+      );
+    },
     WorksRoute.name: (routeData) {
       final args = routeData.argsAs<WorksRouteArgs>(
           orElse: () => const WorksRouteArgs());
@@ -626,6 +637,47 @@ class ProfileTab extends PageRouteInfo<void> {
   static const String name = 'ProfileTab';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [WorkDetailsScreenWidget]
+class WorkDetailsRoute extends PageRouteInfo<WorkDetailsRouteArgs> {
+  WorkDetailsRoute({
+    Key? key,
+    WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+            BuildContext)
+        wmFactory = defaultWorkDetailsScreenWidgetModelFactory,
+    List<PageRouteInfo>? children,
+  }) : super(
+          WorkDetailsRoute.name,
+          args: WorkDetailsRouteArgs(
+            key: key,
+            wmFactory: wmFactory,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'WorkDetailsRoute';
+
+  static const PageInfo<WorkDetailsRouteArgs> page =
+      PageInfo<WorkDetailsRouteArgs>(name);
+}
+
+class WorkDetailsRouteArgs {
+  const WorkDetailsRouteArgs({
+    this.key,
+    this.wmFactory = defaultWorkDetailsScreenWidgetModelFactory,
+  });
+
+  final Key? key;
+
+  final WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+      BuildContext) wmFactory;
+
+  @override
+  String toString() {
+    return 'WorkDetailsRouteArgs{key: $key, wmFactory: $wmFactory}';
+  }
 }
 
 /// generated route for

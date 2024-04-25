@@ -1,8 +1,10 @@
 import 'package:auto_route/annotations.dart';
+import 'package:car_service_app/app/app_text.dart';
 import 'package:car_service_app/presentation/profile_screen/components/setting_element.dart';
 import 'package:car_service_app/presentation/profile_screen/components/user_data_element.dart';
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'profile_screen_wm.dart';
 
 // TODO: cover with documentation
@@ -19,10 +21,6 @@ class ProfileScreenWidget extends ElementaryWidget<IProfileScreenWidgetModel> {
     final localizations = wm.localizations;
     final textTheme = wm.theme.textTheme;
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text(localizations.profileTitle),
-      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(
@@ -31,12 +29,29 @@ class ProfileScreenWidget extends ElementaryWidget<IProfileScreenWidgetModel> {
             right: 24.0,
           ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 28.0),
+                child: Row(
+                  children: [
+                    Text(
+                      localizations.profileTitle,
+                      style: AppText.title,
+                    ),
+                    const Spacer(),
+                    GestureDetector(
+                      onTap: wm.toEditingProfile,
+                      child: SvgPicture.asset('assets/svg/edit.svg'),
+                    ),
+                  ],
+                ),
+              ),
               UserDataElement(
                 userName: 'Вадим Шафоростов',
-                onTap: wm.toEditingProfile,
+                logoutTap: wm.logout,
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 44),
               // todo condition on preorder
               if (true)
                 SettingElement(
@@ -44,16 +59,19 @@ class ProfileScreenWidget extends ElementaryWidget<IProfileScreenWidgetModel> {
                   paramName: localizations.completeRegistration,
                   onTap: wm.toOrderScreen,
                 ),
+              const SizedBox(height: 28),
               SettingElement(
-                picture: 'assets/car.png',
+                picture: 'assets/svg/car.svg',
                 paramName: localizations.myCars,
                 onTap: wm.openMyCars,
               ),
+              const SizedBox(height: 28),
               SettingElement(
-                picture: "assets/svg/tool.svg",
+                picture: "assets/svg/work_selection.svg",
                 paramName: localizations.selectWork,
                 onTap: wm.toWorksScreen,
               ),
+              const SizedBox(height: 28),
               SettingElement(
                 picture: "assets/svg/works_history.svg",
                 paramName: localizations.worksHistory,

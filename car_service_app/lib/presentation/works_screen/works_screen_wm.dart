@@ -5,6 +5,7 @@ import 'package:car_service_app/presentation/car_add/brand_selection_screen/bran
 import 'package:car_service_app/presentation/car_add/car_add_screen/car_add_screen.dart';
 import 'package:car_service_app/presentation/car_info_screen/car_info_screen_widget.dart';
 import 'package:car_service_app/presentation/my_cars_screen/my_cars_screen.dart';
+import 'package:car_service_app/presentation/ui_util/snack_bar.dart';
 import 'package:car_service_app/presentation/work_details_screen/work_details_screen.dart';
 import 'package:car_service_app/router/app_router.dart';
 import 'package:car_service_app/util/wm_base.dart';
@@ -51,6 +52,11 @@ class WorksScreenWidgetModel
 
   @override
   void initWidgetModel() {
+    super.initWidgetModel();
+    loadCarWorks();
+  }
+
+  Future<void> loadCarWorks() async {
     worksState.loading();
     try {
       final cars = <Work>[
@@ -65,13 +71,14 @@ class WorksScreenWidgetModel
       ];
       worksState.content((cars, []));
     } catch (e, s) {
+      worksState.error();
       logger.e(
-        'Cars loading error',
+        'Car works loading error',
         error: e,
         stackTrace: s,
       );
+      context.showSnackBar('Car works loading error');
     }
-    super.initWidgetModel();
   }
 
   @override
@@ -81,13 +88,8 @@ class WorksScreenWidgetModel
   }
 
   @override
-  Future<void> toCarAddScreen() async {
-    await showCupertinoModalBottomSheet(
-        useRootNavigator: true,
-        enableDrag: true,
-        context: router.navigatorKey.currentContext!,
-        builder: (context) => const BrandSelectionScreenWidget(),
-    );
+  void toCarAddScreen() {
+    router.navigate(BrandSelectionRoute());
   }
 
   @override
@@ -103,36 +105,17 @@ class WorksScreenWidgetModel
   }
 
   @override
-  Future<void> toCarInfoScreen(Car car) async {
-    await showCupertinoModalBottomSheet(
-      useRootNavigator: true,
-      enableDrag: true,
-      context: router.navigatorKey.currentContext!,
-      builder: (context) =>
-          CarInfoScreenWidget(
-            car: car,
-          ),
-    );
+  void toCarInfoScreen(Car car) {
+    router.navigate(CarInfoRoute(car: car));
   }
 
   @override
-  Future<void> toWorkDetailsScreen() async {
-    await showCupertinoModalBottomSheet(
-      useRootNavigator: true,
-      enableDrag: false,
-      context: router.navigatorKey.currentContext!,
-      builder: (context) => const WorkDetailsScreenWidget(),
-    );
+  void toWorkDetailsScreen() {
+    router.navigate(WorkDetailsRoute());
   }
 
   @override
-  Future<void> toMyCarsScreen() async {
-    await showCupertinoModalBottomSheet(
-      useRootNavigator: true,
-      isDismissible: false,
-      enableDrag: false,
-      context: router.navigatorKey.currentContext!,
-      builder: (_) => const MyCarsScreenWidget(),
-    );
+  void toMyCarsScreen() {
+    router.navigate(MyCarsRoute());
   }
 }

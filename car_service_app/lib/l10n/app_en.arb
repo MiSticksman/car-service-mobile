@@ -6,7 +6,7 @@
   "profileTab": "Profile",
   "catalogTitle": "Catalog",
   "cartTitle": "Cart",
-  "profileTitle": "My account",
+  "profileTitle": "Profile",
   "@profileTitle": {
     "type": "text",
     "placeholders": {}
@@ -36,11 +36,12 @@
   "removeQuestion": "Do you really want to remove the car?",
   "yes": "Yes",
   "no": "No",
+  "getCode": "Get the code",
   "myData": "My data",
   "edit": "Edit",
   "name": "Name",
   "surname": "Surname",
-  "phone": "Phone",
+  "phoneNumber": "Phone number",
   "email": "E-mail",
   "save": "Save",
   "selectWork": "Select work",
@@ -49,7 +50,9 @@
   "worksHistory": "Works done",
   "workSelection": "Workы",
   "presentedWorks": "The works are presented for the car",
-  "selectAnotherCar": "Select another car",
+  "selectAnotherCar": "Change car",
   "selectDetails": "Select details",
-  "detailsSelection": "Details and consumables"
+  "detailsSelection": "Details and consumables",
+  "carDetailsDescription": "A list of the parts that we found for the selected works. To proceed to the service entry, specify which details you will use.",
+  "originalDetail": "Original part"
 }

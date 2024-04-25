@@ -1,5 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:car_service_app/app/app_color.dart';
+import 'package:car_service_app/presentation/ui_util/close_widget.dart';
 import 'package:core/core.dart';
 import 'package:elementary/elementary.dart';
 import 'package:elementary_helper/elementary_helper.dart';
@@ -29,7 +30,7 @@ class ModelSelectionScreenWidget
           appBar: AppBar(
             automaticallyImplyLeading: false,
             title: Text(localizations.choosingCarModel),
-            actions: const [CloseButton()],
+            actions: const [CloseWidget()],
           ),
           body: CustomScrollView(
             slivers: [

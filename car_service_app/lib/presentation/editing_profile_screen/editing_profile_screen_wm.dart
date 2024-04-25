@@ -1,4 +1,5 @@
 import 'package:car_service_app/app/app_starter.dart';
+import 'package:car_service_app/presentation/ui_util/snack_bar.dart';
 import 'package:car_service_app/util/wm_base.dart';
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
@@ -89,20 +90,7 @@ class EditingProfileScreenWidgetModel
       validate &= phoneValid;
     }
     if (emptyFields) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          dismissDirection: DismissDirection.up,
-          backgroundColor: theme.colorScheme.onSecondary,
-          behavior: SnackBarBehavior.floating,
-          duration: const Duration(seconds: 2),
-          margin: const EdgeInsets.only(
-            left: 10,
-            right: 10,
-          ),
-          content:
-              const Text('Заполните все обязательные поля в верном формате'),
-        ),
-      );
+      context.showSnackBar('Заполните все обязательные поля в верном формате');
     }
     return validate;
   }

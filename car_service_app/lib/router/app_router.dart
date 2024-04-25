@@ -62,9 +62,28 @@ class AppRouter extends _$AppRouter {
               page: CarInfoRoute.page,
               customRouteBuilder: modalBottomSheetBuilder,
             ),
+            CustomRoute(
+              page: WorksRoute.page,
+              customRouteBuilder: modalBottomSheetBuilder,
+            ),
+            CustomRoute(
+              page: WorkDetailsRoute.page,
+              customRouteBuilder: modalBottomSheetBuilder,
+            ),
           ],
         ),
       ];
+
+  // @override
+  // void onNavigation(NavigationResolver resolver, StackRouter router) {
+    // const auth = false;
+    // if (auth || resolver.route.name == AuthRoute.name) {
+    //   resolver.next();
+    // } else {
+    //   push(AuthRoute());
+    //   resolver.next(auth ?? false);
+    // }
+  // }
 }
 
 @RoutePage(name: 'ProfileTab')

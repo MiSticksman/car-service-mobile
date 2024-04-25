@@ -6,7 +6,7 @@
   "profileTab": "Профиль",
   "catalogTitle": "Каталог",
   "cartTitle": "Корзина",
-  "profileTitle": "Личный кабинет",
+  "profileTitle": "Профиль",
   "@profileTitle": {
     "type": "text",
     "placeholders": {}
@@ -36,11 +36,12 @@
   "removeQuestion": "Вы действительно хотите удалить автомобиль?",
   "yes": "Да",
   "no": "Нет",
+  "getCode": "Получить код",
   "myData": "Мои данные",
   "edit": "Редактировать",
   "name": "Имя",
   "surname": "Фамилия",
-  "phone": "Телефон",
+  "phoneNumber": "Номер телефона",
   "email": "E-mail",
   "save": "Сохранить",
   "selectWork": "Выбор работы",
@@ -49,7 +50,9 @@
   "worksHistory": "Проделанные работы",
   "workSelection": "Работы",
   "presentedWorks": "Работы представлены для автомобиля",
-  "selectAnotherCar": "Выбрать другой автомобиль",
+  "selectAnotherCar": "Изменить авто",
   "selectDetails": "Выбрать детали",
-  "detailsSelection": "Детали и расходники"
+  "detailsSelection": "Детали и расходники",
+  "carDetailsDescription": "Список деталей, которые мы нашли для выбранных работ. Чтобы перейти к записи в сервис, укажите, какие детали Вы будете использовать.",
+  "originalDetail": "Оригинальная деталь"
 }

@@ -23,7 +23,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cartTitle => 'Cart';
 
   @override
-  String get profileTitle => 'My account';
+  String get profileTitle => 'Profile';
 
   @override
   String get myCars => 'My cars';
@@ -101,6 +101,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get no => 'No';
 
   @override
+  String get getCode => 'Get the code';
+
+  @override
   String get myData => 'My data';
 
   @override
@@ -113,7 +116,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get surname => 'Surname';
 
   @override
-  String get phone => 'Phone';
+  String get phoneNumber => 'Phone number';
 
   @override
   String get email => 'E-mail';
@@ -140,11 +143,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get presentedWorks => 'The works are presented for the car';
 
   @override
-  String get selectAnotherCar => 'Select another car';
+  String get selectAnotherCar => 'Change car';
 
   @override
   String get selectDetails => 'Select details';
 
   @override
   String get detailsSelection => 'Details and consumables';
+
+  @override
+  String get carDetailsDescription => 'A list of the parts that we found for the selected works. To proceed to the service entry, specify which details you will use.';
+
+  @override
+  String get originalDetail => 'Original part';
 }

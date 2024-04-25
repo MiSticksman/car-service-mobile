@@ -14,7 +14,7 @@ class AppTheme {
         useMaterial3: true,
         fontFamily: 'Montserrat',
         colorScheme: const ColorScheme(
-          primary: AppColor.black1F,
+          primary: AppColor.blackF1,
           onPrimary: AppColor.white,
           background: AppColor.whiteF8,
           onBackground: AppColor.black21,
@@ -60,9 +60,7 @@ class AppTheme {
         radioTheme: RadioThemeData(
           fillColor: MaterialStateProperty.all(AppColor.black),
         ),
-        dividerTheme: const DividerThemeData(
-          color: AppColor.lightGrayEB
-        ),
+        dividerTheme: const DividerThemeData(color: AppColor.lightGrayEB),
         disabledColor: AppColor.grey,
         scaffoldBackgroundColor: AppColor.whiteF8,
         cardTheme: const CardTheme(
@@ -87,7 +85,7 @@ class AppTheme {
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             foregroundColor: AppColor.white,
-            backgroundColor: AppColor.black1F,
+            backgroundColor: AppColor.blackF1,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
@@ -104,7 +102,7 @@ class AppTheme {
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
-            foregroundColor: AppColor.black1F,
+            foregroundColor: AppColor.blackF1,
             backgroundColor: AppColor.white,
             side: const BorderSide(
               width: 2,
@@ -118,6 +116,152 @@ class AppTheme {
         ),
         dropdownMenuTheme: const DropdownMenuThemeData(
           textStyle: AppText.normal16,
+        ),
+      ),
+    );
+  }
+
+  factory AppTheme.dark() {
+    return AppTheme._(
+      ThemeData(
+        useMaterial3: true,
+        fontFamily: 'Montserrat',
+        colorScheme: const ColorScheme.dark(
+          primary: AppColor.black,
+          onPrimary: AppColor.white,
+          background: AppColor.black21,
+          onBackground: AppColor.orange,
+          secondary: AppColor.white,
+          onSecondary: AppColor.grayText,
+          tertiary: AppColor.brown,
+          onTertiary: AppColor.paleBrown,
+          error: AppColor.white,
+          onError: AppColor.brightOrange,
+          surface: AppColor.whiteF8,
+          onSurface: AppColor.white,
+          brightness: Brightness.light,
+        ),
+        textTheme: const TextTheme(
+          bodySmall: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.normal,
+          ),
+          bodyMedium: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.normal,
+          ),
+          bodyLarge: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.normal,
+          ),
+          displaySmall: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w400,
+          ),
+          displayMedium: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+          ),
+          displayLarge: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.w600,
+          ),
+          titleLarge: TextStyle(
+            color: AppColor.orange,
+            fontSize: 22,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        radioTheme: RadioThemeData(
+            fillColor: MaterialStateProperty.resolveWith((states) {
+          if (states.contains(MaterialState.selected)) {
+            return AppColor.orange;
+          }
+          return AppColor.superDuperGray;
+        })),
+        dividerTheme: const DividerThemeData(color: AppColor.brown),
+        disabledColor: AppColor.grey,
+        scaffoldBackgroundColor: AppColor.black21,
+        cardTheme: const CardTheme(
+          clipBehavior: Clip.hardEdge,
+          color: AppColor.white,
+        ),
+        appBarTheme: const AppBarTheme(
+          toolbarHeight: 50,
+          elevation: 0,
+          centerTitle: true,
+          surfaceTintColor: Colors.transparent,
+          backgroundColor: AppColor.black21,
+          foregroundColor: AppColor.white,
+          titleTextStyle: AppText.title,
+          iconTheme: IconThemeData(color: AppColor.black),
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: Colors.transparent,
+            statusBarIconBrightness: Brightness.dark,
+            statusBarBrightness: Brightness.light,
+          ),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            foregroundColor: AppColor.white,
+            backgroundColor: AppColor.brown,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+            ),
+            elevation: 0,
+            fixedSize: const Size.fromHeight(50),
+            textStyle: AppText.bold16,
+            disabledForegroundColor: AppColor.white,
+            minimumSize: const Size(250, 50),
+            maximumSize: const Size(400, 50),
+          ),
+        ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+            ),
+            foregroundColor: AppColor.white,
+            backgroundColor: AppColor.orange,
+            side: const BorderSide(
+              width: 2,
+              color: AppColor.orange,
+            ),
+            fixedSize: const Size.fromHeight(50),
+            textStyle: AppText.medium16,
+            minimumSize: const Size(250, 50),
+            maximumSize: const Size(400, 50),
+          ),
+        ),
+        textButtonTheme: TextButtonThemeData(
+            style: TextButton.styleFrom(
+          foregroundColor: AppColor.white,
+          backgroundColor: AppColor.transparent,
+        )),
+        dropdownMenuTheme: const DropdownMenuThemeData(
+          textStyle: AppText.normal16,
+        ),
+        checkboxTheme: CheckboxThemeData(
+          fillColor: MaterialStateProperty.resolveWith(
+            (states) {
+              if (states.contains(MaterialState.selected)) {
+                return AppColor.orange;
+              }
+              return AppColor.transparent;
+            },
+          ),
+          checkColor: MaterialStateProperty.resolveWith(
+                (states) {
+              if (states.contains(MaterialState.selected)) {
+                return AppColor.white;
+              }
+              return AppColor.transparent;
+            },
+          ),
+          side: const BorderSide(
+            width: 1,
+            color: AppColor.superDuperGray
+          )
         ),
       ),
     );

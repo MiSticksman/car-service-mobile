@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SettingElement extends StatelessWidget {
+class SettingElement extends StatefulWidget {
   final String picture;
   final String paramName;
   final VoidCallback onTap;
@@ -14,44 +14,39 @@ class SettingElement extends StatelessWidget {
   });
 
   @override
+  State<SettingElement> createState() => _SettingElementState();
+}
+
+class _SettingElementState extends State<SettingElement> {
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: widget.onTap,
       child: Column(
         children: [
           Row(
             children: [
-              picture.contains('svg')
+              widget.picture.contains('svg')
                   ? SvgPicture.asset(
-                      picture,
+                      widget.picture,
                       width: 24,
                       height: 24,
                     )
                   : Image.asset(
-                      picture,
+                      widget.picture,
                       width: 24,
                       height: 24,
                     ),
               const SizedBox(width: 16),
               SizedBox(
                 width: MediaQuery.of(context).size.width / 1.5,
-                child: Text(
-                  paramName,
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
+                child: Text(widget.paramName),
               ),
               const Spacer(),
-              const Icon(
-                Icons.keyboard_arrow_right_outlined,
-                size: 24,
+              SvgPicture.asset(
+                'assets/svg/arrow_right.svg',
               ),
             ],
-          ),
-          const Divider(
-            indent: 40.0,
-            endIndent: 16,
-            thickness: 1,
-            height: 30,
           ),
         ],
       ),

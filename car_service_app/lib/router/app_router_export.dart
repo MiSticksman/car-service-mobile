@@ -10,6 +10,7 @@ export 'package:car_service_app/presentation/car_add/brand_selection_screen/bran
 export 'package:car_service_app/presentation/car_add/car_add_screen/car_add_screen.dart';
 export 'package:car_service_app/presentation/car_add/model_selection_screen/model_selection_screen.dart';
 export 'package:car_service_app/presentation/works_screen/works_screen.dart';
+export 'package:car_service_app/presentation/work_details_screen/work_details_screen.dart';
 export 'package:car_service_app/presentation/car_info_screen/car_info_screen.dart';
 export 'package:car_service_app/presentation/editing_profile_screen/editing_profile_screen.dart';
 export 'package:car_service_app/presentation/auth_screen/auth_screen.dart';

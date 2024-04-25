@@ -41,6 +41,7 @@ class _ValidatedTextFieldState extends State<ValidatedTextField> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Padding(
       padding: widget.padding ?? EdgeInsets.zero,
       child: Stack(
@@ -64,7 +65,11 @@ class _ValidatedTextFieldState extends State<ValidatedTextField> {
                     onSubmitted: (_) => FocusScope.of(context).unfocus(),
                     controller: widget.controller,
                     readOnly: widget.readonly,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: Colors.black
+                    ),
                     decoration: InputDecoration(
+
                       border: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(
@@ -79,9 +84,10 @@ class _ValidatedTextFieldState extends State<ValidatedTextField> {
                         horizontal: 16,
                         vertical: 9,
                       ),
-                      hintStyle: const TextStyle(
+
+                      hintStyle: TextStyle(
                         fontSize: 16,
-                        color: Color(0xFF748595),
+                        color: theme.colorScheme.onSecondary,
                         fontWeight: FontWeight.w400,
                       ),
                       hintText: widget.hintText,
@@ -102,7 +108,7 @@ class _ValidatedTextFieldState extends State<ValidatedTextField> {
                               child: Text(
                                 label,
                                 style: TextStyle(
-                                  color: const Color(0xFF748595),
+                                  color: theme.colorScheme.onSecondary,
                                   fontSize: _focusNode.hasFocus ||
                                           widget.controller.text.isNotEmpty
                                       ? 12
