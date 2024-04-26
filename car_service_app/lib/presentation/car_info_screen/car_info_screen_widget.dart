@@ -1,8 +1,12 @@
 import 'package:auto_route/annotations.dart';
 import 'package:car_service_app/app/app_color.dart';
 import 'package:car_service_app/domain/model/car/car.dart';
+import 'package:car_service_app/presentation/ui_util/car_card.dart';
 import 'package:car_service_app/presentation/ui_util/close_widget.dart';
+import 'package:car_service_app/presentation/ui_util/custom_text_button.dart';
+import 'package:car_service_app/presentation/ui_util/custom_text_field.dart';
 import 'package:car_service_app/presentation/ui_util/unfocus.dart';
+import 'package:core/core.dart';
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
 import 'car_info_screen_wm.dart';
@@ -22,9 +26,7 @@ class CarInfoScreenWidget extends ElementaryWidget<ICarInfoScreenWidgetModel> {
   @override
   Widget build(ICarInfoScreenWidgetModel wm) {
     final localizations = wm.localizations;
-    const border = OutlineInputBorder(
-      borderSide: BorderSide(width: 0, color: AppColor.transparent),
-    );
+    final theme = wm.theme;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -36,53 +38,67 @@ class CarInfoScreenWidget extends ElementaryWidget<ICarInfoScreenWidgetModel> {
           child: ListView(
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 40, 16, 30),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 8.0,
+                  horizontal: 20.0,
+                ),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          '${car.brand}',
-                          style: wm.textTheme.displayLarge,
+                        const CarCard(
+                          width: 80,
+                          height: 70,
                         ),
-                        SizedBox(
-                          width: 130,
-                          height: 40,
-                          child: ElevatedButton(
-                            onPressed: () => wm.deleteCar(car.id),
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: AppColor.orange,
-                                padding: EdgeInsets.zero),
-                            child: Text(localizations.deleteCar),
-                          ),
+                        const Spacer(),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              '${car.brand} ${car.model}',
+                              style: wm.textTheme.bodyMedium,
+                            ),
+                            Text(
+                              '${car.year}',
+                              style: wm.textTheme.bodyMedium?.copyWith(
+                                color: theme.colorScheme.onTertiary,
+                              ),
+                            ),
+                          ],
                         ),
+                        const Spacer(flex: 3),
+                        CustomTextButton(
+                          onTap: () => wm.deleteCar(car.id),
+                          text: localizations.deleteCar,
+                          iconData: Icons.delete_outline,
+                        )
                       ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: Text(
-                        '${car.model} ${car.year}',
-                        style: wm.textTheme.displayMedium,
-                      ),
                     ),
                   ],
                 ),
               ),
+              const SizedBox(height: 20),
+              const Divider(indent: 17, endIndent: 17),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 27.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Двигатель: название двигателя', style: wm.textTheme.displaySmall),
+                    Text('Двигатель: название двигателя',
+                        style: wm.textTheme.displaySmall),
                     const SizedBox(height: 14),
-                    Text('Трансмиссия: название трансмиссии', style: wm.textTheme.displaySmall,),
+                    Text(
+                      'Трансмиссия: название трансмиссии',
+                      style: wm.textTheme.displaySmall,
+                    ),
                   ],
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 27.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -90,26 +106,14 @@ class CarInfoScreenWidget extends ElementaryWidget<ICarInfoScreenWidgetModel> {
                       padding: const EdgeInsets.only(top: 30.0),
                       child: SizedBox(
                         width: 130,
-                        height: 40,
+                        height: 56,
                         child: Row(
                           children: [
                             Expanded(
-                              child: TextField(
+                              child: CustomTextField(
                                 controller: wm.mileageController,
                                 keyboardType: TextInputType.number,
-                                decoration: InputDecoration(
-                                  focusedBorder: border,
-                                  focusedErrorBorder: border,
-                                  disabledBorder: border,
-                                  enabledBorder: border,
-                                  border: border,
-                                  filled: true,
-                                  fillColor: AppColor.lightGrayEB,
-                                  contentPadding: const EdgeInsets.symmetric(
-                                    horizontal: 10,
-                                  ),
-                                  hintText: localizations.mileage,
-                                ),
+                                hintText: localizations.mileage,
                               ),
                             ),
                             const SizedBox(width: 5),
@@ -122,21 +126,10 @@ class CarInfoScreenWidget extends ElementaryWidget<ICarInfoScreenWidgetModel> {
                       ),
                     ),
                     const SizedBox(height: 30),
-                    TextField(
-                      maxLines: null,
+                    CustomTextField(
                       controller: wm.descriptionController,
-                      decoration: InputDecoration(
-                        focusedBorder: border,
-                        focusedErrorBorder: border,
-                        disabledBorder: border,
-                        enabledBorder: border,
-                        border: border,
-                        filled: true,
-                        fillColor: AppColor.lightGrayEB,
-                        contentPadding:
-                            const EdgeInsets.fromLTRB(12, 0, 12, 30),
-                        hintText: localizations.carDescription,
-                      ),
+                      maxLines: null,
+                      hintText: localizations.carDescription,
                     ),
                   ],
                 ),
@@ -146,10 +139,10 @@ class CarInfoScreenWidget extends ElementaryWidget<ICarInfoScreenWidgetModel> {
         ),
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: 30.0,
-            vertical: 16,
+            horizontal: 90.0,
+            vertical: 24,
           ),
-          child: ElevatedButton(
+          child: OutlinedButton(
             onPressed: wm.complete,
             child: Text(localizations.done),
           ),

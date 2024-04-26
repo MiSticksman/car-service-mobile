@@ -22,91 +22,87 @@ class WorkDetailCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = wm.theme;
-    return Stack(
+    return Row(
       children: [
-        Card(
-          shape: RoundedRectangleBorder(
-            side: BorderSide(
-              // width: selected ? 2.5 : 1,
-              color: theme.colorScheme.onBackground,
+        AspectRatio(
+          aspectRatio: 1,
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(4),
             ),
-            borderRadius: BorderRadius.circular(10),
+            color: theme.colorScheme.background,
+            child: CachedNetworkImage(
+              placeholder: (_, __) => const LoadingIndicator(),
+              imageUrl:
+                  'https://ir-2.ozone.ru/s3/multimedia-c/wc1000/6640768164.jpg',
+              errorWidget: (_, __, error) => Image.asset(
+                'assets/no_image.jpeg',
+              ),
+            ),
           ),
-          color: theme.colorScheme.background,
-          elevation: 0.3,
-          child: Row(
+        ),
+        Expanded(
+          flex: 3,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CachedNetworkImage(
-                placeholder: (_, __) => const LoadingIndicator(),
-                imageUrl:
-                    'https://ir-2.ozone.ru/s3/multimedia-c/wc1000/6640768164.jpg',
-                errorWidget: (_, __, error) => Image.asset(
-                  'assets/no_image.jpeg',
+              Text(
+                carDetail.name ?? '',
+                style: theme.textTheme.displayMedium,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 3.0,
+                  bottom: 5.0,
+                ),
+                child: Text(
+                  carDetail.price.formatMoney(),
+                  style: theme.textTheme.bodyMedium,
                 ),
               ),
-              const Spacer(),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(carDetail.name ?? '',
-                      style: theme.textTheme.displayMedium),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      top: 3.0,
-                      bottom: 5.0,
-                    ),
-                    child: Text(carDetail.price.formatMoney(),
-                        style: theme.textTheme.displayMedium),
+              if (carDetail.isOriginal == true)
+                Text(
+                  wm.localizations.originalDetail,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    fontSize: 12,
+                    color: theme.colorScheme.onTertiary,
                   ),
-                  if (carDetail.isOriginal == true)
-                    Text(wm.localizations.originalDetail, style: theme.textTheme.bodyMedium),
-                ],
-              ),
-              const Spacer(),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      launchUrl(Uri.parse(carDetail.url));
-                    },
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(4),
-                        ),
-                        color: AppColor.greyD1,
-                      ),
-                      width: 50,
-                      height: 35,
-                      child: SvgPicture.asset(
-                        'assets/svg/arrow_top_right.svg',
-                        width: 24,
-                        height: 24,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 4.0),
-                    child: Text(
-                      'Ozon',
-                      style: theme.textTheme.bodySmall,
-                    ),
-                  ),
-                  const Spacer(),
-                  Transform.scale(
-                    scale: 1.5,
-                    child: Checkbox(
-                      side: const BorderSide(width: 1.5),
-                      value: false,
-                      onChanged: (val) {},
-                    ),
-                  ),
-                ],
-              )
+                ),
             ],
           ),
         ),
+        Expanded(
+          flex: 1,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              AspectRatio(
+                aspectRatio: 3,
+                child: GestureDetector(
+                  onTap: () {
+                    launchUrl(Uri.parse(carDetail.url));
+                  },
+                  child: Image.asset('assets/ozon.png'),
+                ),
+              ),
+              Divider(
+                height: 6,
+                indent: 6,
+                endIndent: 6,
+                color: theme.colorScheme.onSecondary,
+              ),
+              const SizedBox(height: 13),
+              Transform.scale(
+                scale: 1.3,
+                child: Checkbox(
+                  value: false,
+                  onChanged: (val) {},
+                ),
+              ),
+            ],
+          ),
+        )
       ],
     );
   }

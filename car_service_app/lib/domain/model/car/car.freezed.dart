@@ -20,15 +20,10 @@ Car _$CarFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Car {
-  @JsonKey(name: 'id')
   int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'carConfig')
   CarConfig? get carConfig => throw _privateConstructorUsedError;
-  @JsonKey(name: 'brand')
   String? get brand => throw _privateConstructorUsedError;
-  @JsonKey(name: 'model')
   String? get model => throw _privateConstructorUsedError;
-  @JsonKey(name: 'year')
   int? get year => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,11 +37,7 @@ abstract class $CarCopyWith<$Res> {
       _$CarCopyWithImpl<$Res, Car>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'carConfig') CarConfig? carConfig,
-      @JsonKey(name: 'brand') String? brand,
-      @JsonKey(name: 'model') String? model,
-      @JsonKey(name: 'year') int? year});
+      {int id, CarConfig? carConfig, String? brand, String? model, int? year});
 
   $CarConfigCopyWith<$Res>? get carConfig;
 }
@@ -113,11 +104,7 @@ abstract class _$$CarImplCopyWith<$Res> implements $CarCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'carConfig') CarConfig? carConfig,
-      @JsonKey(name: 'brand') String? brand,
-      @JsonKey(name: 'model') String? model,
-      @JsonKey(name: 'year') int? year});
+      {int id, CarConfig? carConfig, String? brand, String? model, int? year});
 
   @override
   $CarConfigCopyWith<$Res>? get carConfig;
@@ -168,29 +155,20 @@ class __$$CarImplCopyWithImpl<$Res> extends _$CarCopyWithImpl<$Res, _$CarImpl>
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 class _$CarImpl implements _Car {
   const _$CarImpl(
-      {@JsonKey(name: 'id') required this.id,
-      @JsonKey(name: 'carConfig') this.carConfig,
-      @JsonKey(name: 'brand') this.brand,
-      @JsonKey(name: 'model') this.model,
-      @JsonKey(name: 'year') this.year});
+      {required this.id, this.carConfig, this.brand, this.model, this.year});
 
   factory _$CarImpl.fromJson(Map<String, dynamic> json) =>
       _$$CarImplFromJson(json);
 
   @override
-  @JsonKey(name: 'id')
   final int id;
   @override
-  @JsonKey(name: 'carConfig')
   final CarConfig? carConfig;
   @override
-  @JsonKey(name: 'brand')
   final String? brand;
   @override
-  @JsonKey(name: 'model')
   final String? model;
   @override
-  @JsonKey(name: 'year')
   final int? year;
 
   @override
@@ -232,28 +210,23 @@ class _$CarImpl implements _Car {
 
 abstract class _Car implements Car {
   const factory _Car(
-      {@JsonKey(name: 'id') required final int id,
-      @JsonKey(name: 'carConfig') final CarConfig? carConfig,
-      @JsonKey(name: 'brand') final String? brand,
-      @JsonKey(name: 'model') final String? model,
-      @JsonKey(name: 'year') final int? year}) = _$CarImpl;
+      {required final int id,
+      final CarConfig? carConfig,
+      final String? brand,
+      final String? model,
+      final int? year}) = _$CarImpl;
 
   factory _Car.fromJson(Map<String, dynamic> json) = _$CarImpl.fromJson;
 
   @override
-  @JsonKey(name: 'id')
   int get id;
   @override
-  @JsonKey(name: 'carConfig')
   CarConfig? get carConfig;
   @override
-  @JsonKey(name: 'brand')
   String? get brand;
   @override
-  @JsonKey(name: 'model')
   String? get model;
   @override
-  @JsonKey(name: 'year')
   int? get year;
   @override
   @JsonKey(ignore: true)

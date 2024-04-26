@@ -3,10 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class ValidatedTextField extends StatefulWidget {
+  final TextEditingController controller;
+  final VoidCallback? onTap;
+  final String? label;
+  final TextInputType keyboardType;
+  final TextInputAction textInputAction;
+  final List<TextInputFormatter>? inputFormatters;
+  final String? hintText;
+  final bool readonly;
+  final EdgeInsets? padding;
+
   const ValidatedTextField({
     super.key,
     required this.controller,
-    required this.label,
+    this.label,
     this.onTap,
     this.textInputAction = TextInputAction.done,
     this.keyboardType = TextInputType.text,
@@ -15,16 +25,6 @@ class ValidatedTextField extends StatefulWidget {
     this.readonly = false,
     this.padding,
   });
-
-  final TextEditingController controller;
-  final VoidCallback? onTap;
-  final String label;
-  final TextInputType keyboardType;
-  final TextInputAction textInputAction;
-  final List<TextInputFormatter>? inputFormatters;
-  final String? hintText;
-  final bool readonly;
-  final EdgeInsets? padding;
 
   @override
   State<ValidatedTextField> createState() => _ValidatedTextFieldState();
@@ -65,11 +65,9 @@ class _ValidatedTextFieldState extends State<ValidatedTextField> {
                     onSubmitted: (_) => FocusScope.of(context).unfocus(),
                     controller: widget.controller,
                     readOnly: widget.readonly,
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      color: Colors.black
-                    ),
+                    style: theme.textTheme.bodyMedium
+                        ?.copyWith(color: Colors.black),
                     decoration: InputDecoration(
-
                       border: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(
@@ -84,7 +82,6 @@ class _ValidatedTextFieldState extends State<ValidatedTextField> {
                         horizontal: 16,
                         vertical: 9,
                       ),
-
                       hintStyle: TextStyle(
                         fontSize: 16,
                         color: theme.colorScheme.onSecondary,
@@ -106,7 +103,7 @@ class _ValidatedTextFieldState extends State<ValidatedTextField> {
                                   ? const Offset(0, 20)
                                   : const Offset(0, 10),
                               child: Text(
-                                label,
+                                label ?? '',
                                 style: TextStyle(
                                   color: theme.colorScheme.onSecondary,
                                   fontSize: _focusNode.hasFocus ||

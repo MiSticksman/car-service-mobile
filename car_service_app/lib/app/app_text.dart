@@ -1,4 +1,3 @@
-import 'package:car_service_app/app/app_color.dart';
 import 'package:flutter/material.dart';
 
 final class AppText {
@@ -94,7 +93,6 @@ final class AppText {
     fontSize: 16,
     fontWeight: FontWeight.w400,
     fontFamily: 'Montserrat',
-    color: AppColor.black,
   );
 
   static const TextStyle normal18 = TextStyle(

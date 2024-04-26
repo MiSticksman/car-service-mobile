@@ -15,6 +15,7 @@
   "car": "Car",
   "choosingCarBrand": "Choosing car brand",
   "choosingCarModel": "Choosing car model",
+  "choosingCarConf": "Choosing car configuration",
   "carInfo": "Car information",
   "carBrandHintText": "brand name",
   "carModelHintText": "model name",
@@ -51,8 +52,11 @@
   "workSelection": "Workы",
   "presentedWorks": "The works are presented for the car",
   "selectAnotherCar": "Change car",
+  "toWorksDetailsDescription": "To go to the list of parts for the selected works, click «Done»",
   "selectDetails": "Select details",
   "detailsSelection": "Details and consumables",
-  "carDetailsDescription": "A list of the parts that we found for the selected works. To proceed to the service entry, specify which details you will use.",
-  "originalDetail": "Original part"
+  "foundDetails": "A list of the parts that we found for the selected works",
+  "carDetailsDescription": "To sign up for the service, specify which parts you will use and order them yourself on the marketplace",
+  "originalDetail": "Original part",
+  "toOrderDescription": "To proceed to the recording in the service click «Done»"
 }

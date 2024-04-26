@@ -22,6 +22,7 @@ class WorkDetailsScreenWidget
   @override
   Widget build(IWorkDetailsScreenWidgetModel wm) {
     final localizations = wm.localizations;
+    final theme = wm.theme;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -57,18 +58,40 @@ class WorkDetailsScreenWidget
             return Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 16.0,
-                vertical: 20,
               ),
               child: CustomScrollView(
                 slivers: [
                   SliverToBoxAdapter(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 16.0,
+                      padding: const EdgeInsets.only(
+                        top: 21.0,
+                        bottom: 24.0,
                       ),
                       child: Text(
-                        localizations.carDetailsDescription,
-                        style: wm.textTheme.displaySmall,
+                        localizations.foundDetails,
+                        textAlign: TextAlign.center,
+                        style: wm.textTheme.displayMedium?.copyWith(
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        bottom: 20.0,
+                      ),
+                      child: Column(
+                        children: [
+                          Text(
+                            localizations.carDetailsDescription,
+                            textAlign: TextAlign.center,
+                            style: wm.textTheme.bodyMedium?.copyWith(
+                              color: theme.colorScheme.onBackground,
+                            ),
+                          ),
+                          const Divider(),
+                        ],
                       ),
                     ),
                   ),
@@ -77,7 +100,7 @@ class WorkDetailsScreenWidget
                     itemBuilder: (_, index) {
                       final carDetail = carWorksDetails[index];
                       return AspectRatio(
-                        aspectRatio: 150 / 50,
+                        aspectRatio: 160 / 50,
                         child: WorkDetailCard(
                           wm: wm,
                           carDetail: carDetail,
@@ -85,6 +108,34 @@ class WorkDetailsScreenWidget
                       );
                     },
                     separatorBuilder: (_, __) => const SizedBox(height: 12),
+                  ),
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 26.0,
+                        horizontal: 24.0,
+                      ),
+                      child: Text(
+                        localizations.toOrderDescription,
+                        textAlign: TextAlign.center,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: theme.colorScheme.onBackground,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 20.0,
+                        right: 20.0,
+                        bottom: 16.0,
+                      ),
+                      child: OutlinedButton(
+                        onPressed: null,
+                        child: Text(localizations.done),
+                      ),
+                    ),
                   ),
                 ],
               ),

@@ -60,6 +60,17 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    ConfirmPhoneRoute.name: (routeData) {
+      final args = routeData.argsAs<ConfirmPhoneRouteArgs>(
+          orElse: () => const ConfirmPhoneRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ConfirmPhoneScreenWidget(
+          key: args.key,
+          wmFactory: args.wmFactory,
+        ),
+      );
+    },
     EditingProfileRoute.name: (routeData) {
       final args = routeData.argsAs<EditingProfileRouteArgs>(
           orElse: () => const EditingProfileRouteArgs());
@@ -115,17 +126,6 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-    ProductRoute.name: (routeData) {
-      final args = routeData.argsAs<ProductRouteArgs>(
-          orElse: () => const ProductRouteArgs());
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: ProductScreenWidget(
-          key: args.key,
-          wmFactory: args.wmFactory,
-        ),
-      );
-    },
     ProfileRoute.name: (routeData) {
       final args = routeData.argsAs<ProfileRouteArgs>(
           orElse: () => const ProfileRouteArgs());
@@ -141,6 +141,17 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const ProfileTabPage(),
+      );
+    },
+    RegisterRoute.name: (routeData) {
+      final args = routeData.argsAs<RegisterRouteArgs>(
+          orElse: () => const RegisterRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: RegisterScreenWidget(
+          key: args.key,
+          wmFactory: args.wmFactory,
+        ),
       );
     },
     WorkDetailsRoute.name: (routeData) {
@@ -337,6 +348,47 @@ class CarInfoRouteArgs {
   @override
   String toString() {
     return 'CarInfoRouteArgs{key: $key, wmFactory: $wmFactory, car: $car}';
+  }
+}
+
+/// generated route for
+/// [ConfirmPhoneScreenWidget]
+class ConfirmPhoneRoute extends PageRouteInfo<ConfirmPhoneRouteArgs> {
+  ConfirmPhoneRoute({
+    Key? key,
+    WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+            BuildContext)
+        wmFactory = defaultConfirmPhoneScreenWidgetModelFactory,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ConfirmPhoneRoute.name,
+          args: ConfirmPhoneRouteArgs(
+            key: key,
+            wmFactory: wmFactory,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ConfirmPhoneRoute';
+
+  static const PageInfo<ConfirmPhoneRouteArgs> page =
+      PageInfo<ConfirmPhoneRouteArgs>(name);
+}
+
+class ConfirmPhoneRouteArgs {
+  const ConfirmPhoneRouteArgs({
+    this.key,
+    this.wmFactory = defaultConfirmPhoneScreenWidgetModelFactory,
+  });
+
+  final Key? key;
+
+  final WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+      BuildContext) wmFactory;
+
+  @override
+  String toString() {
+    return 'ConfirmPhoneRouteArgs{key: $key, wmFactory: $wmFactory}';
   }
 }
 
@@ -544,47 +596,6 @@ class OrderRouteArgs {
 }
 
 /// generated route for
-/// [ProductScreenWidget]
-class ProductRoute extends PageRouteInfo<ProductRouteArgs> {
-  ProductRoute({
-    Key? key,
-    WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
-            BuildContext)
-        wmFactory = defaultProductScreenWidgetModelFactory,
-    List<PageRouteInfo>? children,
-  }) : super(
-          ProductRoute.name,
-          args: ProductRouteArgs(
-            key: key,
-            wmFactory: wmFactory,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'ProductRoute';
-
-  static const PageInfo<ProductRouteArgs> page =
-      PageInfo<ProductRouteArgs>(name);
-}
-
-class ProductRouteArgs {
-  const ProductRouteArgs({
-    this.key,
-    this.wmFactory = defaultProductScreenWidgetModelFactory,
-  });
-
-  final Key? key;
-
-  final WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
-      BuildContext) wmFactory;
-
-  @override
-  String toString() {
-    return 'ProductRouteArgs{key: $key, wmFactory: $wmFactory}';
-  }
-}
-
-/// generated route for
 /// [ProfileScreenWidget]
 class ProfileRoute extends PageRouteInfo<ProfileRouteArgs> {
   ProfileRoute({
@@ -637,6 +648,47 @@ class ProfileTab extends PageRouteInfo<void> {
   static const String name = 'ProfileTab';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [RegisterScreenWidget]
+class RegisterRoute extends PageRouteInfo<RegisterRouteArgs> {
+  RegisterRoute({
+    Key? key,
+    WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+            BuildContext)
+        wmFactory = defaultRegisterScreenWidgetModelFactory,
+    List<PageRouteInfo>? children,
+  }) : super(
+          RegisterRoute.name,
+          args: RegisterRouteArgs(
+            key: key,
+            wmFactory: wmFactory,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'RegisterRoute';
+
+  static const PageInfo<RegisterRouteArgs> page =
+      PageInfo<RegisterRouteArgs>(name);
+}
+
+class RegisterRouteArgs {
+  const RegisterRouteArgs({
+    this.key,
+    this.wmFactory = defaultRegisterScreenWidgetModelFactory,
+  });
+
+  final Key? key;
+
+  final WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
+      BuildContext) wmFactory;
+
+  @override
+  String toString() {
+    return 'RegisterRouteArgs{key: $key, wmFactory: $wmFactory}';
+  }
 }
 
 /// generated route for

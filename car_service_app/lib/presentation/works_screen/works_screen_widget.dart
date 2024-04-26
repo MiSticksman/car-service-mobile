@@ -1,6 +1,7 @@
 import 'package:car_service_app/domain/model/car/car.dart';
 import 'package:car_service_app/presentation/ui_util/car_card.dart';
 import 'package:car_service_app/presentation/ui_util/close_widget.dart';
+import 'package:car_service_app/presentation/ui_util/custom_text_button.dart';
 import 'package:car_service_app/presentation/works_screen/components/work_card.dart';
 import 'package:car_service_app/router/app_router_export.dart';
 import 'package:core/core.dart';
@@ -100,32 +101,11 @@ class WorksScreenWidget extends ElementaryWidget<IWorksScreenWidgetModel> {
                                     ],
                                   ),
                                   const Spacer(flex: 3),
-                                  InkWell(
+                                  CustomTextButton(
                                     onTap: wm.toMyCarsScreen,
-                                    child: Container(
-                                      padding: const EdgeInsets.symmetric(
-                                        vertical: 11,
-                                        horizontal: 9,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: theme.colorScheme.tertiary,
-                                        borderRadius: const BorderRadius.all(
-                                          Radius.circular(20),
-                                        ),
-                                      ),
-                                      child: Row(
-                                        children: [
-                                          Text(localizations.selectAnotherCar),
-                                          const SizedBox(width: 6),
-                                          Icon(
-                                            Icons.search,
-                                            color:
-                                                theme.colorScheme.onBackground,
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
+                                    text: localizations.selectAnotherCar,
+                                    iconData: Icons.search,
+                                  )
                                 ],
                               ),
                               const SizedBox(height: 20),
@@ -160,7 +140,7 @@ class WorksScreenWidget extends ElementaryWidget<IWorksScreenWidgetModel> {
                             bottom: 22.0,
                           ),
                           child: Text(
-                            'Чтобы перейти к списку деталей для выбранных работ, нажмите «Готово»',
+                            localizations.toWorksDetailsDescription,
                             textAlign: TextAlign.center,
                             style: theme.textTheme.bodySmall?.copyWith(
                               color: theme.colorScheme.onBackground,
@@ -168,9 +148,6 @@ class WorksScreenWidget extends ElementaryWidget<IWorksScreenWidgetModel> {
                           ),
                         ),
                       ),
-                      // const SliverToBoxAdapter(
-                      //   child: SizedBox(height: 70),
-                      // ),
                       SliverToBoxAdapter(
                         child: Padding(
                           padding: const EdgeInsets.only(
@@ -185,7 +162,7 @@ class WorksScreenWidget extends ElementaryWidget<IWorksScreenWidgetModel> {
                             child: Text(localizations.done),
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                   // Positioned(

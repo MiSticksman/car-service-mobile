@@ -1,6 +1,8 @@
 import 'package:auto_route/annotations.dart';
 import 'package:car_service_app/presentation/car_add/brand_selection_screen/components/brand_element.dart';
 import 'package:car_service_app/presentation/ui_util/close_widget.dart';
+import 'package:car_service_app/presentation/ui_util/unfocus.dart';
+import 'package:car_service_app/router/app_router_export.dart';
 import 'package:core/core.dart';
 import 'package:elementary/elementary.dart';
 import 'package:elementary_helper/elementary_helper.dart';
@@ -27,37 +29,46 @@ class BrandSelectionScreenWidget
         final brands = data?.$1 ?? [];
         final selectedBrand = data?.$2;
         if (brands.isEmpty) {
-          return const Center(child: Text(''),);
+          return const Center(
+            child: Text(''),
+          );
         }
         return SafeArea(
-          child: Scaffold(
-            appBar: AppBar(
-              automaticallyImplyLeading: false,
-              title: Text(localizations.choosingCarBrand),
-              actions: const [CloseWidget()],
-            ),
-            body: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: SearchWidget(
-                    controller: wm.searchController,
-                    hintText: localizations.carBrandHintText,
+          child: UnfocusWidget(
+            child: Scaffold(
+              appBar: AppBar(
+                automaticallyImplyLeading: false,
+                title: Text(localizations.choosingCarBrand),
+                actions: const [CloseWidget()],
+              ),
+              body: CustomScrollView(
+                slivers: [
+                  SliverPadding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    sliver: SliverToBoxAdapter(
+                      child: SearchWidget(
+                        controller: wm.searchController,
+                        hintText: localizations.carBrandHintText,
+                      ),
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 8.0, left: 4, right: 4),
-                    child: GridView.builder(
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4,
-                        mainAxisSpacing: 20,
+                  SliverPadding(
+                    padding: const EdgeInsets.only(
+                      top: 23.0,
+                      left: 10,
+                      right: 10,
+                    ),
+                    sliver: SliverGrid.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        mainAxisSpacing: 10,
                         crossAxisSpacing: 10,
                       ),
                       itemBuilder: (_, index) {
                         final brand = brands[index];
                         return BrandElement(
-                          url: 'url',
+                          url: null,
                           brand: brand,
                           onTap: () => wm.onBrandTap(brand),
                           selected: brand == selectedBrand,
@@ -66,18 +77,18 @@ class BrandSelectionScreenWidget
                       itemCount: brands.length,
                     ),
                   ),
-                ),
-              ],
-            ),
-            bottomNavigationBar: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 30.0,
-          
-                vertical: 16,
+                ],
               ),
-              child: ElevatedButton(
-                onPressed: selectedBrand == null ? null : wm.toSpecifyCarModel,
-                child: Text(localizations.selectModel),
+              bottomNavigationBar: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 90.0,
+                  vertical: 24,
+                ),
+                child: OutlinedButton(
+                  onPressed:
+                      selectedBrand == null ? null : wm.toSpecifyCarModel,
+                  child: Text(localizations.selectModel),
+                ),
               ),
             ),
           ),

@@ -38,6 +38,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get choosingCarModel => 'Choosing car model';
 
   @override
+  String get choosingCarConf => 'Choosing car configuration';
+
+  @override
   String get carInfo => 'Car information';
 
   @override
@@ -146,14 +149,23 @@ class AppLocalizationsEn extends AppLocalizations {
   String get selectAnotherCar => 'Change car';
 
   @override
+  String get toWorksDetailsDescription => 'To go to the list of parts for the selected works, click «Done»';
+
+  @override
   String get selectDetails => 'Select details';
 
   @override
   String get detailsSelection => 'Details and consumables';
 
   @override
-  String get carDetailsDescription => 'A list of the parts that we found for the selected works. To proceed to the service entry, specify which details you will use.';
+  String get foundDetails => 'A list of the parts that we found for the selected works';
+
+  @override
+  String get carDetailsDescription => 'To sign up for the service, specify which parts you will use and order them yourself on the marketplace';
 
   @override
   String get originalDetail => 'Original part';
+
+  @override
+  String get toOrderDescription => 'To proceed to the recording in the service click «Done»';
 }

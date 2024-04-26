@@ -26,6 +26,8 @@ class WorkCard extends StatelessWidget {
             child: Text(
               work.name ?? '',
               style: theme.textTheme.bodyLarge,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
             ),
           ),
           const Spacer(),

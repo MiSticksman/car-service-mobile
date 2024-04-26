@@ -38,6 +38,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get choosingCarModel => 'Выбор модели';
 
   @override
+  String get choosingCarConf => 'Выбор конфигурации';
+
+  @override
   String get carInfo => 'Информация об авто';
 
   @override
@@ -50,7 +53,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get addCar => 'Добавить авто';
 
   @override
-  String get selectModel => 'Указать модель';
+  String get selectModel => 'Выбрать модель';
 
   @override
   String get selectYear => 'Указать год';
@@ -146,14 +149,23 @@ class AppLocalizationsRu extends AppLocalizations {
   String get selectAnotherCar => 'Изменить авто';
 
   @override
+  String get toWorksDetailsDescription => 'Чтобы перейти к списку деталей для выбранных работ, нажмите «Готово»';
+
+  @override
   String get selectDetails => 'Выбрать детали';
 
   @override
   String get detailsSelection => 'Детали и расходники';
 
   @override
-  String get carDetailsDescription => 'Список деталей, которые мы нашли для выбранных работ. Чтобы перейти к записи в сервис, укажите, какие детали Вы будете использовать.';
+  String get foundDetails => 'Список деталей, которые мы нашли для выбранных работ';
+
+  @override
+  String get carDetailsDescription => 'Чтобы перейти к записи в сервис, укажите, какие детали Вы будете использовать и закажите их самостоятельно на маркетплейсе';
 
   @override
   String get originalDetail => 'Оригинальная деталь';
+
+  @override
+  String get toOrderDescription => 'Для перехода к записи в сервис нажмите «Готово»';
 }

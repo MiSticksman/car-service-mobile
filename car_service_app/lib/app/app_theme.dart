@@ -127,7 +127,7 @@ class AppTheme {
         useMaterial3: true,
         fontFamily: 'Montserrat',
         colorScheme: const ColorScheme.dark(
-          primary: AppColor.black,
+          primary: AppColor.whiteF1,
           onPrimary: AppColor.white,
           background: AppColor.black21,
           onBackground: AppColor.orange,
@@ -234,35 +234,57 @@ class AppTheme {
           ),
         ),
         textButtonTheme: TextButtonThemeData(
-            style: TextButton.styleFrom(
-          foregroundColor: AppColor.white,
-          backgroundColor: AppColor.transparent,
-        )),
-        dropdownMenuTheme: const DropdownMenuThemeData(
+          style: TextButton.styleFrom(
+            foregroundColor: AppColor.white,
+            backgroundColor: AppColor.transparent,
+          ),
+        ),
+        dropdownMenuTheme: DropdownMenuThemeData(
           textStyle: AppText.normal16,
+          menuStyle: const MenuStyle(
+            backgroundColor: MaterialStatePropertyAll(AppColor.paleBrown),
+            padding: MaterialStatePropertyAll(EdgeInsets.zero),
+          ),
+          inputDecorationTheme: InputDecorationTheme(
+            labelStyle: AppText.normal16.copyWith(
+              color: AppColor.white,
+            ),
+            border: const OutlineInputBorder(
+              borderSide: BorderSide(
+                color: AppColor.orange,
+              ),
+            ),
+            activeIndicatorBorder: const BorderSide(
+              color: AppColor.orange,
+            ),
+            outlineBorder: const BorderSide(
+              color: AppColor.orange,
+            ),
+            focusedBorder: const OutlineInputBorder(
+              borderSide: BorderSide(
+                color: AppColor.orange,
+              ),
+            ),
+          ),
         ),
         checkboxTheme: CheckboxThemeData(
-          fillColor: MaterialStateProperty.resolveWith(
-            (states) {
-              if (states.contains(MaterialState.selected)) {
-                return AppColor.orange;
-              }
-              return AppColor.transparent;
-            },
-          ),
-          checkColor: MaterialStateProperty.resolveWith(
-                (states) {
-              if (states.contains(MaterialState.selected)) {
-                return AppColor.white;
-              }
-              return AppColor.transparent;
-            },
-          ),
-          side: const BorderSide(
-            width: 1,
-            color: AppColor.superDuperGray
-          )
-        ),
+            fillColor: MaterialStateProperty.resolveWith(
+              (states) {
+                if (states.contains(MaterialState.selected)) {
+                  return AppColor.orange;
+                }
+                return AppColor.transparent;
+              },
+            ),
+            checkColor: MaterialStateProperty.resolveWith(
+              (states) {
+                if (states.contains(MaterialState.selected)) {
+                  return AppColor.white;
+                }
+                return AppColor.transparent;
+              },
+            ),
+            side: const BorderSide(width: 1, color: AppColor.superDuperGray)),
       ),
     );
   }

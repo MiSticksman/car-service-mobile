@@ -159,6 +159,12 @@ abstract class AppLocalizations {
   /// **'Choosing car model'**
   String get choosingCarModel;
 
+  /// No description provided for @choosingCarConf.
+  ///
+  /// In en, this message translates to:
+  /// **'Choosing car configuration'**
+  String get choosingCarConf;
+
   /// No description provided for @carInfo.
   ///
   /// In en, this message translates to:
@@ -375,6 +381,12 @@ abstract class AppLocalizations {
   /// **'Change car'**
   String get selectAnotherCar;
 
+  /// No description provided for @toWorksDetailsDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'To go to the list of parts for the selected works, click «Done»'**
+  String get toWorksDetailsDescription;
+
   /// No description provided for @selectDetails.
   ///
   /// In en, this message translates to:
@@ -387,10 +399,16 @@ abstract class AppLocalizations {
   /// **'Details and consumables'**
   String get detailsSelection;
 
+  /// No description provided for @foundDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'A list of the parts that we found for the selected works'**
+  String get foundDetails;
+
   /// No description provided for @carDetailsDescription.
   ///
   /// In en, this message translates to:
-  /// **'A list of the parts that we found for the selected works. To proceed to the service entry, specify which details you will use.'**
+  /// **'To sign up for the service, specify which parts you will use and order them yourself on the marketplace'**
   String get carDetailsDescription;
 
   /// No description provided for @originalDetail.
@@ -398,6 +416,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Original part'**
   String get originalDetail;
+
+  /// No description provided for @toOrderDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'To proceed to the recording in the service click «Done»'**
+  String get toOrderDescription;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
