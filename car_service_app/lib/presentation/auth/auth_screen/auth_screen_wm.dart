@@ -8,7 +8,6 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 abstract interface class IAuthScreenWidgetModel implements IWidgetModel, IThemeProvider {
 
   TextEditingController get phoneController;
-
   MaskTextInputFormatter get phoneMaskedController;
 
   void getCode();

@@ -195,4 +195,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get fillAllFieldsMessage => 'Fill in all required fields in the correct format';
+
+  @override
+  String get ordering => 'Ordering';
 }

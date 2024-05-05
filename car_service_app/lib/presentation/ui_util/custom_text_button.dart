@@ -4,12 +4,14 @@ class CustomTextButton extends StatelessWidget {
   final VoidCallback onTap;
   final String text;
   final IconData iconData;
+  final EdgeInsets? padding;
 
   const CustomTextButton({
     super.key,
     required this.onTap,
     required this.text,
     required this.iconData,
+    this.padding,
   });
 
   @override
@@ -17,7 +19,7 @@ class CustomTextButton extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(
+        padding: padding ?? const EdgeInsets.symmetric(
           vertical: 11,
           horizontal: 9,
         ),

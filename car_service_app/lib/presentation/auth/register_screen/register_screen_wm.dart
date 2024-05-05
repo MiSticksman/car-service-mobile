@@ -53,12 +53,7 @@ class RegisterScreenWidgetModel
   @override
   final TextEditingController emailController = TextEditingController();
 
-  final RegExp emailRegExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]');
-  // final RegExp phoneRegExp = RegExp(r'(^(?:[+0]9)?[0-9]{11}$)');
-
-  // String get phoneUnmasked =>
-  //     phoneController.text.replaceAll(RegExp(r'[^0-9]'), '');
-
+  final RegExp emailRegExp = RegExp(r'^[\w-.]+@([\w-]+\.)+[\w-]');
   RegisterScreenWidgetModel(super.model);
 
   @override
@@ -91,13 +86,6 @@ class RegisterScreenWidgetModel
       final emailValid = emailRegExp.hasMatch(emailController.text);
       validate &= emailValid;
     }
-    // if (phoneController.text.isEmpty) {
-    //   emptyFields = true;
-    //   validate = false;
-    // } else {
-    //   final phoneValid = phoneRegExp.hasMatch(phoneUnmasked);
-    //   validate &= phoneValid;
-    // }
     if (emptyFields || !validate) {
       context.showSnackBar(localizations.fillAllFieldsMessage);
     }

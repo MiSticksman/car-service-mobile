@@ -476,6 +476,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Fill in all required fields in the correct format'**
   String get fillAllFieldsMessage;
+
+  /// No description provided for @ordering.
+  ///
+  /// In en, this message translates to:
+  /// **'Ordering'**
+  String get ordering;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -195,4 +195,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get fillAllFieldsMessage => 'Заполните все обязательные поля в верном формате';
+
+  @override
+  String get ordering => 'Оформление записи';
 }

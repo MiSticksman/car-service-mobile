@@ -4,14 +4,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoadingIndicator extends StatelessWidget {
-  const LoadingIndicator({super.key});
+  final Color? color;
+
+  const LoadingIndicator({
+    super.key,
+    this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Platform.isAndroid
-          ? const CircularProgressIndicator()
-          : const CupertinoActivityIndicator(),
+          ? CircularProgressIndicator(color: color)
+          : CupertinoActivityIndicator(color: color),
     );
   }
 }

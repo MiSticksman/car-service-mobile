@@ -67,5 +67,6 @@
   "logoutConfirmation": "Do you really want to log out of your account?",
   "registration": "Registration",
   "register": "Register",
-  "fillAllFieldsMessage": "Fill in all required fields in the correct format"
+  "fillAllFieldsMessage": "Fill in all required fields in the correct format",
+  "ordering": "Ordering"
 }

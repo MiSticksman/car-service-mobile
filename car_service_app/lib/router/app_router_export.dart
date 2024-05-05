@@ -15,3 +15,4 @@ export 'package:car_service_app/presentation/editing_profile_screen/editing_prof
 export 'package:car_service_app/presentation/auth/auth_screen/auth_screen.dart';
 export 'package:car_service_app/presentation/auth/confirm_phone_screen/confirm_phone_screen.dart';
 export 'package:car_service_app/presentation/auth/register_screen/register_screen.dart';
+export 'package:car_service_app/presentation/map_screen/map_screen.dart';

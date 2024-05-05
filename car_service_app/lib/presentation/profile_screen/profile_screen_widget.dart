@@ -2,6 +2,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:car_service_app/app/app_text.dart';
 import 'package:car_service_app/presentation/profile_screen/components/setting_element.dart';
 import 'package:car_service_app/presentation/profile_screen/components/user_data_element.dart';
+import 'package:car_service_app/router/app_router.dart';
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -75,6 +76,9 @@ class ProfileScreenWidget extends ElementaryWidget<IProfileScreenWidgetModel> {
               paramName: localizations.worksHistory,
               onTap: wm.toCompleteWorksScreen,
             ),
+            TextButton(
+                onPressed: () => wm.router.navigate(OrderRoute()),
+                child: Text('shortcut')),
             const Spacer(flex: 30),
           ],
         ),
