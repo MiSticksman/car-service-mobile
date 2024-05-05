@@ -168,4 +168,31 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get toOrderDescription => 'Для перехода к записи в сервис нажмите «Готово»';
+
+  @override
+  String get loginOrRegister => 'Войти или зарегистрироваться';
+
+  @override
+  String get incorrectPhoneFormat => 'Неверный формат телефона';
+
+  @override
+  String get confirmNumber => 'Подтвердите номер';
+
+  @override
+  String get enterSms => 'Введите SMS-код, отправленный на номер';
+
+  @override
+  String get logout => 'Выход из аккаунта';
+
+  @override
+  String get logoutConfirmation => 'Вы дейсвтительно хотите из аккаунта?';
+
+  @override
+  String get registration => 'Регистрация';
+
+  @override
+  String get register => 'Зарегистрироваться';
+
+  @override
+  String get fillAllFieldsMessage => 'Заполните все обязательные поля в верном формате';
 }

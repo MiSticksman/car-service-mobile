@@ -29,7 +29,12 @@ class CustomTextButton extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Text(text),
+            Text(
+              text,
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    fontSize: 12,
+                  ),
+            ),
             const SizedBox(width: 6),
             Icon(
               iconData,

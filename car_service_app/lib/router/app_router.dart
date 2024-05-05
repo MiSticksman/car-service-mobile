@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:car_service_app/domain/model/car/car.dart';
 import 'package:car_service_app/presentation/ui_util/modal_bottom_sheet_builder.dart';
+import 'package:car_service_app/router/guard/auth_guard.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import 'app_router_export.dart';
@@ -11,9 +12,13 @@ part 'app_router.gr.dart';
 class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
+        AutoRoute(page: AuthRoute.page),
+        AutoRoute(page: ConfirmPhoneRoute.page),
+        AutoRoute(page: RegisterRoute.page),
         AutoRoute(
           initial: true,
           page: ProfileTab.page,
+          guards: [AuthGuard()],
           children: [
             CustomRoute(
               initial: true,
@@ -32,10 +37,6 @@ class AppRouter extends _$AppRouter {
             ),
             CustomRoute(
               page: EditingProfileRoute.page,
-              customRouteBuilder: modalBottomSheetBuilder,
-            ),
-            CustomRoute(
-              page: AuthRoute.page,
               customRouteBuilder: modalBottomSheetBuilder,
             ),
             CustomRoute(
@@ -70,20 +71,14 @@ class AppRouter extends _$AppRouter {
               page: WorkDetailsRoute.page,
               customRouteBuilder: modalBottomSheetBuilder,
             ),
+            CustomRoute(
+              page: OrderRoute.page,
+              customRouteBuilder: modalBottomSheetBuilder,
+            ),
           ],
         ),
       ];
 
-  // @override
-  // void onNavigation(NavigationResolver resolver, StackRouter router) {
-    // const auth = false;
-    // if (auth || resolver.route.name == AuthRoute.name) {
-    //   resolver.next();
-    // } else {
-    //   push(AuthRoute());
-    //   resolver.next(auth ?? false);
-    // }
-  // }
 }
 
 @RoutePage(name: 'ProfileTab')

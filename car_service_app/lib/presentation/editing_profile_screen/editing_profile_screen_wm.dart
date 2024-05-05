@@ -65,7 +65,7 @@ class EditingProfileScreenWidgetModel
     if (!_validate()) {
       return;
     }
-    router.pop();
+    router.maybePop();
   }
 
   bool _validate() {
@@ -90,7 +90,7 @@ class EditingProfileScreenWidgetModel
       validate &= phoneValid;
     }
     if (emptyFields) {
-      context.showSnackBar('Заполните все обязательные поля в верном формате');
+      context.showSnackBar(localizations.fillAllFieldsMessage);
     }
     return validate;
   }

@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:car_service_app/app/app.dart';
 import 'package:car_service_app/presentation/editing_profile_screen/editing_profile_screen.dart';
 import 'package:car_service_app/presentation/my_cars_screen/my_cars_screen.dart';
 import 'package:car_service_app/presentation/works_screen/works_screen.dart';
@@ -18,7 +19,7 @@ abstract interface class IProfileScreenWidgetModel
 
   void openMyCars();
 
-  void toWorksScreen();
+  void openWorksScreen();
 
   void toOrderScreen();
 
@@ -48,14 +49,28 @@ class ProfileScreenWidgetModel
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        title: Text(localizations.removal),
-        content: Text(localizations.removeQuestion),
+        title: Text(localizations.logout),
+        content: Text(localizations.logoutConfirmation),
         actions: [
           TextButton(
-              onPressed: () => router.pop(), child: Text(localizations.no)),
-          TextButton(onPressed: () {}, child: Text(localizations.yes)),
+            onPressed: () => router.maybePop(),
+            child: Text(localizations.no),
+          ),
+          TextButton(
+            onPressed: _logout,
+            child: Text(localizations.yes),
+          ),
         ],
       ),
+    );
+  }
+
+  Future<void> _logout() async {
+    auth = false;
+    await router.maybePop();
+    router.root.pushAndPopUntil(
+      AuthRoute(),
+      predicate: (_) => false,
     );
   }
 
@@ -65,7 +80,7 @@ class ProfileScreenWidgetModel
   }
 
   @override
-  void toWorksScreen() {
+  void openWorksScreen() {
     context.router.navigate(WorksRoute());
   }
 

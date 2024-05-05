@@ -58,5 +58,14 @@
   "foundDetails": "A list of the parts that we found for the selected works",
   "carDetailsDescription": "To sign up for the service, specify which parts you will use and order them yourself on the marketplace",
   "originalDetail": "Original part",
-  "toOrderDescription": "To proceed to the recording in the service click «Done»"
+  "toOrderDescription": "To proceed to the recording in the service click «Done»",
+  "loginOrRegister": "Log in or register",
+  "incorrectPhoneFormat": "Incorrect phone format",
+  "confirmNumber": "Confirm the number",
+  "enterSms": "Enter the SMS code sent to the number",
+  "logout": "Log out of your account",
+  "logoutConfirmation": "Do you really want to log out of your account?",
+  "registration": "Registration",
+  "register": "Register",
+  "fillAllFieldsMessage": "Fill in all required fields in the correct format"
 }

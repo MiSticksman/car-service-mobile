@@ -168,4 +168,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get toOrderDescription => 'To proceed to the recording in the service click «Done»';
+
+  @override
+  String get loginOrRegister => 'Log in or register';
+
+  @override
+  String get incorrectPhoneFormat => 'Incorrect phone format';
+
+  @override
+  String get confirmNumber => 'Confirm the number';
+
+  @override
+  String get enterSms => 'Enter the SMS code sent to the number';
+
+  @override
+  String get logout => 'Log out of your account';
+
+  @override
+  String get logoutConfirmation => 'Do you really want to log out of your account?';
+
+  @override
+  String get registration => 'Registration';
+
+  @override
+  String get register => 'Register';
+
+  @override
+  String get fillAllFieldsMessage => 'Fill in all required fields in the correct format';
 }

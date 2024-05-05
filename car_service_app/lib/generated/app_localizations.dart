@@ -422,6 +422,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'To proceed to the recording in the service click «Done»'**
   String get toOrderDescription;
+
+  /// No description provided for @loginOrRegister.
+  ///
+  /// In en, this message translates to:
+  /// **'Log in or register'**
+  String get loginOrRegister;
+
+  /// No description provided for @incorrectPhoneFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'Incorrect phone format'**
+  String get incorrectPhoneFormat;
+
+  /// No description provided for @confirmNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm the number'**
+  String get confirmNumber;
+
+  /// No description provided for @enterSms.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the SMS code sent to the number'**
+  String get enterSms;
+
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Log out of your account'**
+  String get logout;
+
+  /// No description provided for @logoutConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you really want to log out of your account?'**
+  String get logoutConfirmation;
+
+  /// No description provided for @registration.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration'**
+  String get registration;
+
+  /// No description provided for @register.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get register;
+
+  /// No description provided for @fillAllFieldsMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Fill in all required fields in the correct format'**
+  String get fillAllFieldsMessage;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

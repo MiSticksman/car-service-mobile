@@ -8,7 +8,7 @@ class CloseWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 12.0),
       child: GestureDetector(
-        onTap: () => Navigator.of(context).pop(),
+        onTap: () => Navigator.of(context).maybePop(),
         child: Icon(
           Icons.close,
           color: Theme.of(context).colorScheme.onPrimary,

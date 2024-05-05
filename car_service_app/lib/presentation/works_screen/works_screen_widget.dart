@@ -46,95 +46,129 @@ class WorksScreenWidget extends ElementaryWidget<IWorksScreenWidgetModel> {
             return Padding(
               padding: const EdgeInsets.only(
                 top: 21,
-                left: 21,
-                right: 21,
+                left: 18,
+                right: 18,
               ),
               child: Stack(
+                fit: StackFit.loose,
                 children: [
-                  CustomScrollView(
-                    slivers: [
-                      // SliverToBoxAdapter(
-                      //   child: Text(
-                      //     '${localizations.presentedWorks} Toyota Mark II',
-                      //     style: wm.textTheme.displaySmall,
-                      //   ),
-                      // ),
-                      SliverToBoxAdapter(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8.0),
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  GestureDetector(
-                                    onTap: () => wm.toCarInfoScreen(
-                                      Car(
-                                          id: 1,
-                                          brand: 'Toyota',
-                                          model: 'Mark II',
-                                          year: 2014),
-                                    ),
-                                    child: CarCard(
-                                      width: 80,
-                                      height: 70,
-                                    ),
-                                  ),
-                                  const Spacer(),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'Toyota Mark',
-                                        style: wm.textTheme.bodyMedium,
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 100.0),
+                    child: CustomScrollView(
+                      slivers: [
+                        SliverToBoxAdapter(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    GestureDetector(
+                                      onTap: () => wm.toCarInfoScreen(
+                                        Car(
+                                            id: 1,
+                                            brand: 'Toyota',
+                                            model: 'Mark II',
+                                            year: 2014),
                                       ),
-                                      Text(
-                                        '1996',
-                                        style:
-                                            wm.textTheme.bodyMedium?.copyWith(
-                                          color: theme.colorScheme.onTertiary,
+                                      child: CarCard(
+                                        width: 80,
+                                        height: 70,
+                                      ),
+                                    ),
+                                    const Spacer(),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Toyota Mark',
+                                          style: wm.textTheme.bodySmall,
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  const Spacer(flex: 3),
-                                  CustomTextButton(
-                                    onTap: wm.toMyCarsScreen,
-                                    text: localizations.selectAnotherCar,
-                                    iconData: Icons.search,
-                                  )
-                                ],
-                              ),
-                              const SizedBox(height: 20),
-                              const Divider(),
-                            ],
+                                        Text(
+                                          '1996',
+                                          style:
+                                              wm.textTheme.bodySmall?.copyWith(
+                                            color: theme.colorScheme.onTertiary,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    const Spacer(flex: 3),
+                                    CustomTextButton(
+                                      onTap: wm.toMyCarsScreen,
+                                      text: localizations.selectAnotherCar,
+                                      iconData: Icons.search,
+                                    )
+                                  ],
+                                ),
+                                const SizedBox(height: 20),
+                                const Divider(),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      const SliverToBoxAdapter(child: SizedBox(height: 10)),
-                      SliverPadding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        sliver: SliverList.separated(
-                          itemBuilder: (_, index) {
-                            final work = works[index];
-                            final selected = selectedWorks.contains(work);
-                            return WorkCard(
-                              work: work,
-                              onTap: () => wm.selectWork(work),
-                              selected: selected,
-                              theme: theme,
-                            );
-                          },
-                          separatorBuilder: (_, index) =>
-                              const SizedBox(height: 12),
-                          itemCount: works.length,
+                        const SliverToBoxAdapter(child: SizedBox(height: 10)),
+                        SliverPadding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          sliver: SliverList.separated(
+                            itemBuilder: (_, index) {
+                              final work = works[index];
+                              final selected = selectedWorks.contains(work);
+                              return WorkCard(
+                                work: work,
+                                onTap: () => wm.selectWork(work),
+                                selected: selected,
+                                theme: theme,
+                              );
+                            },
+                            separatorBuilder: (_, index) =>
+                                const SizedBox(height: 12),
+                            itemCount: works.length,
+                          ),
                         ),
-                      ),
-                      SliverToBoxAdapter(
-                        child: Padding(
+                        // SliverToBoxAdapter(
+                        //   child: Padding(
+                        //     padding: const EdgeInsets.only(
+                        //       top: 18.0,
+                        //       bottom: 22.0,
+                        //     ),
+                        //     child: Text(
+                        //       localizations.toWorksDetailsDescription,
+                        //       textAlign: TextAlign.center,
+                        //       style: theme.textTheme.bodySmall?.copyWith(
+                        //         color: theme.colorScheme.onBackground,
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
+                        // SliverToBoxAdapter(
+                        //   child: Padding(
+                        //     padding: const EdgeInsets.only(
+                        //       left: 20.0,
+                        //       right: 20.0,
+                        //       bottom: 16.0,
+                        //     ),
+                        //     child: OutlinedButton(
+                        //       onPressed: selectedWorks.isEmpty
+                        //           ? null
+                        //           : wm.toWorkDetailsScreen,
+                        //       child: Text(localizations.done),
+                        //     ),
+                        //   ),
+                        // ),
+                        const SliverToBoxAdapter(child: SizedBox(height: 50)),
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                    left: 0,
+                    right: 0,
+                    bottom: 5,
+                    child: Column(
+                      children: [
+                        Padding(
                           padding: const EdgeInsets.only(
                             top: 18.0,
                             bottom: 22.0,
@@ -147,40 +181,22 @@ class WorksScreenWidget extends ElementaryWidget<IWorksScreenWidgetModel> {
                             ),
                           ),
                         ),
-                      ),
-                      SliverToBoxAdapter(
-                        child: Padding(
+                        Padding(
                           padding: const EdgeInsets.only(
-                            left: 20.0,
-                            right: 20.0,
-                            bottom: 16.0,
+                            left: 20,
+                            right: 20,
+                            bottom: 16
                           ),
                           child: OutlinedButton(
                             onPressed: selectedWorks.isEmpty
                                 ? null
                                 : wm.toWorkDetailsScreen,
-                            child: Text(localizations.done),
+                            child: Text(localizations.selectDetails),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  // Positioned(
-                  //   left: 0,
-                  //   right: 0,
-                  //   bottom: 5,
-                  //   child: Padding(
-                  //     padding: const EdgeInsets.symmetric(
-                  //       horizontal: 20.0,
-                  //     ),
-                  //     child: OutlinedButton(
-                  //       onPressed: selectedWorks.isEmpty
-                  //           ? null
-                  //           : wm.toWorkDetailsScreen,
-                  //       child: Text(localizations.selectDetails),
-                  //     ),
-                  //   ),
-                  // )
+                      ],
+                    ),
+                  )
                 ],
               ),
             );

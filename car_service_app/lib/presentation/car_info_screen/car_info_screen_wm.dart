@@ -43,7 +43,8 @@ class CarInfoScreenWidgetModel
         content: Text(localizations.removeQuestion),
         actions: [
           TextButton(
-              onPressed: () => router.pop(), child: Text(localizations.no)),
+              onPressed: () => router.maybePop(),
+              child: Text(localizations.no)),
           TextButton(onPressed: () {}, child: Text(localizations.yes)),
         ],
       ),
@@ -52,7 +53,6 @@ class CarInfoScreenWidgetModel
 
   @override
   Future<void> complete() async {
-
-    router.pop();
+    router.maybePop();
   }
 }

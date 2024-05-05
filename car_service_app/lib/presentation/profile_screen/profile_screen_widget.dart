@@ -21,64 +21,62 @@ class ProfileScreenWidget extends ElementaryWidget<IProfileScreenWidgetModel> {
     final localizations = wm.localizations;
     final textTheme = wm.theme.textTheme;
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(
-            top: 10.0,
-            left: 24.0,
-            right: 24.0,
+      appBar: AppBar(
+        centerTitle: false,
+        title: Text(
+          localizations.profileTitle,
+          style: AppText.title,
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 18.0),
+            child: GestureDetector(
+              onTap: wm.toEditingProfile,
+              child: SvgPicture.asset('assets/svg/edit.svg'),
+            ),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 28.0),
-                child: Row(
-                  children: [
-                    Text(
-                      localizations.profileTitle,
-                      style: AppText.title,
-                    ),
-                    const Spacer(),
-                    GestureDetector(
-                      onTap: wm.toEditingProfile,
-                      child: SvgPicture.asset('assets/svg/edit.svg'),
-                    ),
-                  ],
-                ),
-              ),
-              UserDataElement(
-                userName: 'Вадим Шафоростов',
-                logoutTap: wm.logout,
-              ),
-              const SizedBox(height: 44),
-              // todo condition on preorder
-              if (true)
-                SettingElement(
-                  picture: "assets/svg/preorder_work_detail.svg",
-                  paramName: localizations.completeRegistration,
-                  onTap: wm.toOrderScreen,
-                ),
-              const SizedBox(height: 28),
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 18.0,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Spacer(),
+            UserDataElement(
+              userName: 'Вадим Шафоростов',
+              logoutTap: wm.logout,
+            ),
+            const Spacer(flex: 3),
+            // todo condition on preorder
+            if (true)
               SettingElement(
-                picture: 'assets/svg/car.svg',
-                paramName: localizations.myCars,
-                onTap: wm.openMyCars,
+                picture: "assets/svg/preorder_work_detail.svg",
+                paramName: localizations.completeRegistration,
+                onTap: wm.toOrderScreen,
               ),
-              const SizedBox(height: 28),
-              SettingElement(
-                picture: "assets/svg/work_selection.svg",
-                paramName: localizations.selectWork,
-                onTap: wm.toWorksScreen,
-              ),
-              const SizedBox(height: 28),
-              SettingElement(
-                picture: "assets/svg/works_history.svg",
-                paramName: localizations.worksHistory,
-                onTap: wm.toCompleteWorksScreen,
-              ),
-            ],
-          ),
+            const Spacer(flex: 2),
+            SettingElement(
+              picture: 'assets/svg/car.svg',
+              paramName: localizations.myCars,
+              onTap: wm.openMyCars,
+            ),
+            const Spacer(flex: 2),
+            SettingElement(
+              picture: "assets/svg/work_selection.svg",
+              paramName: localizations.selectWork,
+              onTap: wm.openWorksScreen,
+            ),
+            const Spacer(flex: 2),
+            SettingElement(
+              picture: "assets/svg/works_history.svg",
+              paramName: localizations.worksHistory,
+              onTap: wm.toCompleteWorksScreen,
+            ),
+            const Spacer(flex: 30),
+          ],
         ),
       ),
     );

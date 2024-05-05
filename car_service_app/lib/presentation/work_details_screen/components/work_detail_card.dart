@@ -12,11 +12,13 @@ import 'package:url_launcher/url_launcher.dart';
 class WorkDetailCard extends StatelessWidget {
   final CarWorkDetail carDetail;
   final IWorkDetailsScreenWidgetModel wm;
+  final bool selected;
 
   const WorkDetailCard({
     super.key,
     required this.carDetail,
     required this.wm,
+    required this.selected,
   });
 
   @override
@@ -33,8 +35,7 @@ class WorkDetailCard extends StatelessWidget {
             color: theme.colorScheme.background,
             child: CachedNetworkImage(
               placeholder: (_, __) => const LoadingIndicator(),
-              imageUrl:
-                  'https://ir-2.ozone.ru/s3/multimedia-c/wc1000/6640768164.jpg',
+              imageUrl: carDetail.picture ?? '',
               errorWidget: (_, __, error) => Image.asset(
                 'assets/no_image.jpeg',
               ),
@@ -48,6 +49,7 @@ class WorkDetailCard extends StatelessWidget {
             children: [
               Text(
                 carDetail.name ?? '',
+                textAlign: TextAlign.center,
                 style: theme.textTheme.displayMedium,
               ),
               Padding(
@@ -96,8 +98,8 @@ class WorkDetailCard extends StatelessWidget {
               Transform.scale(
                 scale: 1.3,
                 child: Checkbox(
-                  value: false,
-                  onChanged: (val) {},
+                  value: selected,
+                  onChanged: (val) => wm.selectWorkDetail(carDetail),
                 ),
               ),
             ],

@@ -68,7 +68,7 @@ class AppTheme {
           color: AppColor.white,
         ),
         appBarTheme: const AppBarTheme(
-          toolbarHeight: 50,
+          toolbarHeight: 44,
           elevation: 0,
           centerTitle: true,
           surfaceTintColor: Colors.transparent,
@@ -164,7 +164,7 @@ class AppTheme {
           ),
           displayLarge: TextStyle(
             fontSize: 22,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
           ),
           titleLarge: TextStyle(
             color: AppColor.orange,
@@ -187,18 +187,18 @@ class AppTheme {
           color: AppColor.white,
         ),
         appBarTheme: const AppBarTheme(
-          toolbarHeight: 50,
+          toolbarHeight: 44,
           elevation: 0,
           centerTitle: true,
           surfaceTintColor: Colors.transparent,
           backgroundColor: AppColor.black21,
           foregroundColor: AppColor.white,
           titleTextStyle: AppText.title,
-          iconTheme: IconThemeData(color: AppColor.black),
+          iconTheme: IconThemeData(color: AppColor.grayText),
           systemOverlayStyle: SystemUiOverlayStyle(
             statusBarColor: Colors.transparent,
-            statusBarIconBrightness: Brightness.dark,
-            statusBarBrightness: Brightness.light,
+            statusBarIconBrightness: Brightness.light,
+            statusBarBrightness: Brightness.dark,
           ),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(

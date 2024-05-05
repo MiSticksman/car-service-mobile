@@ -144,12 +144,12 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     RegisterRoute.name: (routeData) {
-      final args = routeData.argsAs<RegisterRouteArgs>(
-          orElse: () => const RegisterRouteArgs());
+      final args = routeData.argsAs<RegisterRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: RegisterScreenWidget(
           key: args.key,
+          phone: args.phone,
           wmFactory: args.wmFactory,
         ),
       );
@@ -655,6 +655,7 @@ class ProfileTab extends PageRouteInfo<void> {
 class RegisterRoute extends PageRouteInfo<RegisterRouteArgs> {
   RegisterRoute({
     Key? key,
+    required String phone,
     WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
             BuildContext)
         wmFactory = defaultRegisterScreenWidgetModelFactory,
@@ -663,6 +664,7 @@ class RegisterRoute extends PageRouteInfo<RegisterRouteArgs> {
           RegisterRoute.name,
           args: RegisterRouteArgs(
             key: key,
+            phone: phone,
             wmFactory: wmFactory,
           ),
           initialChildren: children,
@@ -677,17 +679,20 @@ class RegisterRoute extends PageRouteInfo<RegisterRouteArgs> {
 class RegisterRouteArgs {
   const RegisterRouteArgs({
     this.key,
+    required this.phone,
     this.wmFactory = defaultRegisterScreenWidgetModelFactory,
   });
 
   final Key? key;
+
+  final String phone;
 
   final WidgetModel<ElementaryWidget<IWidgetModel>, ElementaryModel> Function(
       BuildContext) wmFactory;
 
   @override
   String toString() {
-    return 'RegisterRouteArgs{key: $key, wmFactory: $wmFactory}';
+    return 'RegisterRouteArgs{key: $key, phone: $phone, wmFactory: $wmFactory}';
   }
 }
 
