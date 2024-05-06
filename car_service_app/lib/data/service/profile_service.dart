@@ -2,13 +2,17 @@ import 'package:car_service_app/domain/model/profile/request/email_auth_request.
 import 'package:car_service_app/domain/url/profile_url.dart';
 import 'package:car_service_app/domain/model/profile/request/update_profile_request.dart';
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:retrofit/http.dart';
 
 part 'profile_service.g.dart';
 
 @RestApi()
 abstract class ProfileService {
-  factory ProfileService(Dio dio, {String baseUrl}) = _ProfileService;
+
+
+  @factoryMethod
+  factory ProfileService(Dio dio) => _ProfileService(dio);
   
   
   @GET(ProfileUrl.profileInfo)

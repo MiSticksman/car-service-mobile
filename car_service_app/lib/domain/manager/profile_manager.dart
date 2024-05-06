@@ -1,10 +1,10 @@
 import 'package:car_service_app/data/service/profile_service.dart';
 import 'package:car_service_app/util/lifecycle_component.dart';
 
-class ProfileUseCase implements LifeCycleComponent {
+class ProfileManager implements LifeCycleComponent {
   final ProfileService profileService;
 
-  ProfileUseCase(
+  ProfileManager(
     this.profileService,
   );
 

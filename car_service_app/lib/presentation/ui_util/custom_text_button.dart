@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
+// I wish I could rewrite it
 class CustomTextButton extends StatelessWidget {
   final VoidCallback onTap;
   final String text;
-  final IconData iconData;
+  final IconData? iconData;
   final EdgeInsets? padding;
 
   const CustomTextButton({
     super.key,
     required this.onTap,
     required this.text,
-    required this.iconData,
+    this.iconData,
     this.padding,
   });
 
@@ -19,14 +20,15 @@ class CustomTextButton extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        padding: padding ?? const EdgeInsets.symmetric(
-          vertical: 11,
-          horizontal: 9,
-        ),
+        padding: padding ??
+            const EdgeInsets.symmetric(
+              vertical: 11,
+              horizontal: 9,
+            ),
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.tertiary,
-          borderRadius: const BorderRadius.all(
-            Radius.circular(20),
+          borderRadius: BorderRadius.all(
+            Radius.circular(iconData == null ? 4 : 20),
           ),
         ),
         child: Row(
@@ -34,14 +36,18 @@ class CustomTextButton extends StatelessWidget {
             Text(
               text,
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    fontSize: 12,
+                    fontSize: iconData == null ? 14 : 12,
+                    fontWeight:
+                        iconData == null ? FontWeight.bold : FontWeight.normal,
                   ),
             ),
-            const SizedBox(width: 6),
-            Icon(
-              iconData,
-              color: Theme.of(context).colorScheme.onBackground,
-            )
+            if (iconData != null) ...[
+              const SizedBox(width: 6),
+              Icon(
+                iconData,
+                color: Theme.of(context).colorScheme.onBackground,
+              )
+            ]
           ],
         ),
       ),

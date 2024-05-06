@@ -115,7 +115,7 @@ class MapScreenWidget extends ElementaryWidget<IMapScreenWidgetModel> {
                     right: 0,
                     bottom: 0,
                     child: StreamBuilder(
-                      stream: null,
+                      stream: wm.mapObjectsStream,
                       builder: (context, snapshot) {
                         return Card(
                           margin: EdgeInsets.zero,
@@ -130,47 +130,51 @@ class MapScreenWidget extends ElementaryWidget<IMapScreenWidgetModel> {
                           child: StreamBuilder(
                             stream: wm.selectedPointController,
                             builder: (context, snapshotPvz) {
-                              final selected = snapshotPvz.data;
+                              final selectedPoint = snapshotPvz.data;
 
-                              if (selected == null) {
+                              if (selectedPoint == null) {
                                 return const Center(
                                   child: SizedBox.shrink(),
                                 );
                               }
 
-                              return Column(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const SizedBox(
-                                    height: 20,
-                                  ),
-                                  // switch (selected) {
-                                  //   StoreComplexPickup() =>
-                                  //       StoreComplexPickupWidget(
-                                  //         point: selected,
-                                  //       ),
-                                  //   PvzComplexPickup() =>
-                                  //       ShopDeliveryPointWidget(
-                                  //         point: selected,
-                                  //       ),
-                                  // },
-                                  const SizedBox(height: 16),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 16.0,
+                              return Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 12.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const SizedBox(height: 20),
+                                    Text(
+                                      selectedPoint.name!,
+                                      style: theme.textTheme.displayMedium,
                                     ),
-                                    child: ElevatedButton(
-                                      child: const Center(
-                                        child: Text(
-                                          'Забрать здесь',
+                                    const SizedBox(height: 10),
+                                    Text(selectedPoint.workHours!),
+                                    const SizedBox(height: 5),
+                                    Text(
+                                      selectedPoint.address!,
+                                      style:
+                                          theme.textTheme.bodyMedium?.copyWith(
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 30),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 16.0,
+                                      ),
+                                      child: ElevatedButton(
+                                        onPressed: wm.selectService,
+                                        child: const Center(
+                                          child: Text('Записаться сюда'),
                                         ),
                                       ),
-                                      onPressed: () {},
                                     ),
-                                  ),
-                                  const SizedBox(height: 10),
-                                ],
+                                    const SizedBox(height: 10),
+                                  ],
+                                ),
                               );
                             },
                           ),

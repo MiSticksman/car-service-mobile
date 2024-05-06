@@ -24,6 +24,8 @@ abstract interface class IMapScreenWidgetModel
   void zoomIn();
 
   void zoomOut();
+
+  void selectService();
 }
 
 MapScreenWidgetModel defaultMapScreenWidgetModelFactory(BuildContext context) {
@@ -87,7 +89,7 @@ class MapScreenWidgetModel extends WidgetModel<MapScreenWidget, MapScreenModel>
           workHours: 'круглосуточно',
           lat: 51.668746895649406,
           lon: 39.16783039038193,
-          address: 'ул. Конструкторов, 21а, Воронеж, Воронежская обл.',
+          address: 'ул. Конструкторов, 21а',
         ),
       ];
       pointsController.add(points);
@@ -272,5 +274,10 @@ class MapScreenWidgetModel extends WidgetModel<MapScreenWidget, MapScreenModel>
         ),
       ),
     );
+  }
+
+  @override
+  Future<void> selectService() async {
+    router.maybePop(selectedPointController.value);
   }
 }

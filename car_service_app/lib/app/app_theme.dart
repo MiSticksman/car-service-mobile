@@ -140,6 +140,7 @@ class AppTheme {
           surface: AppColor.whiteF8,
           onSurface: AppColor.white,
           brightness: Brightness.light,
+          secondaryContainer: AppColor.lightGrayEB,
         ),
         textTheme: const TextTheme(
           bodySmall: TextStyle(
