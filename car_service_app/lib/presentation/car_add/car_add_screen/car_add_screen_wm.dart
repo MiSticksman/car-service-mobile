@@ -38,6 +38,8 @@ abstract interface class ICarAddScreenWidgetModel
 // void selectEquipment();
 
   void addCar();
+
+  void toProfile();
 }
 
 CarAddScreenWidgetModel defaultCarAddScreenWidgetModelFactory(
@@ -153,5 +155,10 @@ class CarAddScreenWidgetModel
     // сделать добавленую машину выбранной если до этого машин не было
     router.popUntilRoot();
     router.navigate(MyCarsRoute());
+  }
+
+  @override
+  void toProfile() {
+    router.popUntilRoot();
   }
 }

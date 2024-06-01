@@ -50,6 +50,8 @@ class WorkDetailCard extends StatelessWidget {
               Text(
                 carDetail.name ?? '',
                 textAlign: TextAlign.center,
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
                 style: theme.textTheme.displayMedium,
               ),
               Padding(
@@ -63,11 +65,13 @@ class WorkDetailCard extends StatelessWidget {
                 ),
               ),
               if (carDetail.isOriginal == true)
-                Text(
-                  wm.localizations.originalDetail,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    fontSize: 12,
-                    color: theme.colorScheme.onTertiary,
+                Expanded(
+                  child: Text(
+                    wm.localizations.originalDetail,
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      fontSize: 14,
+                      color: theme.colorScheme.onTertiary,
+                    ),
                   ),
                 ),
             ],

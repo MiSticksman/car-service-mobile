@@ -10,8 +10,9 @@ class CloseWidget extends StatelessWidget {
       child: GestureDetector(
         onTap: () => Navigator.of(context).maybePop(),
         child: Icon(
+          size: 24,
           Icons.close,
-          color: Theme.of(context).colorScheme.onPrimary,
+          color: Theme.of(context).colorScheme.primary,
         ),
       ),
     );

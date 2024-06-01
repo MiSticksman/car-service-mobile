@@ -18,6 +18,9 @@ abstract interface class IOrderScreenWidgetModel
     implements IWidgetModel, IThemeProvider {
   BehaviorSubject<ServiceDto?> get selectedServiceController;
 
+  // todo remove it
+  List<String> get names;
+  List<int> get prices;
   EntityStateNotifier<(List<DateInterval>, DateInterval?)> get datesState;
   EntityStateNotifier<(List<TimeInterval>, TimeInterval?)> get timesState;
 
@@ -133,4 +136,10 @@ class OrderScreenWidgetModel
     }
     return '${date.day} ${newMonth.substring(0, 3)}.';
   }
+
+  @override
+  final List<String> names = ['Замена масла', 'Замена фильтров'];
+
+  @override
+  List<int> prices = [1600, 400];
 }

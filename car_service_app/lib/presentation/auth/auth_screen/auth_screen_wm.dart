@@ -5,24 +5,26 @@ import 'package:car_service_app/router/app_router_export.dart';
 import 'package:car_service_app/util/wm_base.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-abstract interface class IAuthScreenWidgetModel implements IWidgetModel, IThemeProvider {
-
+abstract interface class IAuthScreenWidgetModel
+    implements IWidgetModel, IThemeProvider {
   TextEditingController get phoneController;
+
   MaskTextInputFormatter get phoneMaskedController;
 
   void getCode();
 }
 
-AuthScreenWidgetModel defaultAuthScreenWidgetModelFactory(BuildContext context) {
+AuthScreenWidgetModel defaultAuthScreenWidgetModelFactory(
+    BuildContext context) {
   return AuthScreenWidgetModel(AuthScreenModel());
 }
 
 // TODO: cover with documentation
 /// Default widget model for AuthScreenWidget
-class AuthScreenWidgetModel extends WidgetModel<AuthScreenWidget, AuthScreenModel>
+class AuthScreenWidgetModel
+    extends WidgetModel<AuthScreenWidget, AuthScreenModel>
     with ThemeProvider
     implements IAuthScreenWidgetModel {
-
   AuthScreenWidgetModel(super.model);
 
   @override
@@ -42,10 +44,16 @@ class AuthScreenWidgetModel extends WidgetModel<AuthScreenWidget, AuthScreenMode
       phoneController.text.replaceAll(RegExp(r'[^0-9]'), '');
 
   @override
+  void initWidgetModel() {
+    super.initWidgetModel();
+  }
+
+  @override
   void dispose() {
-    // phoneController.dispose();
+    phoneController.dispose();
     super.dispose();
   }
+
   @override
   Future<void> getCode() async {
     if (!_validatePhone()) {
@@ -56,7 +64,9 @@ class AuthScreenWidgetModel extends WidgetModel<AuthScreenWidget, AuthScreenMode
     if (auth) {
       router.navigate(ConfirmPhoneRoute());
     } else {
-      router.navigate(RegisterRoute(phone: phoneController.text));
+      router.navigate(
+        RegisterRoute(phone: phoneController.text),
+      );
     }
   }
 

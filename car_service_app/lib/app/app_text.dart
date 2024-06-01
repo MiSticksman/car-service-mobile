@@ -1,3 +1,4 @@
+import 'package:car_service_app/app/app_color.dart';
 import 'package:flutter/material.dart';
 
 final class AppText {
@@ -8,6 +9,7 @@ final class AppText {
     height: 1.32,
     fontWeight: FontWeight.w900,
     fontStyle: FontStyle.normal,
+    color: AppColor.blackText,
   );
 
   static const TextStyle bold28 = TextStyle(

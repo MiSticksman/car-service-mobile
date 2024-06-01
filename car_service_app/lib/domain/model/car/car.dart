@@ -16,6 +16,7 @@ class Car with _$Car {
   const factory Car({
     required int id,
     CarConfig? carConfig,
+    String? pictureUrl,
     String? brand,
     String? model,
     int? year,

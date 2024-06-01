@@ -11,37 +11,40 @@ class SearchWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const border = OutlineInputBorder(
-      borderSide: BorderSide(
-        width: 0,
-        // color: borderColor,
+    final theme = Theme.of(context);
+     final border = OutlineInputBorder(
+      borderRadius: const BorderRadius.all(
+        Radius.circular(4),
       ),
-      borderRadius: BorderRadius.all(Radius.circular(10)),
+      borderSide: BorderSide(
+        width: 2,
+        color: theme.colorScheme.onSurface,
+      ),
     );
-
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 16.0,
       ),
       child: TextField(
         controller: controller,
-        // style: extraFonts?.bodySmall.copyWith(
-        //   color: textColor,
-        // ),
+        style: theme.textTheme.bodyMedium?.copyWith(
+          color: theme.colorScheme.primary,
+        ),
         decoration: InputDecoration(
+          contentPadding: EdgeInsets.zero,
           focusedBorder: border,
           focusedErrorBorder: border,
           disabledBorder: border,
           enabledBorder: border,
           border: border,
-          // fillColor: fill,
-          filled: true,
-          prefixIcon: const Icon(
+          prefixIcon: Icon(
             Icons.search,
-            // color: textColor,
+            color: theme.colorScheme.onSecondary,
           ),
-          contentPadding: EdgeInsets.zero,
           hintText: hintText,
+          hintStyle: theme.textTheme.bodyMedium?.copyWith(
+            color: theme.colorScheme.onSecondary,
+          ),
         ),
       ),
     );

@@ -22,13 +22,13 @@ class CustomTextButton extends StatelessWidget {
       child: Container(
         padding: padding ??
             const EdgeInsets.symmetric(
-              vertical: 11,
-              horizontal: 9,
+              vertical: 10,
+              horizontal: 7,
             ),
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.tertiary,
-          borderRadius: BorderRadius.all(
-            Radius.circular(iconData == null ? 4 : 20),
+          borderRadius: const BorderRadius.all(
+            Radius.circular(4),
           ),
         ),
         child: Row(
@@ -36,9 +36,9 @@ class CustomTextButton extends StatelessWidget {
             Text(
               text,
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    fontSize: iconData == null ? 14 : 12,
+                    fontSize: 15,
                     fontWeight:
-                        iconData == null ? FontWeight.bold : FontWeight.normal,
+                        iconData == null ? FontWeight.bold : FontWeight.w500,
                   ),
             ),
             if (iconData != null) ...[

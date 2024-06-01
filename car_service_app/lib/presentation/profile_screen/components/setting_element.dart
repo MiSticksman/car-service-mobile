@@ -29,22 +29,25 @@ class _SettingElementState extends State<SettingElement> {
               widget.picture.contains('svg')
                   ? SvgPicture.asset(
                       widget.picture,
-                      width: 24,
-                      height: 24,
+                      width: 30,
+                      height: 30,
                     )
                   : Image.asset(
                       widget.picture,
-                      width: 24,
-                      height: 24,
+                      width: 30,
+                      height: 30,
                     ),
               const SizedBox(width: 16),
               SizedBox(
                 width: MediaQuery.of(context).size.width / 1.5,
-                child: Text(widget.paramName),
+                child: Text(
+                  widget.paramName,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
               ),
               const Spacer(),
               SvgPicture.asset(
-                'assets/svg/arrow_right.svg',
+                'assets/svg/light/arrow_right.svg',
               ),
             ],
           ),

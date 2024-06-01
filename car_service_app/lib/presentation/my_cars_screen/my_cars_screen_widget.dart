@@ -1,7 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:car_service_app/presentation/my_cars_screen/components/empty_cars_widget.dart';
 import 'package:car_service_app/presentation/ui_util/car_card.dart';
-import 'package:car_service_app/presentation/ui_util/circle_button.dart';
 import 'package:car_service_app/presentation/ui_util/close_widget.dart';
 import 'package:car_service_app/router/app_router_export.dart';
 import 'package:core/core.dart';
@@ -9,6 +8,7 @@ import 'package:elementary/elementary.dart';
 import 'package:elementary_helper/elementary_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'my_cars_screen_wm.dart';
 
 // TODO: cover with documentation
@@ -53,21 +53,47 @@ class MyCarsScreenWidget extends ElementaryWidget<IMyCarsScreenWidgetModel> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Center(
-                          child: Text(
-                            localizations.addCar,
-                            style: wm.textTheme.bodyMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
+                        InkWell(
+                          onTap: wm.toBrandSelection,
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 8,
+                              horizontal: 20,
+                            ),
+                            decoration: BoxDecoration(
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(4),
+                                ),
+                                border: Border.all(
+                                  width: 2,
+                                  color: theme.colorScheme.onSurface,
+                                )),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Center(
+                                  child: Text(
+                                    localizations.addCar,
+                                    style: wm.textTheme.bodyMedium?.copyWith(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(width: 12),
+                                Icon(
+                                  size: 40,
+                                  Icons.add,
+                                  color: Theme.of(context).colorScheme.primary,
+                                ),
+                              ],
                             ),
                           ),
                         ),
-                        const SizedBox(width: 12),
-                        CircleButton(onTap: wm.toBrandSelection),
                       ],
                     ),
                   ),
                 ),
-                SliverList.separated(
+                SliverList.builder(
                   itemBuilder: (_, index) {
                     final car = cars[index];
                     final selected = car == selectedCar;
@@ -79,10 +105,8 @@ class MyCarsScreenWidget extends ElementaryWidget<IMyCarsScreenWidgetModel> {
                         child: Container(
                           color: selected ? theme.colorScheme.tertiary : null,
                           child: Padding(
-                            padding: const EdgeInsets.only(
-                              left: 20.0,
-                              right: 30.0,
-                            ),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 10.0),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
@@ -91,29 +115,32 @@ class MyCarsScreenWidget extends ElementaryWidget<IMyCarsScreenWidgetModel> {
                                       BoxConstraints constraints) {
                                     return CarCard(
                                       height: constraints.maxHeight,
+                                      width: constraints.maxHeight * 1.15,
+                                      imageUrl: car.pictureUrl,
                                     );
                                   },
                                 ),
-                                const Spacer(),
-                                Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'Toyota Mark',
-                                      style: wm.textTheme.bodyMedium,
-                                    ),
-                                    Text(
-                                      '1996',
-                                      style:
-                                          wm.textTheme.bodyMedium?.copyWith(
-                                        color: theme.colorScheme.onTertiary,
+                                const SizedBox(width: 20),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        '${car.brand} ${car.model}',
+                                        style: wm.textTheme.bodyMedium,
                                       ),
-                                    ),
-                                  ],
+                                      Text(
+                                        '${car.year}',
+                                        style:
+                                            wm.textTheme.bodyMedium?.copyWith(
+                                          color: theme.colorScheme.onTertiary,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                                const Spacer(flex: 2),
                                 Transform.scale(
                                   scale: 1.3,
                                   child: Radio(
@@ -133,7 +160,6 @@ class MyCarsScreenWidget extends ElementaryWidget<IMyCarsScreenWidgetModel> {
                     );
                   },
                   itemCount: cars.length,
-                  separatorBuilder: (_, __) => const SizedBox(height: 16),
                 ),
               ],
             ),

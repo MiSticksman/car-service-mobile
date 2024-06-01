@@ -39,10 +39,13 @@ class ModelSelectionScreenWidget
               ),
               body: CustomScrollView(
                 slivers: [
-                  SliverToBoxAdapter(
-                    child: SearchWidget(
-                      controller: wm.searchController,
-                      hintText: localizations.carModelHintText,
+                  SliverPadding(
+                    padding: const EdgeInsets.only(top: 20.0),
+                    sliver: SliverToBoxAdapter(
+                      child: SearchWidget(
+                        controller: wm.searchController,
+                        hintText: localizations.carModelHintText,
+                      ),
                     ),
                   ),
                   SliverPadding(
@@ -52,7 +55,8 @@ class ModelSelectionScreenWidget
                       right: 20,
                     ),
                     sliver: SliverGrid.builder(
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
                         mainAxisSpacing: 23,
                         crossAxisSpacing: 28,
@@ -66,15 +70,27 @@ class ModelSelectionScreenWidget
                             children: [
                               Container(
                                 decoration: BoxDecoration(
-                                  borderRadius: const BorderRadius.all(Radius.circular(4)),
-                                  color: wm.theme.colorScheme.tertiary,
-                                  border: selected ? Border.all(
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(4),
+                                  ),
+                                  color: selected
+                                      ? wm.theme.colorScheme.tertiary
+                                      : AppColor.transparent,
+                                  border: Border.all(
                                     width: 3,
-                                    color: wm.theme.colorScheme.onBackground,
-                                  ) : null,
+                                    color: selected
+                                        ? wm.theme.colorScheme.onSurface
+                                        : wm.theme.colorScheme.primary,
+                                  ),
                                 ),
-                                child: const Center(
-                                  child: Text('x5m'),
+                                child: Center(
+                                  child: Text(
+                                    model.name ?? '',
+                                    style:
+                                        wm.theme.textTheme.bodyMedium?.copyWith(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ],
@@ -88,10 +104,10 @@ class ModelSelectionScreenWidget
               ),
               bottomNavigationBar: Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 90.0,
+                  horizontal: 70.0,
                   vertical: 24,
                 ),
-                child: OutlinedButton(
+                child: ElevatedButton(
                   onPressed: selectedModel == null ? null : wm.toCarAdd,
                   child: Text(localizations.further),
                 ),

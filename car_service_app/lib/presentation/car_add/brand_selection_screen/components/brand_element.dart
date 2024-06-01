@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:car_service_app/app/app_color.dart';
 import 'package:car_service_app/domain/model/car/car_brand.dart';
+import 'package:car_service_app/router/app_router_export.dart';
 import 'package:flutter/material.dart';
 
 class BrandElement extends StatelessWidget {
@@ -47,24 +48,31 @@ class _BrandCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisSize: MainAxisSize.min,
       children: [
-        Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+        Container(
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10),
+            ),
           ),
           child: CachedNetworkImage(
-            width: 90,
-            height: 75,
-            imageUrl:
+            width: 95,
+            height: 80,
+            imageUrl: brand.pictureUrl ??
                 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Toyota_Mark_II_Grande_Regalia_front_quarter.JPG/1200px-Toyota_Mark_II_Grande_Regalia_front_quarter.JPG',
             errorWidget: (_, __, error) => Image.asset(
               'assets/no_image.jpeg',
             ),
-            fit: BoxFit.cover,
+            fit: BoxFit.fill,
           ),
         ),
-        Text(brand.name ?? ''),
+        const SizedBox(height: 3),
+        Text(
+          brand.name ?? '',
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+            fontWeight: FontWeight.w600,
+          ),
+        ),
       ],
     );
   }

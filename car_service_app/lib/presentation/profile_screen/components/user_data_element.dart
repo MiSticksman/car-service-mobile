@@ -28,13 +28,16 @@ class UserDataElement extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
             const SizedBox(height: 4),
-            Text('+79290091219'.formatPhone()),
+            Text(
+              '+79290091219'.formatPhone(),
+              style: Theme.of(context).textTheme.displayMedium,
+            ),
           ],
         ),
         const Spacer(),
         GestureDetector(
           onTap: logoutTap,
-          child: SvgPicture.asset('assets/svg/log_out.svg'),
+          child: SvgPicture.asset('assets/svg/light/log_out.svg'),
         ),
       ],
     );

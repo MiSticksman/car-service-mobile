@@ -22,204 +22,242 @@ class CarAddScreenWidget extends ElementaryWidget<ICarAddScreenWidgetModel> {
   Widget build(ICarAddScreenWidgetModel wm) {
     final localizations = wm.localizations;
     final theme = wm.theme;
-    const border = OutlineInputBorder(
-      borderSide: BorderSide(
-        width: 0,
-        color: AppColor.transparent,
-      ),
-    );
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
+          leading: Padding(
+            padding: const EdgeInsets.only(
+              left: 8.0,
+              top: 10.0,
+            ),
+            child: CircleAvatar(
+              backgroundColor: theme.colorScheme.onSecondary,
+              child: IconButton(
+                onPressed: wm.toProfile,
+                icon: const Icon(Icons.person),
+              ),
+            ),
+          ),
           title: Text(localizations.choosingCarConf),
           actions: const [CloseWidget()],
         ),
-        body: Builder(builder: (context) {
-          final dropDownWidth = MediaQuery.of(context).size.width - 50;
-          return UnfocusWidget(
-            child: ListView(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 40, 16, 30),
-                  child: Text(
-                    '${car?.brand}',
-                    style: wm.textTheme.displayLarge,
+        body: Builder(
+          builder: (context) {
+            final dropDownWidth = MediaQuery.of(context).size.width - 50;
+            return UnfocusWidget(
+              child: ListView(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 40, 16, 30),
+                    child: Text(
+                      'Volkswagen Passat CC',
+                      style: wm.textTheme.displayLarge,
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 27.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      EntityStateNotifierBuilder(
-                        listenableEntityState: wm.yearsState,
-                        builder: (_, data) {
-                          final years = data?.$1 ?? [];
-                          return DropdownMenu(
-                            width: dropDownWidth,
-                            controller: wm.yearController,
-                            enableFilter: true,
-                            requestFocusOnTap: true,
-                            onSelected: (year) =>
-                                wm.selectYear(year ?? years.first),
-                            label: Text(localizations.year),
-                            dropdownMenuEntries:
-                                years.map<DropdownMenuEntry<int>>(
-                              (year) {
-                                return DropdownMenuEntry(
-                                  value: year,
-                                  label: year.toString(),
-                                  style: ButtonStyle(
-                                    textStyle: MaterialStatePropertyAll(
-                                      wm.textTheme.bodyMedium?.copyWith(
-                                        color:
-                                        wm.theme.colorScheme.onBackground,
-                                      ),
-                                    ),
-                                    backgroundColor: MaterialStatePropertyAll(
-                                      wm.theme.colorScheme.background,
-                                    ),
-                                    overlayColor: MaterialStatePropertyAll(
-                                      wm.theme.colorScheme.tertiary,
-                                    ),
-                                    surfaceTintColor: MaterialStatePropertyAll(
-                                      wm.theme.colorScheme.background,
-                                    ),
-                                  ),
-                                );
-                              },
-                            ).toList(),
-                          );
-                        },
-                      ),
-                      const SizedBox(height: 20),
-                      EntityStateNotifierBuilder(
-                        listenableEntityState: wm.enginesState,
-                        builder: (_, data) {
-                          final engines = data?.$1 ?? [];
-                          return DropdownMenu(
-                            width: dropDownWidth,
-                            controller: wm.engineController,
-                            enableFilter: true,
-                            requestFocusOnTap: true,
-                            onSelected: (engine) => wm.selectEngine(),
-                            label: Text(localizations.engine),
-                            dropdownMenuEntries:
-                                engines.map<DropdownMenuEntry<int?>>(
-                              (engine) {
-                                return DropdownMenuEntry(
-                                  value: engine.id,
-                                  label: engine.name ?? '',
-                                  style: ButtonStyle(
-                                    textStyle: MaterialStatePropertyAll(
-                                      wm.textTheme.bodyMedium?.copyWith(
-                                        color:
-                                        wm.theme.colorScheme.onBackground,
-                                      ),
-                                    ),
-                                    backgroundColor: MaterialStatePropertyAll(
-                                      wm.theme.colorScheme.background,
-                                    ),
-                                    overlayColor: MaterialStatePropertyAll(
-                                      wm.theme.colorScheme.tertiary,
-                                    ),
-                                    surfaceTintColor: MaterialStatePropertyAll(
-                                      wm.theme.colorScheme.background,
-                                    ),
-                                  ),
-                                );
-                              },
-                            ).toList(),
-                          );
-                        },
-                      ),
-                      const SizedBox(height: 20),
-                      EntityStateNotifierBuilder(
-                        listenableEntityState: wm.transmissionsState,
-                        builder: (_, data) {
-                          final engines = data?.$1 ?? [];
-                          return DropdownMenu(
-                            width: dropDownWidth,
-                            controller: wm.transmissionController,
-                            enableFilter: true,
-                            requestFocusOnTap: true,
-                            onSelected: (transmission) {},
-                            label: Text(localizations.transmission),
-                            textStyle: wm.textTheme.bodyMedium?.copyWith(
-                              color: wm.theme.colorScheme.surface,
-                            ),
-                            dropdownMenuEntries:
-                                engines.map<DropdownMenuEntry<int?>>(
-                              (transmission) {
-                                return DropdownMenuEntry(
-                                  value: transmission.id,
-                                  label: transmission.name ?? '',
-                                  style: ButtonStyle(
-                                    textStyle: MaterialStatePropertyAll(
-                                      wm.textTheme.bodyMedium?.copyWith(
-                                        color:
-                                            wm.theme.colorScheme.onBackground,
-                                      ),
-                                    ),
-                                    backgroundColor: MaterialStatePropertyAll(
-                                      wm.theme.colorScheme.background,
-                                    ),
-                                    overlayColor: MaterialStatePropertyAll(
-                                      wm.theme.colorScheme.tertiary,
-                                    ),
-                                    surfaceTintColor: MaterialStatePropertyAll(
-                                      wm.theme.colorScheme.background,
-                                    ),
-                                  ),
-                                );
-                              },
-                            ).toList(),
-                          );
-                        },
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 30.0),
-                        child: SizedBox(
-                          width: 130,
-                          height: 56,
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: CustomTextField(
-                                  controller: wm.mileageController,
-                                  keyboardType: TextInputType.number,
-                                  hintText: localizations.mileage,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 27.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        EntityStateNotifierBuilder(
+                          listenableEntityState: wm.yearsState,
+                          builder: (_, data) {
+                            final years = data?.$1 ?? [];
+                            return DropdownMenu(
+                              width: dropDownWidth,
+                              controller: wm.yearController,
+                              enableFilter: true,
+                              requestFocusOnTap: true,
+                              onSelected: (year) =>
+                                  wm.selectYear(year ?? years.first),
+                              textStyle: wm.textTheme.bodyLarge?.copyWith(
+                                color: wm.theme.colorScheme.primary,
+                                fontWeight: FontWeight.w500,
+                              ),
+                              label: Text(
+                                localizations.year,
+                                style: wm.textTheme.bodyMedium?.copyWith(
+                                  color: wm.theme.colorScheme.primary,
+                                  fontWeight: FontWeight.w400,
                                 ),
                               ),
-                              const SizedBox(width: 5),
-                              Text(
-                                localizations.kilometers,
-                                style: wm.textTheme.bodyLarge,
+                              dropdownMenuEntries:
+                                  years.map<DropdownMenuEntry<int>>(
+                                (year) {
+                                  return DropdownMenuEntry(
+                                    value: year,
+                                    label: year.toString(),
+                                    style: ButtonStyle(
+                                      textStyle: WidgetStatePropertyAll(
+                                        wm.textTheme.bodyMedium?.copyWith(
+                                          color:
+                                              wm.theme.colorScheme.onSecondary,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                      backgroundColor: WidgetStatePropertyAll(
+                                        wm.theme.colorScheme.background,
+                                      ),
+                                      overlayColor: WidgetStatePropertyAll(
+                                        wm.theme.colorScheme.tertiary,
+                                      ),
+                                      surfaceTintColor: WidgetStatePropertyAll(
+                                        wm.theme.colorScheme.background,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ).toList(),
+                            );
+                          },
+                        ),
+                        const SizedBox(height: 20),
+                        EntityStateNotifierBuilder(
+                          listenableEntityState: wm.enginesState,
+                          builder: (_, data) {
+                            final engines = data?.$1 ?? [];
+                            return DropdownMenu(
+                              width: dropDownWidth,
+                              controller: wm.engineController,
+                              enableFilter: true,
+                              requestFocusOnTap: true,
+                              onSelected: (engine) => wm.selectEngine(),
+                              textStyle: wm.textTheme.bodyLarge?.copyWith(
+                                color: wm.theme.colorScheme.primary,
+                                fontWeight: FontWeight.w500,
                               ),
-                            ],
+                              label: Text(
+                                localizations.engine,
+                                style: wm.textTheme.bodyMedium?.copyWith(
+                                  color: wm.theme.colorScheme.primary,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              dropdownMenuEntries:
+                                  engines.map<DropdownMenuEntry<int?>>(
+                                (engine) {
+                                  return DropdownMenuEntry(
+                                    value: engine.id,
+                                    label: engine.name ?? '',
+                                    style: ButtonStyle(
+                                      textStyle: WidgetStatePropertyAll(
+                                        wm.textTheme.bodyMedium?.copyWith(
+                                            color: wm
+                                                .theme.colorScheme.onSecondary,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      backgroundColor: WidgetStatePropertyAll(
+                                        wm.theme.colorScheme.background,
+                                      ),
+                                      overlayColor: WidgetStatePropertyAll(
+                                        wm.theme.colorScheme.tertiary,
+                                      ),
+                                      surfaceTintColor: WidgetStatePropertyAll(
+                                        wm.theme.colorScheme.background,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ).toList(),
+                            );
+                          },
+                        ),
+                        const SizedBox(height: 20),
+                        EntityStateNotifierBuilder(
+                          listenableEntityState: wm.transmissionsState,
+                          builder: (_, data) {
+                            final engines = data?.$1 ?? [];
+                            return DropdownMenu(
+                              width: dropDownWidth,
+                              controller: wm.transmissionController,
+                              enableFilter: true,
+                              requestFocusOnTap: true,
+                              onSelected: (transmission) {},
+                              textStyle: wm.textTheme.bodyLarge?.copyWith(
+                                color: wm.theme.colorScheme.primary,
+                                fontWeight: FontWeight.w500,
+                              ),
+                              label: Text(
+                                localizations.transmission,
+                                style: wm.textTheme.bodyMedium?.copyWith(
+                                  color: wm.theme.colorScheme.primary,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              dropdownMenuEntries:
+                                  engines.map<DropdownMenuEntry<int?>>(
+                                (transmission) {
+                                  return DropdownMenuEntry(
+                                    value: transmission.id,
+                                    label: transmission.name ?? '',
+                                    style: ButtonStyle(
+                                      textStyle: WidgetStatePropertyAll(
+                                        wm.textTheme.bodyMedium?.copyWith(
+                                          color:
+                                              wm.theme.colorScheme.onSecondary,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                      backgroundColor: WidgetStatePropertyAll(
+                                        wm.theme.colorScheme.background,
+                                      ),
+                                      overlayColor: WidgetStatePropertyAll(
+                                        wm.theme.colorScheme.tertiary,
+                                      ),
+                                      surfaceTintColor: WidgetStatePropertyAll(
+                                        wm.theme.colorScheme.background,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ).toList(),
+                            );
+                          },
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 30.0),
+                          child: SizedBox(
+                            width: 150,
+                            height: 60,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: CustomTextField(
+                                    controller: wm.mileageController,
+                                    keyboardType: TextInputType.number,
+                                    hintText: localizations.mileage,
+                                  ),
+                                ),
+                                const SizedBox(width: 5),
+                                Text(
+                                  localizations.kilometers,
+                                  style: wm.textTheme.bodyLarge,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(height: 30),
-                      CustomTextField(
-                        controller: wm.descriptionController,
-                        maxLines: null,
-                        hintText: localizations.carDescription,
-                      ),
-                    ],
+                        const SizedBox(height: 30),
+                        CustomTextField(
+                          controller: wm.descriptionController,
+                          maxLines: null,
+                          hintText: localizations.carDescription,
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-          );
-        }),
+                ],
+              ),
+            );
+          },
+        ),
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: 90.0,
+            horizontal: 70.0,
             vertical: 24,
           ),
-          child: OutlinedButton(
+          child: ElevatedButton(
             onPressed: wm.addCar,
             child: Text(localizations.done),
           ),

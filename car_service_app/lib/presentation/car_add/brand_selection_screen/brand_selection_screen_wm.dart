@@ -36,20 +36,40 @@ class BrandSelectionScreenWidgetModel
   @override
   final searchController = TextEditingController();
 
-
   @override
   final EntityStateNotifier<(List<CarBrand>, CarBrand?)> brandsState =
-  EntityStateNotifier();
+      EntityStateNotifier();
 
   @override
   void initWidgetModel() {
     super.initWidgetModel();
     final brands = <CarBrand>[
-      CarBrand(id: 1, name: 'aa'),
-      CarBrand(id: 2, name: 'bb'),
-      CarBrand(id: 3, name: 'cc'),
-      CarBrand(id: 4, name: 'dd'),
-      CarBrand(id: 5, name: 'ee'),
+      CarBrand(
+          id: 1,
+          name: 'Toyota',
+          pictureUrl:
+              'https://global.toyota/pages/global_toyota/mobility/toyota-brand/emblem_ogp_001.png'),
+      CarBrand(
+        id: 2,
+        name: 'BMW',
+        pictureUrl: 'https://fb.ru/misc/i/gallery/45538/1665345.jpg',
+      ),
+      CarBrand(
+          id: 3,
+          name: 'Audi',
+          pictureUrl:
+              'https://iconspng.com/_next/image?url=https%3A%2F%2Ficonspng.com%2Fimages%2Faudi-logo.jpg&w=1080&q=75'),
+      CarBrand(
+          id: 4,
+          name: 'Volkswagen',
+          pictureUrl:
+              'https://w7.pngwing.com/pngs/65/409/png-transparent-volkswagen-logo-volkswagen-polo-car-honda-logo-car-logo-emblem-trademark-logo.png'),
+      CarBrand(
+        id: 5,
+        name: 'Mercedes',
+        pictureUrl:
+            'https://cdn.icon-icons.com/icons2/2402/PNG/512/mercedes_benz_logo_icon_145798.png',
+      ),
     ];
     brandsState.content((brands, null));
   }
@@ -60,7 +80,6 @@ class BrandSelectionScreenWidgetModel
     brandsState.dispose();
     super.dispose();
   }
-
 
   @override
   Future<void> onBrandTap(CarBrand? brand) async {

@@ -33,7 +33,9 @@ class ProfileScreenWidget extends ElementaryWidget<IProfileScreenWidgetModel> {
             padding: const EdgeInsets.only(right: 18.0),
             child: GestureDetector(
               onTap: wm.toEditingProfile,
-              child: SvgPicture.asset('assets/svg/edit.svg'),
+              child: SvgPicture.asset(
+                'assets/svg/light/edit.svg',
+              ),
             ),
           ),
         ],
@@ -50,36 +52,37 @@ class ProfileScreenWidget extends ElementaryWidget<IProfileScreenWidgetModel> {
               userName: 'Вадим Шафоростов',
               logoutTap: wm.logout,
             ),
-            const Spacer(flex: 3),
-            // todo condition on preorder
-            if (true)
-              SettingElement(
-                picture: "assets/svg/preorder_work_detail.svg",
-                paramName: localizations.completeRegistration,
-                onTap: wm.toOrderScreen,
-              ),
+            // const Spacer(flex: 3),
+            // // todo condition on preorder
+            // if (true)
+            //   SettingElement(
+            //     picture: "assets/svg/preorder_work_detail.svg",
+            //     paramName: localizations.completeRegistration,
+            //     onTap: wm.toOrderScreen,
+            //   ),
             const Spacer(flex: 2),
             SettingElement(
-              picture: 'assets/svg/car.svg',
+              picture: 'assets/svg/light/car.svg',
               paramName: localizations.myCars,
               onTap: wm.openMyCars,
             ),
             const Spacer(flex: 2),
             SettingElement(
-              picture: "assets/svg/work_selection.svg",
+              picture: "assets/svg/light/work_selection.svg",
               paramName: localizations.selectWork,
               onTap: wm.openWorksScreen,
             ),
             const Spacer(flex: 2),
             SettingElement(
-              picture: "assets/svg/works_history.svg",
+              picture: "assets/svg/light/works_history.svg",
               paramName: localizations.worksHistory,
               onTap: wm.toCompleteWorksScreen,
             ),
-            TextButton(
-                onPressed: () => wm.router.navigate(OrderRoute()),
-                child: Text('shortcut')),
-            const Spacer(flex: 30),
+            // TextButton(
+            //   onPressed: () => wm.router.navigate(OrderRoute()),
+            //   child: Text('shortcut'),
+            // ),
+            const Spacer(flex: 35),
           ],
         ),
       ),

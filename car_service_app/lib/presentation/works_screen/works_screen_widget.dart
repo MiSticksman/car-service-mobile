@@ -45,68 +45,73 @@ class WorksScreenWidget extends ElementaryWidget<IWorksScreenWidgetModel> {
             }
             return Padding(
               padding: const EdgeInsets.only(
-                top: 21,
-                left: 18,
-                right: 18,
+                top: 10,
+                left: 10,
+                right: 10,
               ),
               child: Stack(
                 fit: StackFit.loose,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 100.0),
+                    padding: const EdgeInsets.only(bottom: 150.0),
                     child: CustomScrollView(
                       slivers: [
                         SliverToBoxAdapter(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8.0),
-                            child: Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    GestureDetector(
-                                      onTap: () => wm.toCarInfoScreen(
-                                        Car(
-                                            id: 1,
-                                            brand: 'Toyota',
-                                            model: 'Mark II',
-                                            year: 2014),
-                                      ),
-                                      child: CarCard(
-                                        width: 80,
-                                        height: 70,
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  GestureDetector(
+                                    onTap: () => wm.toCarInfoScreen(
+                                      Car(
+                                        id: 1,
+                                        brand: 'Toyota',
+                                        model: 'Mark II',
+                                        year: 2014,
                                       ),
                                     ),
-                                    const Spacer(),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          'Toyota Mark',
-                                          style: wm.textTheme.bodySmall,
-                                        ),
-                                        Text(
-                                          '1996',
-                                          style:
-                                              wm.textTheme.bodySmall?.copyWith(
-                                            color: theme.colorScheme.onTertiary,
-                                          ),
-                                        ),
-                                      ],
+                                    child: CarCard(
+                                      width: 140,
+                                      height: 120,
                                     ),
-                                    const Spacer(flex: 3),
-                                    CustomTextButton(
-                                      onTap: wm.toMyCarsScreen,
-                                      text: localizations.selectAnotherCar,
-                                      iconData: Icons.search,
-                                    )
-                                  ],
-                                ),
-                                const SizedBox(height: 20),
-                                const Divider(),
-                              ],
-                            ),
+                                  ),
+                                  const Spacer(),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Toyota Mark II',
+                                        overflow: TextOverflow.ellipsis,
+                                        style:
+                                            wm.textTheme.bodyLarge?.copyWith(
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      Text(
+                                        '1996',
+                                        style:
+                                            wm.textTheme.bodyLarge?.copyWith(
+                                          color:
+                                              theme.colorScheme.onSecondary,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 8),
+                                      CustomTextButton(
+                                        onTap: wm.toMyCarsScreen,
+                                        text: localizations.selectAnotherCar,
+                                        iconData: Icons.change_circle,
+                                      ),
+                                    ],
+                                  ),
+                                  const Spacer(flex: 10),
+                                ],
+                              ),
+                              const SizedBox(height: 10),
+                              const Divider(),
+                            ],
                           ),
                         ),
                         const SliverToBoxAdapter(child: SizedBox(height: 10)),
@@ -124,41 +129,13 @@ class WorksScreenWidget extends ElementaryWidget<IWorksScreenWidgetModel> {
                               );
                             },
                             separatorBuilder: (_, index) =>
-                                const SizedBox(height: 12),
+                                const SizedBox(height: 8),
                             itemCount: works.length,
                           ),
                         ),
-                        // SliverToBoxAdapter(
-                        //   child: Padding(
-                        //     padding: const EdgeInsets.only(
-                        //       top: 18.0,
-                        //       bottom: 22.0,
-                        //     ),
-                        //     child: Text(
-                        //       localizations.toWorksDetailsDescription,
-                        //       textAlign: TextAlign.center,
-                        //       style: theme.textTheme.bodySmall?.copyWith(
-                        //         color: theme.colorScheme.onBackground,
-                        //       ),
-                        //     ),
-                        //   ),
-                        // ),
-                        // SliverToBoxAdapter(
-                        //   child: Padding(
-                        //     padding: const EdgeInsets.only(
-                        //       left: 20.0,
-                        //       right: 20.0,
-                        //       bottom: 16.0,
-                        //     ),
-                        //     child: OutlinedButton(
-                        //       onPressed: selectedWorks.isEmpty
-                        //           ? null
-                        //           : wm.toWorkDetailsScreen,
-                        //       child: Text(localizations.done),
-                        //     ),
-                        //   ),
-                        // ),
-                        const SliverToBoxAdapter(child: SizedBox(height: 50)),
+                        const SliverToBoxAdapter(
+                          child: SizedBox(height: 50),
+                        ),
                       ],
                     ),
                   ),
@@ -177,7 +154,9 @@ class WorksScreenWidget extends ElementaryWidget<IWorksScreenWidgetModel> {
                             localizations.toWorksDetailsDescription,
                             textAlign: TextAlign.center,
                             style: theme.textTheme.bodySmall?.copyWith(
-                              color: theme.colorScheme.onBackground,
+                              color: theme.colorScheme.primary,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                         ),
@@ -185,9 +164,9 @@ class WorksScreenWidget extends ElementaryWidget<IWorksScreenWidgetModel> {
                           padding: const EdgeInsets.only(
                             left: 20,
                             right: 20,
-                            bottom: 16
+                            bottom: 16,
                           ),
-                          child: OutlinedButton(
+                          child: ElevatedButton(
                             onPressed: selectedWorks.isEmpty
                                 ? null
                                 : wm.toWorkDetailsScreen,

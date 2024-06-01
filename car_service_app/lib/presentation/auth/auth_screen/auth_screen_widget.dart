@@ -19,6 +19,7 @@ class AuthScreenWidget extends ElementaryWidget<IAuthScreenWidgetModel> {
     final localizations = wm.localizations;
     return UnfocusWidget(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Center(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),

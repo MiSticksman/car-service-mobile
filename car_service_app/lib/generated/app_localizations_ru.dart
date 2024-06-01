@@ -146,7 +146,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get presentedWorks => 'Работы представлены для автомобиля';
 
   @override
-  String get selectAnotherCar => 'Изменить авто';
+  String get selectAnotherCar => 'Сменить авто';
 
   @override
   String get toWorksDetailsDescription => 'Чтобы перейти к списку деталей для выбранных работ, нажмите «Готово»';

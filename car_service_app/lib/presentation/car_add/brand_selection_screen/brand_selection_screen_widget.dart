@@ -44,7 +44,7 @@ class BrandSelectionScreenWidget
               body: CustomScrollView(
                 slivers: [
                   SliverPadding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    padding: const EdgeInsets.only(top: 20.0),
                     sliver: SliverToBoxAdapter(
                       child: SearchWidget(
                         controller: wm.searchController,
@@ -68,7 +68,7 @@ class BrandSelectionScreenWidget
                       itemBuilder: (_, index) {
                         final brand = brands[index];
                         return BrandElement(
-                          url: null,
+                          url: brand.pictureUrl,
                           brand: brand,
                           onTap: () => wm.onBrandTap(brand),
                           selected: brand == selectedBrand,
@@ -81,10 +81,10 @@ class BrandSelectionScreenWidget
               ),
               bottomNavigationBar: Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 90.0,
+                  horizontal: 70.0,
                   vertical: 24,
                 ),
-                child: OutlinedButton(
+                child: ElevatedButton(
                   onPressed:
                       selectedBrand == null ? null : wm.toSpecifyCarModel,
                   child: Text(localizations.selectModel),

@@ -68,14 +68,9 @@ class _ValidatedTextFieldState extends State<ValidatedTextField> {
                     style: theme.textTheme.bodyMedium
                         ?.copyWith(color: Colors.black),
                     decoration: InputDecoration(
-                      border: const OutlineInputBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(
-                            4,
-                          ),
-                        ),
-                        borderSide: BorderSide.none,
-                      ),
+                      enabledBorder: textFieldBorder(),
+                      focusedBorder: textFieldBorder(),
+                      border: textFieldBorder(),
                       filled: true,
                       fillColor: const Color(0xFFEBEEF1),
                       contentPadding: const EdgeInsets.symmetric(
@@ -123,6 +118,19 @@ class _ValidatedTextFieldState extends State<ValidatedTextField> {
             ],
           ),
         ],
+      ),
+    );
+  }
+
+  InputBorder textFieldBorder() {
+    final theme = Theme.of(context);
+    return OutlineInputBorder(
+      borderRadius: const BorderRadius.all(
+        Radius.circular(4),
+      ),
+      borderSide: BorderSide(
+        width: 2,
+        color: theme.colorScheme.onSurface,
       ),
     );
   }

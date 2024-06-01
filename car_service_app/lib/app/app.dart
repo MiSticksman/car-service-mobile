@@ -14,10 +14,9 @@ class CarServiceApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      // for present app
       debugShowCheckedModeBanner: false,
       routerConfig: _appRouter.config(),
-      theme: AppTheme.dark().themeData,
+      theme: AppTheme.light().themeData,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
     );

@@ -23,7 +23,7 @@ dependencies:
   flutter_native_splash: ^2.0.2
   flutter_localizations:
     sdk: flutter
-  intl: ^0.18.0
+  intl: 
   retrofit: ^4.1.0
   json_annotation: ^4.8.1
   freezed: ^2.4.7
@@ -68,6 +68,8 @@ flutter:
   assets:
      - assets/
      - assets/svg/
+     - assets/svg/light/
+     - assets/svg/dark/
      - lib/presentation/map_screen/assets/
      - .env
 

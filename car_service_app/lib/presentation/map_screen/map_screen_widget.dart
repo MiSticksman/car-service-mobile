@@ -25,7 +25,7 @@ class MapScreenWidget extends ElementaryWidget<IMapScreenWidgetModel> {
           title: Column(
             children: [
               Text('Автосервисы Car Kit'),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Text(
                 'Воронеж',
                 style: theme.textTheme.displayMedium,
@@ -78,7 +78,7 @@ class MapScreenWidget extends ElementaryWidget<IMapScreenWidgetModel> {
                                   height: 40,
                                   child: Icon(
                                     Icons.add,
-                                    color: theme.colorScheme.background,
+                                    color: theme.colorScheme.primary,
                                     size: 20,
                                   ),
                                 ),
@@ -90,7 +90,7 @@ class MapScreenWidget extends ElementaryWidget<IMapScreenWidgetModel> {
                                   height: 40,
                                   child: Icon(
                                     Icons.remove,
-                                    color: theme.colorScheme.background,
+                                    color: theme.colorScheme.primary,
                                     size: 20,
                                   ),
                                 ),
@@ -98,15 +98,6 @@ class MapScreenWidget extends ElementaryWidget<IMapScreenWidgetModel> {
                             ],
                           ),
                         ),
-                        // const SizedBox(height: 20),
-                        // _ControlButton(
-                        //   onPressed: presenter.moveToCurrentLocation,
-                        //   iconData: const Icon(
-                        //     geoIcon,
-                        //     color: theme.black21,
-                        //     size: 40,
-                        //   ),
-                        // ),
                       ],
                     ),
                   ),
@@ -152,6 +143,8 @@ class MapScreenWidget extends ElementaryWidget<IMapScreenWidgetModel> {
                                     ),
                                     const SizedBox(height: 10),
                                     Text(selectedPoint.workHours!),
+                                    const SizedBox(height: 5),
+                                    Text(selectedPoint.phone!),
                                     const SizedBox(height: 5),
                                     Text(
                                       selectedPoint.address!,

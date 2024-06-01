@@ -10,6 +10,7 @@ _$CarBrandImpl _$$CarBrandImplFromJson(Map<String, dynamic> json) =>
     _$CarBrandImpl(
       id: json['id'] as int,
       name: json['name'] as String?,
+      pictureUrl: json['pictureUrl'] as String?,
     );
 
 Map<String, dynamic> _$$CarBrandImplToJson(_$CarBrandImpl instance) {
@@ -24,5 +25,6 @@ Map<String, dynamic> _$$CarBrandImplToJson(_$CarBrandImpl instance) {
   }
 
   writeNotNull('name', instance.name);
+  writeNotNull('pictureUrl', instance.pictureUrl);
   return val;
 }

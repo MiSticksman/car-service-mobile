@@ -91,6 +91,26 @@ class MapScreenWidgetModel extends WidgetModel<MapScreenWidget, MapScreenModel>
           lon: 39.16783039038193,
           address: 'ул. Конструкторов, 21а',
         ),
+        ServiceDto(
+          id: 3,
+          name: 'Автосервис V8 motors',
+          description: 'Профессиональный ремонт автомобилей любой сложности',
+          phone: '+7 (473) 333-50-80',
+          workHours: '9:00–19:00 пн-сб',
+          lat: 51.67079117069486,
+          lon: 39.14917775402876,
+          address: 'г. Воронеж ул. Холмистая, д.12а',
+        ),
+        ServiceDto(
+          id: 4,
+          name: 'Автосервис Боравто',
+          description: 'Ремонт и обслуживание автомобилей',
+          phone: '+7 (800) 551-62-78',
+          workHours: '08:00–20:00 пн-сб',
+          lat: 51.681672384146154,
+          lon: 39.12836416275501,
+          address: 'г. Воронеж, ул. 9 Января, 221Д',
+        ),
       ];
       pointsController.add(points);
 

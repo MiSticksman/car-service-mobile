@@ -44,11 +44,11 @@ class ModelSelectionScreenWidgetModel
   void initWidgetModel() {
     super.initWidgetModel();
     final models = <CarModel>[
-      CarModel(id: 1, name: 'mark 2'),
-      CarModel(id: 2, name: 'camry'),
-      CarModel(id: 3, name: 'cc'),
-      CarModel(id: 4, name: 'dd'),
-      CarModel(id: 5, name: 'ee'),
+      CarModel(id: 1, name: 'Golf'),
+      CarModel(id: 2, name: 'Tiguan'),
+      CarModel(id: 3, name: 'Polo'),
+      CarModel(id: 4, name: 'Passat CC'),
+      CarModel(id: 5, name: 'Scirocco'),
     ];
     modelsState.content((models, null));
   }

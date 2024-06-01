@@ -22,6 +22,7 @@ Car _$CarFromJson(Map<String, dynamic> json) {
 mixin _$Car {
   int get id => throw _privateConstructorUsedError;
   CarConfig? get carConfig => throw _privateConstructorUsedError;
+  String? get pictureUrl => throw _privateConstructorUsedError;
   String? get brand => throw _privateConstructorUsedError;
   String? get model => throw _privateConstructorUsedError;
   int? get year => throw _privateConstructorUsedError;
@@ -37,7 +38,12 @@ abstract class $CarCopyWith<$Res> {
       _$CarCopyWithImpl<$Res, Car>;
   @useResult
   $Res call(
-      {int id, CarConfig? carConfig, String? brand, String? model, int? year});
+      {int id,
+      CarConfig? carConfig,
+      String? pictureUrl,
+      String? brand,
+      String? model,
+      int? year});
 
   $CarConfigCopyWith<$Res>? get carConfig;
 }
@@ -56,6 +62,7 @@ class _$CarCopyWithImpl<$Res, $Val extends Car> implements $CarCopyWith<$Res> {
   $Res call({
     Object? id = null,
     Object? carConfig = freezed,
+    Object? pictureUrl = freezed,
     Object? brand = freezed,
     Object? model = freezed,
     Object? year = freezed,
@@ -69,6 +76,10 @@ class _$CarCopyWithImpl<$Res, $Val extends Car> implements $CarCopyWith<$Res> {
           ? _value.carConfig
           : carConfig // ignore: cast_nullable_to_non_nullable
               as CarConfig?,
+      pictureUrl: freezed == pictureUrl
+          ? _value.pictureUrl
+          : pictureUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       brand: freezed == brand
           ? _value.brand
           : brand // ignore: cast_nullable_to_non_nullable
@@ -104,7 +115,12 @@ abstract class _$$CarImplCopyWith<$Res> implements $CarCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id, CarConfig? carConfig, String? brand, String? model, int? year});
+      {int id,
+      CarConfig? carConfig,
+      String? pictureUrl,
+      String? brand,
+      String? model,
+      int? year});
 
   @override
   $CarConfigCopyWith<$Res>? get carConfig;
@@ -121,6 +137,7 @@ class __$$CarImplCopyWithImpl<$Res> extends _$CarCopyWithImpl<$Res, _$CarImpl>
   $Res call({
     Object? id = null,
     Object? carConfig = freezed,
+    Object? pictureUrl = freezed,
     Object? brand = freezed,
     Object? model = freezed,
     Object? year = freezed,
@@ -134,6 +151,10 @@ class __$$CarImplCopyWithImpl<$Res> extends _$CarCopyWithImpl<$Res, _$CarImpl>
           ? _value.carConfig
           : carConfig // ignore: cast_nullable_to_non_nullable
               as CarConfig?,
+      pictureUrl: freezed == pictureUrl
+          ? _value.pictureUrl
+          : pictureUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       brand: freezed == brand
           ? _value.brand
           : brand // ignore: cast_nullable_to_non_nullable
@@ -155,7 +176,12 @@ class __$$CarImplCopyWithImpl<$Res> extends _$CarCopyWithImpl<$Res, _$CarImpl>
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 class _$CarImpl implements _Car {
   const _$CarImpl(
-      {required this.id, this.carConfig, this.brand, this.model, this.year});
+      {required this.id,
+      this.carConfig,
+      this.pictureUrl,
+      this.brand,
+      this.model,
+      this.year});
 
   factory _$CarImpl.fromJson(Map<String, dynamic> json) =>
       _$$CarImplFromJson(json);
@@ -165,6 +191,8 @@ class _$CarImpl implements _Car {
   @override
   final CarConfig? carConfig;
   @override
+  final String? pictureUrl;
+  @override
   final String? brand;
   @override
   final String? model;
@@ -173,7 +201,7 @@ class _$CarImpl implements _Car {
 
   @override
   String toString() {
-    return 'Car(id: $id, carConfig: $carConfig, brand: $brand, model: $model, year: $year)';
+    return 'Car(id: $id, carConfig: $carConfig, pictureUrl: $pictureUrl, brand: $brand, model: $model, year: $year)';
   }
 
   @override
@@ -184,6 +212,8 @@ class _$CarImpl implements _Car {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.carConfig, carConfig) ||
                 other.carConfig == carConfig) &&
+            (identical(other.pictureUrl, pictureUrl) ||
+                other.pictureUrl == pictureUrl) &&
             (identical(other.brand, brand) || other.brand == brand) &&
             (identical(other.model, model) || other.model == model) &&
             (identical(other.year, year) || other.year == year));
@@ -192,7 +222,7 @@ class _$CarImpl implements _Car {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, carConfig, brand, model, year);
+      Object.hash(runtimeType, id, carConfig, pictureUrl, brand, model, year);
 
   @JsonKey(ignore: true)
   @override
@@ -212,6 +242,7 @@ abstract class _Car implements Car {
   const factory _Car(
       {required final int id,
       final CarConfig? carConfig,
+      final String? pictureUrl,
       final String? brand,
       final String? model,
       final int? year}) = _$CarImpl;
@@ -222,6 +253,8 @@ abstract class _Car implements Car {
   int get id;
   @override
   CarConfig? get carConfig;
+  @override
+  String? get pictureUrl;
   @override
   String? get brand;
   @override

@@ -69,10 +69,24 @@ class WorkDetailsScreenWidget
                     child: CustomScrollView(
                       slivers: [
                         SliverToBoxAdapter(
+                          child: Column(
+                            children: [
+                              Text(
+                                localizations.carDetailsDescription,
+                                textAlign: TextAlign.center,
+                                style: wm.textTheme.bodyMedium?.copyWith(
+                                  color: theme.colorScheme.primary,
+                                ),
+                              ),
+                              const Divider(),
+                            ],
+                          ),
+                        ),
+                        SliverToBoxAdapter(
                           child: Padding(
                             padding: const EdgeInsets.only(
-                              top: 21.0,
-                              bottom: 24.0,
+                              top: 10.0,
+                              bottom: 30.0,
                             ),
                             child: Text(
                               localizations.foundDetails,
@@ -80,25 +94,6 @@ class WorkDetailsScreenWidget
                               style: wm.textTheme.displayMedium?.copyWith(
                                 fontWeight: FontWeight.w800,
                               ),
-                            ),
-                          ),
-                        ),
-                        SliverToBoxAdapter(
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                              bottom: 20.0,
-                            ),
-                            child: Column(
-                              children: [
-                                Text(
-                                  localizations.carDetailsDescription,
-                                  textAlign: TextAlign.center,
-                                  style: wm.textTheme.bodyMedium?.copyWith(
-                                    color: theme.colorScheme.onBackground,
-                                  ),
-                                ),
-                                const Divider(),
-                              ],
                             ),
                           ),
                         ),
@@ -117,38 +112,9 @@ class WorkDetailsScreenWidget
                               ),
                             );
                           },
-                          separatorBuilder: (_, __) => const SizedBox(height: 12),
+                          separatorBuilder: (_, __) =>
+                              const SizedBox(height: 12),
                         ),
-                        // SliverToBoxAdapter(
-                        //   child: Padding(
-                        //     padding: const EdgeInsets.symmetric(
-                        //       vertical: 26.0,
-                        //       horizontal: 24.0,
-                        //     ),
-                        //     child: Text(
-                        //       localizations.toOrderDescription,
-                        //       textAlign: TextAlign.center,
-                        //       style: theme.textTheme.bodySmall?.copyWith(
-                        //         color: theme.colorScheme.onBackground,
-                        //       ),
-                        //     ),
-                        //   ),
-                        // ),
-                        // SliverToBoxAdapter(
-                        //   child: Padding(
-                        //     padding: const EdgeInsets.only(
-                        //       left: 20.0,
-                        //       right: 20.0,
-                        //       bottom: 16.0,
-                        //     ),
-                        //     child: OutlinedButton(
-                        //       onPressed: selectedWorksDetails.isEmpty
-                        //           ? null
-                        //           : wm.toOrderScreen,
-                        //       child: Text(localizations.done),
-                        //     ),
-                        //   ),
-                        // ),
                       ],
                     ),
                   ),
@@ -166,7 +132,7 @@ class WorkDetailsScreenWidget
                             localizations.toOrderDescription,
                             textAlign: TextAlign.center,
                             style: theme.textTheme.bodySmall?.copyWith(
-                              color: theme.colorScheme.onBackground,
+                              color: theme.colorScheme.primary,
                             ),
                           ),
                         ),
@@ -175,7 +141,7 @@ class WorkDetailsScreenWidget
                             horizontal: 20.0,
                             vertical: 16.0,
                           ),
-                          child: OutlinedButton(
+                          child: ElevatedButton(
                             onPressed: selectedWorksDetails.isEmpty
                                 ? null
                                 : wm.toOrderScreen,

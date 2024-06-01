@@ -1,12 +1,6 @@
 import 'package:car_service_app/app/app_color.dart';
 import 'package:car_service_app/router/app_router_export.dart';
 
-const border = OutlineInputBorder(
-  borderSide: BorderSide(
-    width: 0,
-    color: AppColor.transparent,
-  ),
-);
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
@@ -31,19 +25,33 @@ class CustomTextField extends StatelessWidget {
       keyboardType: keyboardType,
       maxLines: maxLines,
       style: theme.textTheme.bodySmall?.copyWith(
-        color: theme.colorScheme.background,
+        color: theme.colorScheme.primary,
       ),
-      cursorColor: theme.colorScheme.background,
+      cursorColor: theme.colorScheme.onSecondary,
       decoration: InputDecoration(
-        focusedBorder: border,
-        focusedErrorBorder: border,
-        disabledBorder: border,
-        enabledBorder: border,
-        border: border,
+        focusedBorder: textFieldBorder(theme.colorScheme.onSurface),
+        disabledBorder: textFieldBorder(theme.colorScheme.onSecondary),
+        enabledBorder: textFieldBorder(theme.colorScheme.onSecondary),
+        border: textFieldBorder(theme.colorScheme.onSecondary),
         filled: true,
         fillColor: AppColor.lightGrayEB,
         contentPadding: const EdgeInsets.fromLTRB(12, 0, 12, 30),
         hintText: hintText,
+        hintStyle: theme.textTheme.bodySmall?.copyWith(
+          color: theme.colorScheme.onSecondary,
+        ),
+      ),
+    );
+  }
+
+  InputBorder textFieldBorder(Color color) {
+    return OutlineInputBorder(
+      borderRadius: const BorderRadius.all(
+        Radius.circular(4),
+      ),
+      borderSide: BorderSide(
+        width: 2,
+        color: color,
       ),
     );
   }

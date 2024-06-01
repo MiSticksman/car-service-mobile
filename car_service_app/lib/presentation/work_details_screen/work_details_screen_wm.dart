@@ -55,6 +55,15 @@ class WorkDetailsScreenWidgetModel
         ),
         CarWorkDetail(
           id: 2,
+          name: 'НТК NORD OIL Масло моторное 5W-30 Синтетическое 5 л',
+          picture: 'https://ir.ozone.ru/s3/multimedia-x/wc1000/6827207073.jpg',
+          url:
+          'https://www.ozon.ru/product/ntk-nord-oil-maslo-motornoe-5w-30-sinteticheskoe-5-l-1091708981/?advert=16U1OgNCOJFtlQUQqn70RX2-YiTYVSk4Yy-hca7gqHa1-0mOCsjj68ceZif2r9c9UI70HOQ36VLpgP-2z1BwfJ3g7QF9Oelwe5NcvKpy0UjeO-JKXli-MoN5XFVdcziEnFToyD97TGLw7yOWnvcMeXnrCB2v3gOop7QRtfG8oYJwv1A7QWXFujv3V3_U8e8gUM6GtDflQHe7DNNRnE0Zn0vdfl7wO6cAkFjUBv_GyCu-4FVeReIfv77IbEW-njLOoVnfHehA9ETtNy4gnJJy3HwHVZiGlE7YDF7bnlfT0W9RNtU58r2JGXjl21uRHKF8QJCnrxTpoCy8vUlB1VSLh855obzm3w&avtc=1&avte=2&avts=1715107269&keywords=%D0%BC%D0%B0%D1%81%D0%BB%D0%BE+toyota+mark+2',
+          isOriginal: true,
+          price: 2432,
+        ),
+        CarWorkDetail(
+          id: 3,
           name: 'Масло моторное синтетическое',
           picture: 'https://ir.ozone.ru/s3/multimedia-1-j/wc1000/6910921423.jpg',
           url:
@@ -62,7 +71,7 @@ class WorkDetailsScreenWidgetModel
           price: 2119,
         ),
         CarWorkDetail(
-          id: 3,
+          id: 4,
           name: 'Фильтр масляный',
           picture: 'https://ir.ozone.ru/s3/multimedia-2/wc1000/6645540926.jpg',
           url:

@@ -1,14 +1,11 @@
 import 'package:car_service_app/domain/model/car/car.dart';
 import 'package:car_service_app/internal/logger.dart';
-import 'package:car_service_app/presentation/car_add/brand_selection_screen/brand_selection_screen.dart';
-import 'package:car_service_app/presentation/car_info_screen/car_info_screen.dart';
 import 'package:car_service_app/presentation/ui_util/snack_bar.dart';
 import 'package:car_service_app/router/app_router.dart';
 import 'package:car_service_app/util/wm_base.dart';
 import 'package:elementary/elementary.dart';
 import 'package:elementary_helper/elementary_helper.dart';
 import 'package:flutter/material.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'my_cars_screen_model.dart';
 import 'my_cars_screen_widget.dart';
 
@@ -52,11 +49,24 @@ class MyCarsScreenWidgetModel
     carsState.loading();
     try {
       final cars = <Car>[
-        Car(id: 1, brand: 'Toyota', model: 'Mark II', year: 2014),
-        Car(id: 2, brand: ''),
-        Car(id: 3, brand: ''),
-        Car(id: 4, brand: ''),
-        Car(id: 5, brand: ''),
+        Car(
+          id: 1,
+          brand: 'Toyota',
+          model: 'Mark II',
+          year: 1996,
+          pictureUrl:
+              'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Toyota_Mark_II_Grande_Regalia_front_quarter.JPG/1200px-Toyota_Mark_II_Grande_Regalia_front_quarter.JPG',
+        ),
+        Car(
+          id: 2,
+          brand: 'Audi',
+          model: 'A5',
+          year: 2023,
+          pictureUrl: 'https://sales-audi.ru/upload/26.10/1.jpg',
+        ),
+        // Car(id: 3, brand: ''),
+        // Car(id: 4, brand: ''),
+        // Car(id: 5, brand: ''),
       ];
       carsState.content((cars, cars.firstOrNull));
     } catch (e, s) {

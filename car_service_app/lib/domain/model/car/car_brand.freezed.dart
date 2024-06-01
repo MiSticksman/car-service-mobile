@@ -24,6 +24,8 @@ mixin _$CarBrand {
   int get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'name')
   String? get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'pictureUrl')
+  String? get pictureUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +38,10 @@ abstract class $CarBrandCopyWith<$Res> {
   factory $CarBrandCopyWith(CarBrand value, $Res Function(CarBrand) then) =
       _$CarBrandCopyWithImpl<$Res, CarBrand>;
   @useResult
-  $Res call({@JsonKey(name: 'id') int id, @JsonKey(name: 'name') String? name});
+  $Res call(
+      {@JsonKey(name: 'id') int id,
+      @JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'pictureUrl') String? pictureUrl});
 }
 
 /// @nodoc
@@ -54,6 +59,7 @@ class _$CarBrandCopyWithImpl<$Res, $Val extends CarBrand>
   $Res call({
     Object? id = null,
     Object? name = freezed,
+    Object? pictureUrl = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -63,6 +69,10 @@ class _$CarBrandCopyWithImpl<$Res, $Val extends CarBrand>
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      pictureUrl: freezed == pictureUrl
+          ? _value.pictureUrl
+          : pictureUrl // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -76,7 +86,10 @@ abstract class _$$CarBrandImplCopyWith<$Res>
       __$$CarBrandImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'id') int id, @JsonKey(name: 'name') String? name});
+  $Res call(
+      {@JsonKey(name: 'id') int id,
+      @JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'pictureUrl') String? pictureUrl});
 }
 
 /// @nodoc
@@ -92,6 +105,7 @@ class __$$CarBrandImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = freezed,
+    Object? pictureUrl = freezed,
   }) {
     return _then(_$CarBrandImpl(
       id: null == id
@@ -101,6 +115,10 @@ class __$$CarBrandImplCopyWithImpl<$Res>
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      pictureUrl: freezed == pictureUrl
+          ? _value.pictureUrl
+          : pictureUrl // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -112,7 +130,8 @@ class __$$CarBrandImplCopyWithImpl<$Res>
 class _$CarBrandImpl implements _CarBrand {
   const _$CarBrandImpl(
       {@JsonKey(name: 'id') required this.id,
-      @JsonKey(name: 'name') this.name});
+      @JsonKey(name: 'name') this.name,
+      @JsonKey(name: 'pictureUrl') this.pictureUrl});
 
   factory _$CarBrandImpl.fromJson(Map<String, dynamic> json) =>
       _$$CarBrandImplFromJson(json);
@@ -123,10 +142,13 @@ class _$CarBrandImpl implements _CarBrand {
   @override
   @JsonKey(name: 'name')
   final String? name;
+  @override
+  @JsonKey(name: 'pictureUrl')
+  final String? pictureUrl;
 
   @override
   String toString() {
-    return 'CarBrand(id: $id, name: $name)';
+    return 'CarBrand(id: $id, name: $name, pictureUrl: $pictureUrl)';
   }
 
   @override
@@ -135,12 +157,14 @@ class _$CarBrandImpl implements _CarBrand {
         (other.runtimeType == runtimeType &&
             other is _$CarBrandImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.pictureUrl, pictureUrl) ||
+                other.pictureUrl == pictureUrl));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name);
+  int get hashCode => Object.hash(runtimeType, id, name, pictureUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -159,7 +183,8 @@ class _$CarBrandImpl implements _CarBrand {
 abstract class _CarBrand implements CarBrand {
   const factory _CarBrand(
       {@JsonKey(name: 'id') required final int id,
-      @JsonKey(name: 'name') final String? name}) = _$CarBrandImpl;
+      @JsonKey(name: 'name') final String? name,
+      @JsonKey(name: 'pictureUrl') final String? pictureUrl}) = _$CarBrandImpl;
 
   factory _CarBrand.fromJson(Map<String, dynamic> json) =
       _$CarBrandImpl.fromJson;
@@ -170,6 +195,9 @@ abstract class _CarBrand implements CarBrand {
   @override
   @JsonKey(name: 'name')
   String? get name;
+  @override
+  @JsonKey(name: 'pictureUrl')
+  String? get pictureUrl;
   @override
   @JsonKey(ignore: true)
   _$$CarBrandImplCopyWith<_$CarBrandImpl> get copyWith =>

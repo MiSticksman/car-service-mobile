@@ -51,7 +51,7 @@ class OrderScreenWidget extends ElementaryWidget<IOrderScreenWidgetModel> {
                   ),
                 ),
                 const Spacer(flex: 10),
-                SvgPicture.asset('assets/svg/pin.svg'),
+                SvgPicture.asset('assets/svg/light/pin.svg'),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 7.0),
                   child: Text('Воронеж'),
@@ -71,7 +71,7 @@ class OrderScreenWidget extends ElementaryWidget<IOrderScreenWidgetModel> {
                         onTap: wm.showMap,
                         text: 'Выбрать сервис',
                         padding: const EdgeInsets.symmetric(
-                          vertical: 7,
+                          vertical: 10,
                           horizontal: 16,
                         ),
                       ),
@@ -93,6 +93,10 @@ class OrderScreenWidget extends ElementaryWidget<IOrderScreenWidgetModel> {
                         borderRadius: const BorderRadius.all(
                           Radius.circular(4),
                         ),
+                        border: Border.all(
+                          width: 2,
+                          color: theme.colorScheme.onSecondary
+                        ),
                       ),
                       child: IntrinsicHeight(
                         child: Column(
@@ -100,8 +104,8 @@ class OrderScreenWidget extends ElementaryWidget<IOrderScreenWidgetModel> {
                           children: [
                             Text(
                               service.name ?? '',
-                              style: theme.textTheme.bodySmall?.copyWith(
-                                color: theme.colorScheme.background,
+                              style: theme.textTheme.bodyMedium?.copyWith(
+                                color: theme.colorScheme.primary,
                                 fontWeight: FontWeight.w800,
                               ),
                             ),
@@ -109,7 +113,7 @@ class OrderScreenWidget extends ElementaryWidget<IOrderScreenWidgetModel> {
                             Text(
                               service.workHours ?? '',
                               style: theme.textTheme.bodySmall?.copyWith(
-                                color: theme.colorScheme.background,
+                                color: theme.colorScheme.primary,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -241,8 +245,8 @@ class OrderScreenWidget extends ElementaryWidget<IOrderScreenWidgetModel> {
                       shrinkWrap: true,
                       itemBuilder: (_, index) {
                         return WorkPriceElement(
-                          workName: 'Замена масла',
-                          workPrice: 369,
+                          workName: wm.names[index],
+                          workPrice: wm.prices[index],
                         );
                       },
                       separatorBuilder: (_, __) => const SizedBox(height: 12),
@@ -255,14 +259,14 @@ class OrderScreenWidget extends ElementaryWidget<IOrderScreenWidgetModel> {
                         Text(
                           'Итого',
                           style: theme.textTheme.bodyLarge?.copyWith(
-                            color: theme.colorScheme.onBackground,
+                            color: theme.colorScheme.onSurface,
                             fontWeight: FontWeight.w800,
                           ),
                         ),
                         Text(
-                          869.formatMoney(),
+                          2000.formatMoney(),
                           style: theme.textTheme.bodyLarge?.copyWith(
-                            color: theme.colorScheme.onBackground,
+                            color: theme.colorScheme.onSurface,
                             fontWeight: FontWeight.w800,
                           ),
                         ),
@@ -272,7 +276,7 @@ class OrderScreenWidget extends ElementaryWidget<IOrderScreenWidgetModel> {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SvgPicture.asset('assets/svg/payment.svg'),
+                        SvgPicture.asset('assets/svg/light/payment.svg'),
                         const SizedBox(width: 10),
                         Expanded(
                           child: Text.rich(
@@ -283,7 +287,8 @@ class OrderScreenWidget extends ElementaryWidget<IOrderScreenWidgetModel> {
                                 TextSpan(
                                   text: ' в автосервисе',
                                   style: theme.textTheme.bodyMedium?.copyWith(
-                                    color: theme.colorScheme.onBackground,
+                                    color: theme.colorScheme.onSurface,
+                                    fontWeight: FontWeight.w600,
                                   ),
                                 ),
                               ],
@@ -294,7 +299,7 @@ class OrderScreenWidget extends ElementaryWidget<IOrderScreenWidgetModel> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 30.0),
-                      child: OutlinedButton(
+                      child: ElevatedButton(
                         onPressed: () {},
                         child: Text('Оформить заказ'),
                       ),
@@ -337,7 +342,7 @@ class DateWidget extends StatelessWidget {
           border: Border.all(
             width: 2,
             color: selected
-                ? theme.colorScheme.onBackground
+                ? theme.colorScheme.onSecondary
                 : theme.colorScheme.secondaryContainer,
           ),
         ),
@@ -386,7 +391,7 @@ class TimeWidget extends StatelessWidget {
           border: Border.all(
             width: 2,
             color: selected
-                ? theme.colorScheme.onBackground
+                ? theme.colorScheme.onSecondary
                 : AppColor.lightGrayEB,
           ),
         ),

@@ -40,7 +40,7 @@ class CarInfoScreenWidget extends ElementaryWidget<ICarInfoScreenWidgetModel> {
               Padding(
                 padding: const EdgeInsets.symmetric(
                   vertical: 8.0,
-                  horizontal: 20.0,
+                  horizontal: 10.0,
                 ),
                 child: Column(
                   children: [
@@ -48,8 +48,8 @@ class CarInfoScreenWidget extends ElementaryWidget<ICarInfoScreenWidgetModel> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         const CarCard(
-                          width: 80,
-                          height: 70,
+                          width: 180,
+                          height: 160,
                         ),
                         const Spacer(),
                         Column(
@@ -58,28 +58,31 @@ class CarInfoScreenWidget extends ElementaryWidget<ICarInfoScreenWidgetModel> {
                           children: [
                             Text(
                               '${car.brand} ${car.model}',
-                              style: wm.textTheme.bodyMedium,
+                              style: wm.textTheme.bodyLarge?.copyWith(
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                             Text(
                               '${car.year}',
-                              style: wm.textTheme.bodyMedium?.copyWith(
-                                color: theme.colorScheme.onTertiary,
+                              style: wm.textTheme.bodyLarge?.copyWith(
+                                color: theme.colorScheme.onSecondary,
                               ),
+                            ),
+                            const SizedBox(height: 8),
+                            CustomTextButton(
+                              onTap: () => wm.deleteCar(car.id),
+                              text: localizations.deleteCar,
+                              iconData: Icons.delete_outline,
                             ),
                           ],
                         ),
-                        const Spacer(flex: 3),
-                        CustomTextButton(
-                          onTap: () => wm.deleteCar(car.id),
-                          text: localizations.deleteCar,
-                          iconData: Icons.delete_outline,
-                        )
+                        const Spacer(flex: 10),
                       ],
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               const Divider(indent: 17, endIndent: 17),
               Padding(
                 padding:
@@ -87,12 +90,24 @@ class CarInfoScreenWidget extends ElementaryWidget<ICarInfoScreenWidgetModel> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Двигатель: название двигателя',
-                        style: wm.textTheme.displaySmall),
+                    Row(
+                      children: [
+                        Text('Двигатель: ', style: wm.textTheme.displayLarge),
+                        Text(
+                          '1JZ-GE',
+                          style: wm.textTheme.displayMedium,
+                        ),
+                      ],
+                    ),
                     const SizedBox(height: 14),
-                    Text(
-                      'Трансмиссия: название трансмиссии',
-                      style: wm.textTheme.displaySmall,
+                    Row(
+                      children: [
+                        Text('Трансмиссия: ', style: wm.textTheme.displayLarge),
+                        Text(
+                          'АКПП 4',
+                          style: wm.textTheme.displayMedium,
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -105,8 +120,8 @@ class CarInfoScreenWidget extends ElementaryWidget<ICarInfoScreenWidgetModel> {
                     Padding(
                       padding: const EdgeInsets.only(top: 30.0),
                       child: SizedBox(
-                        width: 130,
-                        height: 56,
+                        width: 150,
+                        height: 60,
                         child: Row(
                           children: [
                             Expanded(
@@ -139,10 +154,10 @@ class CarInfoScreenWidget extends ElementaryWidget<ICarInfoScreenWidgetModel> {
         ),
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: 90.0,
+            horizontal: 70.0,
             vertical: 24,
           ),
-          child: OutlinedButton(
+          child: ElevatedButton(
             onPressed: wm.complete,
             child: Text(localizations.done),
           ),

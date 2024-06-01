@@ -17,26 +17,23 @@ class WorkCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 50,
-      child: Row(
-        children: [
-          Expanded(
-            flex: 5,
-            child: Text(
-              work.name ?? '',
-              style: theme.textTheme.bodyLarge,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            ),
+    return Row(
+      children: [
+        Expanded(
+          flex: 5,
+          child: Text(
+            work.name ?? '',
+            style: theme.textTheme.bodyLarge,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
           ),
-          const Spacer(),
-          Checkbox(
-            value: selected,
-            onChanged: (val) => onTap(),
-          ),
-        ],
-      ),
+        ),
+        const Spacer(),
+        Checkbox(
+          value: selected,
+          onChanged: (val) => onTap(),
+        ),
+      ],
     );
   }
 }

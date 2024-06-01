@@ -16,51 +16,55 @@ class AppTheme {
         colorScheme: const ColorScheme(
           primary: AppColor.blackF1,
           onPrimary: AppColor.white,
-          background: AppColor.whiteF8,
-          onBackground: AppColor.black21,
           secondary: AppColor.white,
-          onSecondary: AppColor.orange,
+          onSecondary: AppColor.grayText,
           error: AppColor.white,
           onError: AppColor.white,
           surface: AppColor.whiteF8,
-          onSurface: AppColor.black,
+          onSurface: AppColor.green,
           brightness: Brightness.light,
+          tertiary: AppColor.greyD9,
+          // onTertiary:
         ),
         textTheme: const TextTheme(
+          bodySmall: TextStyle(
+            color: AppColor.blackText,
+            fontSize: 16,
+          ),
           bodyMedium: TextStyle(
-            color: AppColor.black,
-            fontSize: 14,
+            color: AppColor.blackText,
+            fontSize: 18,
           ),
           bodyLarge: TextStyle(
-            color: AppColor.black,
-            fontSize: 16,
-            fontWeight: FontWeight.normal,
-          ),
-          displayLarge: TextStyle(
-            color: AppColor.black,
-            fontSize: 22,
-            fontWeight: FontWeight.w600,
-          ),
-          displayMedium: TextStyle(
-            color: AppColor.black,
-            fontSize: 18,
+            color: AppColor.blackText,
+            fontSize: 20,
             fontWeight: FontWeight.w500,
           ),
           displaySmall: TextStyle(
-            color: AppColor.black,
+            color: AppColor.blackText,
             fontSize: 16,
             fontWeight: FontWeight.w400,
           ),
+          displayMedium: TextStyle(
+            color: AppColor.blackText,
+            fontSize: 18,
+            fontWeight: FontWeight.w500,
+          ),
+          displayLarge: TextStyle(
+            color: AppColor.blackText,
+            fontSize: 22,
+            fontWeight: FontWeight.w600,
+          ),
           titleLarge: TextStyle(
-            color: AppColor.black,
+            color: AppColor.blackText,
             fontSize: 22,
             fontWeight: FontWeight.w900,
           ),
         ),
         radioTheme: RadioThemeData(
-          fillColor: MaterialStateProperty.all(AppColor.black),
+          fillColor: WidgetStateProperty.all(AppColor.green),
         ),
-        dividerTheme: const DividerThemeData(color: AppColor.lightGrayEB),
+        dividerTheme: const DividerThemeData(color: AppColor.grayText),
         disabledColor: AppColor.grey,
         scaffoldBackgroundColor: AppColor.whiteF8,
         cardTheme: const CardTheme(
@@ -73,7 +77,7 @@ class AppTheme {
           centerTitle: true,
           surfaceTintColor: Colors.transparent,
           backgroundColor: AppColor.whiteF8,
-          foregroundColor: AppColor.white,
+          foregroundColor: AppColor.blackText,
           titleTextStyle: AppText.title,
           iconTheme: IconThemeData(color: AppColor.black),
           systemOverlayStyle: SystemUiOverlayStyle(
@@ -85,16 +89,16 @@ class AppTheme {
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             foregroundColor: AppColor.white,
-            backgroundColor: AppColor.blackF1,
+            backgroundColor: AppColor.green,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
             elevation: 0,
             fixedSize: const Size.fromHeight(50),
-            textStyle: AppText.bold16,
-            disabledForegroundColor: AppColor.white,
+            textStyle: AppText.bold18,
+            disabledForegroundColor: AppColor.grayText,
             minimumSize: const Size(250, 50),
-            maximumSize: const Size(320, 50),
+            maximumSize: const Size(400, 50),
           ),
         ),
         outlinedButtonTheme: OutlinedButtonThemeData(
@@ -109,13 +113,35 @@ class AppTheme {
               color: AppColor.orange,
             ),
             fixedSize: const Size.fromHeight(50),
-            textStyle: AppText.medium16,
+            textStyle: AppText.bold18,
             minimumSize: const Size(250, 50),
-            maximumSize: const Size(320, 50),
+            maximumSize: const Size(400, 50),
           ),
         ),
         dropdownMenuTheme: const DropdownMenuThemeData(
           textStyle: AppText.normal16,
+        ),
+        checkboxTheme: CheckboxThemeData(
+          fillColor: WidgetStateProperty.resolveWith(
+                (states) {
+              if (states.contains(WidgetState.selected)) {
+                return AppColor.green;
+              }
+              return AppColor.transparent;
+            },
+          ),
+          checkColor: WidgetStateProperty.resolveWith(
+                (states) {
+              if (states.contains(WidgetState.selected)) {
+                return AppColor.white;
+              }
+              return AppColor.transparent;
+            },
+          ),
+          side: const BorderSide(
+            width: 2,
+            color: AppColor.grayText,
+          ),
         ),
       ),
     );
@@ -128,11 +154,9 @@ class AppTheme {
         fontFamily: 'Montserrat',
         colorScheme: const ColorScheme.dark(
           primary: AppColor.whiteF1,
-          onPrimary: AppColor.white,
-          background: AppColor.black21,
-          onBackground: AppColor.orange,
+          onPrimary: AppColor.black21,
           secondary: AppColor.white,
-          onSecondary: AppColor.grayText,
+          onSecondary: AppColor.orange,
           tertiary: AppColor.brown,
           onTertiary: AppColor.paleBrown,
           error: AppColor.white,
@@ -174,12 +198,15 @@ class AppTheme {
           ),
         ),
         radioTheme: RadioThemeData(
-            fillColor: MaterialStateProperty.resolveWith((states) {
-          if (states.contains(MaterialState.selected)) {
-            return AppColor.orange;
-          }
-          return AppColor.superDuperGray;
-        })),
+          fillColor: WidgetStateProperty.resolveWith(
+                (states) {
+              if (states.contains(WidgetState.selected)) {
+                return AppColor.orange;
+              }
+              return AppColor.superDuperGray;
+            },
+          ),
+        ),
         dividerTheme: const DividerThemeData(color: AppColor.brown),
         disabledColor: AppColor.grey,
         scaffoldBackgroundColor: AppColor.black21,
@@ -243,8 +270,8 @@ class AppTheme {
         dropdownMenuTheme: DropdownMenuThemeData(
           textStyle: AppText.normal16,
           menuStyle: const MenuStyle(
-            backgroundColor: MaterialStatePropertyAll(AppColor.paleBrown),
-            padding: MaterialStatePropertyAll(EdgeInsets.zero),
+            backgroundColor: WidgetStatePropertyAll(AppColor.paleBrown),
+            padding: WidgetStatePropertyAll(EdgeInsets.zero),
           ),
           inputDecorationTheme: InputDecorationTheme(
             labelStyle: AppText.normal16.copyWith(
@@ -269,23 +296,27 @@ class AppTheme {
           ),
         ),
         checkboxTheme: CheckboxThemeData(
-            fillColor: MaterialStateProperty.resolveWith(
-              (states) {
-                if (states.contains(MaterialState.selected)) {
-                  return AppColor.orange;
-                }
-                return AppColor.transparent;
-              },
-            ),
-            checkColor: MaterialStateProperty.resolveWith(
-              (states) {
-                if (states.contains(MaterialState.selected)) {
-                  return AppColor.white;
-                }
-                return AppColor.transparent;
-              },
-            ),
-            side: const BorderSide(width: 1, color: AppColor.superDuperGray)),
+          fillColor: WidgetStateProperty.resolveWith(
+                (states) {
+              if (states.contains(WidgetState.selected)) {
+                return AppColor.orange;
+              }
+              return AppColor.transparent;
+            },
+          ),
+          checkColor: WidgetStateProperty.resolveWith(
+                (states) {
+              if (states.contains(WidgetState.selected)) {
+                return AppColor.white;
+              }
+              return AppColor.transparent;
+            },
+          ),
+          side: const BorderSide(
+            width: 1,
+            color: AppColor.superDuperGray,
+          ),
+        ),
       ),
     );
   }

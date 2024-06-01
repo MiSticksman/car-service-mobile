@@ -15,6 +15,7 @@ class CarBrand with _$CarBrand {
   const factory CarBrand({
     @JsonKey(name: 'id') required int id,
     @JsonKey(name: 'name') String? name,
+    @JsonKey(name: 'pictureUrl') String? pictureUrl,
   }) = _CarBrand;
 
   factory CarBrand.fromJson(Map<String, dynamic> json) => _$CarBrandFromJson(json);
