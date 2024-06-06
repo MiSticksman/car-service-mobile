@@ -22,34 +22,30 @@ class _SettingElementState extends State<SettingElement> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: widget.onTap,
-      child: Column(
+      child: Row(
         children: [
-          Row(
-            children: [
-              widget.picture.contains('svg')
-                  ? SvgPicture.asset(
-                      widget.picture,
-                      width: 30,
-                      height: 30,
-                    )
-                  : Image.asset(
-                      widget.picture,
-                      width: 30,
-                      height: 30,
-                    ),
-              const SizedBox(width: 16),
-              SizedBox(
-                width: MediaQuery.of(context).size.width / 1.5,
-                child: Text(
-                  widget.paramName,
-                  style: Theme.of(context).textTheme.bodyLarge,
+          widget.picture.contains('svg')
+              ? SvgPicture.asset(
+                  widget.picture,
+                  width: 30,
+                  height: 30,
+                )
+              : Image.asset(
+                  widget.picture,
+                  width: 30,
+                  height: 30,
                 ),
-              ),
-              const Spacer(),
-              SvgPicture.asset(
-                'assets/svg/light/arrow_right.svg',
-              ),
-            ],
+          const SizedBox(width: 16),
+          SizedBox(
+            width: MediaQuery.of(context).size.width / 1.5,
+            child: Text(
+              widget.paramName,
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+          ),
+          const Spacer(),
+          SvgPicture.asset(
+            'assets/svg/light/arrow_right.svg',
           ),
         ],
       ),

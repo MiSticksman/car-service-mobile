@@ -52,7 +52,8 @@ class WorkDetailCard extends StatelessWidget {
                 textAlign: TextAlign.center,
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
-                style: theme.textTheme.displayMedium,
+                style: theme.textTheme.displayMedium?.copyWith(
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(
@@ -61,7 +62,9 @@ class WorkDetailCard extends StatelessWidget {
                 ),
                 child: Text(
                   carDetail.price.formatMoney(),
-                  style: theme.textTheme.bodyMedium,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
               if (carDetail.isOriginal == true)

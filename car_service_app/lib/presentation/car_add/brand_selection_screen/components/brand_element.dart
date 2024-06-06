@@ -3,6 +3,7 @@ import 'package:car_service_app/app/app_color.dart';
 import 'package:car_service_app/domain/model/car/car_brand.dart';
 import 'package:car_service_app/router/app_router_export.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class BrandElement extends StatelessWidget {
   final String? url;
@@ -55,23 +56,31 @@ class _BrandCard extends StatelessWidget {
               Radius.circular(10),
             ),
           ),
-          child: CachedNetworkImage(
+          child:
+              // for demo
+              SvgPicture.asset(
+            brand.pictureUrl!,
             width: 95,
             height: 80,
-            imageUrl: brand.pictureUrl ??
-                'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Toyota_Mark_II_Grande_Regalia_front_quarter.JPG/1200px-Toyota_Mark_II_Grande_Regalia_front_quarter.JPG',
-            errorWidget: (_, __, error) => Image.asset(
-              'assets/no_image.jpeg',
-            ),
             fit: BoxFit.fill,
           ),
+          // CachedNetworkImage(
+          //   width: 95,
+          //   height: 80,
+          //   imageUrl: brand.pictureUrl ??
+          //       'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Toyota_Mark_II_Grande_Regalia_front_quarter.JPG/1200px-Toyota_Mark_II_Grande_Regalia_front_quarter.JPG',
+          //   errorWidget: (_, __, error) => Image.asset(
+          //     'assets/no_image.jpeg',
+          //   ),
+          //   fit: BoxFit.fill,
+          // ),
         ),
         const SizedBox(height: 3),
         Text(
           brand.name ?? '',
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-            fontWeight: FontWeight.w600,
-          ),
+                fontWeight: FontWeight.w600,
+              ),
         ),
       ],
     );

@@ -5,7 +5,7 @@ final class AppText {
   
   static const TextStyle title = TextStyle(
     fontFamily: 'Montserrat',
-    fontSize: 24,
+    fontSize: 28,
     height: 1.32,
     fontWeight: FontWeight.w900,
     fontStyle: FontStyle.normal,

@@ -30,7 +30,9 @@ class UserDataElement extends StatelessWidget {
             const SizedBox(height: 4),
             Text(
               '+79290091219'.formatPhone(),
-              style: Theme.of(context).textTheme.displayMedium,
+              style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                fontSize: 20,
+              ),
             ),
           ],
         ),

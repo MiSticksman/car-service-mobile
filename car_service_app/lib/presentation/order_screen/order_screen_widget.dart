@@ -146,7 +146,7 @@ class OrderScreenWidget extends ElementaryWidget<IOrderScreenWidgetModel> {
                     const SizedBox(height: 22),
                     Text(
                       'Дата записи',
-                      style: theme.textTheme.bodyMedium?.copyWith(
+                      style: theme.textTheme.bodyLarge?.copyWith(
                         fontWeight: FontWeight.w800,
                       ),
                     ),
@@ -188,7 +188,7 @@ class OrderScreenWidget extends ElementaryWidget<IOrderScreenWidgetModel> {
                     const SizedBox(height: 22),
                     Text(
                       'Время записи',
-                      style: theme.textTheme.bodyMedium?.copyWith(
+                      style: theme.textTheme.bodyLarge?.copyWith(
                         fontWeight: FontWeight.w800,
                       ),
                     ),
@@ -237,6 +237,7 @@ class OrderScreenWidget extends ElementaryWidget<IOrderScreenWidgetModel> {
                       'Сумма заказа',
                       style: theme.textTheme.bodyLarge?.copyWith(
                         fontWeight: FontWeight.w800,
+                        fontSize: 22
                       ),
                     ),
                     const SizedBox(height: 12),
@@ -298,7 +299,7 @@ class OrderScreenWidget extends ElementaryWidget<IOrderScreenWidgetModel> {
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 30.0),
+                      padding: const EdgeInsets.only(top: 20.0),
                       child: ElevatedButton(
                         onPressed: () {},
                         child: Text('Оформить заказ'),
